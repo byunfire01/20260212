@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제품소개 | SHINHWA E&P</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --navy: #1B2A4A;
+            --navy-dark: #0F1B33;
+            --green: #4CAF50;
+            --green-light: #66BB6A;
+            --bg-light: #E8EDF2;
+            --bg-lighter: #F0F4F8;
+            --white: #FFFFFF;
+            --text-dark: #1a1a2e;
+            --text-gray: #6B7B8D;
+            --gold: #C8A951;
+            --shadow-card: 0 4px 24px rgba(27,42,74,0.08);
+            --shadow-hover: 0 8px 40px rgba(27,42,74,0.15);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: all 0.4s cubic-bezier(0.25,0.8,0.25,1);
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;font-size:16px;}
+        body{font-family:'Noto Sans KR','Montserrat',sans-serif;color:var(--text-dark);background:var(--bg-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+        /* NAV */
+        .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;background:var(--navy-dark);border-bottom:1px solid rgba(255,255,255,0.08);transition:var(--transition);}
+        .navbar.scrolled{background:rgba(15,27,51,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
+        .nav-container{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:70px;}
+        .nav-logo{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:800;color:var(--white);text-decoration:none;letter-spacing:1px;}
+        .nav-logo span{color:var(--green-light);}
+        .nav-links{display:flex;list-style:none;gap:8px;}
+        .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-family:'Montserrat',sans-serif;font-size:0.95rem;font-weight:500;padding:8px 20px;border-radius:6px;transition:var(--transition);position:relative;}
+        .nav-links a:hover,.nav-links a.active{color:var(--green-light);}
+        .nav-links a.active::after{content:'';position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);width:24px;height:3px;background:var(--green);border-radius:2px;}
+        .mobile-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer;}
+
+        /* HERO */
+        .products-hero{position:relative;min-height:400px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(160deg, #0a1628 0%, #132238 25%, #1a2d4a 50%, #0f1f35 75%, #0a1628 100%);padding-top:70px;}
+        .products-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 40%, rgba(76,175,80,0.12) 0%, transparent 50%),radial-gradient(circle at 70% 60%, rgba(200,169,81,0.08) 0%, transparent 40%);}
+        .products-hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);background-size:50px 50px;}
+        .hero-inner{position:relative;z-index:2;padding:80px 40px;}
+        .hero-inner h1{font-family:'Montserrat',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:900;color:var(--white);margin-bottom:16px;letter-spacing:-0.5px;}
+        .hero-inner h1 span{color:var(--green-light);}
+        .hero-inner p{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,0.75);font-weight:400;max-width:600px;margin:0 auto;line-height:1.8;}
+
+        /* SECTIONS */
+        .section{padding:100px 40px;}
+        .section-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:var(--navy);text-align:center;margin-bottom:12px;}
+        .section-subtitle{font-size:1.05rem;color:var(--text-gray);text-align:center;margin-bottom:60px;font-weight:400;line-height:1.7;}
+
+        /* PRODUCT GRID */
+        .product-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+        .product-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);transition:var(--transition);position:relative;}
+        .product-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover);}
+        .product-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--green),var(--navy));opacity:0;transition:var(--transition);}
+        .product-card:hover::before{opacity:1;}
+        .product-img{width:100%;height:220px;background:linear-gradient(135deg,rgba(27,42,74,0.06)0%,rgba(76,175,80,0.08)100%);display:flex;align-items:center;justify-content:center;font-size:3.5rem;color:var(--navy);position:relative;overflow:hidden;}
+        .product-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(255,255,255,0.6) 100%);}
+        .product-img i{position:relative;z-index:1;transition:var(--transition);}
+        .product-card:hover .product-img i{transform:scale(1.15);color:var(--green);}
+        .product-body{padding:28px;}
+        .product-name{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:10px;}
+        .product-desc{font-size:0.95rem;color:var(--text-gray);line-height:1.7;margin-bottom:18px;}
+        .product-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+        .product-tag{font-size:0.78rem;font-weight:600;padding:5px 14px;border-radius:50px;background:rgba(76,175,80,0.08);color:var(--green);border:1px solid rgba(76,175,80,0.15);transition:var(--transition);}
+        .product-card:hover .product-tag{background:rgba(76,175,80,0.12);border-color:rgba(76,175,80,0.25);}
+        .product-btn{display:inline-flex;align-items:center;gap:8px;font-size:0.9rem;font-weight:600;color:var(--navy);text-decoration:none;padding:10px 24px;border-radius:8px;border:2px solid var(--navy);transition:var(--transition);}
+        .product-btn:hover{background:var(--navy);color:var(--white);}
+        .product-btn i{transition:transform 0.3s ease;}
+        .product-btn:hover i{transform:translateX(4px);}
+
+        /* COMPARISON TABLE */
+        .comparison-section{background:var(--white);}
+        .comparison-wrapper{max-width:1100px;margin:0 auto;overflow-x:auto;}
+        .comparison-table{width:100%;border-collapse:collapse;font-size:0.95rem;}
+        .comparison-table thead th{background:var(--navy);color:var(--white);padding:16px 20px;font-family:'Montserrat',sans-serif;font-weight:600;text-align:center;white-space:nowrap;}
+        .comparison-table thead th:first-child{text-align:left;border-radius:var(--radius-sm) 0 0 0;}
+        .comparison-table thead th:last-child{border-radius:0 var(--radius-sm) 0 0;}
+        .comparison-table tbody td{padding:14px 20px;border-bottom:1px solid rgba(27,42,74,0.08);text-align:center;color:var(--text-dark);}
+        .comparison-table tbody td:first-child{font-weight:600;color:var(--navy);text-align:left;}
+        .comparison-table tbody tr:hover{background:rgba(76,175,80,0.04);}
+        .comparison-table .check{color:var(--green);font-size:1.1rem;}
+        .comparison-table .dash{color:var(--text-gray);font-size:1rem;}
+
+        /* CTA */
+        .cta-section{position:relative;padding:100px 40px;text-align:center;overflow:hidden;}
+        .cta-bg{position:absolute;inset:0;background:linear-gradient(135deg, #0F1B33 0%, #1B2A4A 40%, #243554 60%, #0F1B33 100%);}
+        .cta-bg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);background-size:50px 50px;}
+        .cta-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 40%, rgba(76,175,80,0.1) 0%, transparent 50%),radial-gradient(circle at 70% 60%, rgba(76,175,80,0.06) 0%, transparent 40%);}
+        .cta-inner{position:relative;z-index:2;max-width:800px;margin:0 auto;}
+        .cta-inner h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--white);margin-bottom:16px;line-height:1.3;}
+        .cta-inner p{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,0.85);margin-bottom:36px;font-weight:500;}
+        .cta-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+        .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:var(--white);padding:16px 40px;border-radius:50px;font-size:1.05rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;font-family:inherit;transition:var(--transition);}
+        .cta-btn:hover{background:var(--green-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(76,175,80,0.3);}
+        .cta-btn-secondary{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--white);padding:16px 40px;border-radius:50px;font-size:1.05rem;font-weight:600;text-decoration:none;border:2px solid var(--white);transition:var(--transition);}
+        .cta-btn-secondary:hover{background:var(--white);color:var(--navy);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,255,255,0.2);}
+
+        /* FOOTER */
+        .footer{background:var(--navy-dark);color:var(--white);padding:80px 40px 40px;}
+        .footer-inner{max-width:1400px;margin:0 auto;}
+        .footer-title{font-family:'Montserrat',sans-serif;font-size:2.4rem;font-weight:800;text-align:center;margin-bottom:60px;}
+        .footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:50px;}
+        .footer-hq .logo-text{font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:800;margin-bottom:30px;display:flex;align-items:center;gap:12px;}
+        .footer-hq .logo-text i{color:var(--green-light);}
+        .footer-hq h3{font-size:1.3rem;font-weight:700;margin-bottom:16px;}
+        .footer-hq p{font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:1.8;}
+        .footer-hq .contact-info{margin-top:16px;}
+        .footer-hq .contact-info span{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:6px;}
+        .footer-hq .contact-info i{color:var(--green-light);width:18px;}
+        .footer-factories h3{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:24px;}
+        .factory-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.08);}
+        .factory-item:last-child{border-bottom:none;}
+        .factory-pin{width:32px;height:32px;background:rgba(76,175,80,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+        .factory-pin i{color:var(--green-light);font-size:0.85rem;}
+        .factory-item strong{display:block;font-size:1rem;margin-bottom:4px;}
+        .factory-item span{font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;text-align:center;font-size:0.85rem;color:rgba(255,255,255,0.4);}
+
+        /* ANIMATIONS */
+        .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
+        .fade-in.visible{opacity:1;transform:translateY(0);}
+        .fade-in-left{opacity:0;transform:translateX(-40px);transition:opacity 0.8s ease,transform 0.8s ease;}
+        .fade-in-left.visible{opacity:1;transform:translateX(0);}
+        .fade-in-right{opacity:0;transform:translateX(40px);transition:opacity 0.8s ease,transform 0.8s ease;}
+        .fade-in-right.visible{opacity:1;transform:translateX(0);}
+
+        /* RESPONSIVE - Tablet */
+        @media(max-width:1024px){
+            .product-grid{grid-template-columns:repeat(2,1fr);}
+        }
+
+        /* RESPONSIVE - Mobile */
+        @media(max-width:768px){
+            .nav-container{padding:0 16px;height:60px;}
+            .nav-links{display:none;}
+            .nav-links.open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;width:100%;background:var(--navy-dark);padding:20px;gap:4px;box-shadow:0 8px 20px rgba(0,0,0,0.3);z-index:1000;}
+            .mobile-toggle{display:block;}
+            .section{padding:60px 20px;}
+            .products-hero{min-height:320px;}
+            .hero-inner{padding:60px 20px;}
+            .product-grid{grid-template-columns:1fr;}
+            .product-img{height:180px;}
+            .footer{padding:50px 20px 30px;}
+            .footer-title{font-size:1.6rem;}
+            .footer-grid{grid-template-columns:1fr;gap:40px;}
+            .footer-hq .logo-text{font-size:1.3rem;}
+            .comparison-wrapper{margin:0 -20px;padding:0 20px;}
+            .cta-section{padding:60px 20px;}
+            .nav-logo{font-size:1.2rem;}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">SHINHWA <span>E&P</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#company">Company</a></li>
+                <li><a href="index.html#business">Business</a></li>
+                <li><a href="index.html#technology">Technology</a></li>
+                <li><a href="products.html" class="active">Product</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="products-hero">
+        <div class="hero-inner">
+            <h1 class="fade-in">Our <span>Products</span></h1>
+            <p class="fade-in">신화이엔피의 혁신적인 제품 라인업을 소개합니다.<br>최첨단 기술력으로 산업의 미래를 이끌어갑니다.</p>
+        </div>
+    </section>
+
+    <!-- Product List Section -->
+    <section class="section" id="products">
+        <h2 class="section-title fade-in">Product Lineup</h2>
+        <p class="section-subtitle fade-in">고객의 다양한 요구에 맞는 최적의 솔루션을 제공합니다</p>
+
+        <div class="product-grid">
+
+            <!-- Product Alpha -->
+            <div class="product-card fade-in">
+                <div class="product-img">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <div class="product-body">
+                    <h3 class="product-name">Product Alpha</h3>
+                    <p class="product-desc">차세대 고성능 솔루션으로 기업의 디지털 전환을 가속화합니다.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">#AI</span>
+                        <span class="product-tag">#자동화</span>
+                        <span class="product-tag">#클라우드</span>
+                    </div>
+                    <a href="#" class="product-btn">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Product Beta -->
+            <div class="product-card fade-in">
+                <div class="product-img">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="product-body">
+                    <h3 class="product-name">Product Beta</h3>
+                    <p class="product-desc">스마트 데이터 분석 플랫폼으로 실시간 인사이트를 제공합니다.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">#분석</span>
+                        <span class="product-tag">#실시간</span>
+                        <span class="product-tag">#대시보드</span>
+                    </div>
+                    <a href="#" class="product-btn">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Product Gamma -->
+            <div class="product-card fade-in">
+                <div class="product-img">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+                <div class="product-body">
+                    <h3 class="product-name">Product Gamma</h3>
+                    <p class="product-desc">통합 보안 관리 시스템으로 엔터프라이즈 보안을 강화합니다.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">#보안</span>
+                        <span class="product-tag">#모니터링</span>
+                        <span class="product-tag">#엔터프라이즈</span>
+                    </div>
+                    <a href="#" class="product-btn">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Product Delta -->
+            <div class="product-card fade-in">
+                <div class="product-img">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <div class="product-body">
+                    <h3 class="product-name">Product Delta</h3>
+                    <p class="product-desc">IoT 디바이스 관리 허브로 스마트 팩토리를 구현합니다.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">#IoT</span>
+                        <span class="product-tag">#스마트팩토리</span>
+                        <span class="product-tag">#연동</span>
+                    </div>
+                    <a href="#" class="product-btn">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Product Epsilon -->
+            <div class="product-card fade-in">
+                <div class="product-img">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <div class="product-body">
+                    <h3 class="product-name">Product Epsilon</h3>
+                    <p class="product-desc">클라우드 인프라 최적화 도구로 비용 절감과 효율을 실현합니다.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">#클라우드</span>
+                        <span class="product-tag">#비용절감</span>
+                        <span class="product-tag">#DevOps</span>
+                    </div>
+                    <a href="#" class="product-btn">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Product Zeta -->
+            <div class="product-card fade-in">
+                <div class="product-img">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="product-body">
+                    <h3 class="product-name">Product Zeta</h3>
+                    <p class="product-desc">AI 기반 고객 서비스 봇으로 탁월한 고객 경험을 만듭니다.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">#AI</span>
+                        <span class="product-tag">#챗봇</span>
+                        <span class="product-tag">#고객경험</span>
+                    </div>
+                    <a href="#" class="product-btn">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="section comparison-section" id="comparison">
+        <h2 class="section-title fade-in">Feature Comparison</h2>
+        <p class="section-subtitle fade-in">제품별 주요 기능을 한눈에 비교해 보세요</p>
+
+        <div class="comparison-wrapper fade-in">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>기능</th>
+                        <th>Alpha</th>
+                        <th>Beta</th>
+                        <th>Gamma</th>
+                        <th>Delta</th>
+                        <th>Epsilon</th>
+                        <th>Zeta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AI / 머신러닝</td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="dash">—</span></td>
+                        <td><span class="dash">—</span></td>
+                        <td><span class="dash">—</span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                    </tr>
+                    <tr>
+                        <td>실시간 모니터링</td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="dash">—</span></td>
+                    </tr>
+                    <tr>
+                        <td>클라우드 네이티브</td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="dash">—</span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                    </tr>
+                    <tr>
+                        <td>보안 관리</td>
+                        <td><span class="dash">—</span></td>
+                        <td><span class="dash">—</span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="dash">—</span></td>
+                        <td><span class="dash">—</span></td>
+                    </tr>
+                    <tr>
+                        <td>IoT 연동</td>
+                        <td><span class="dash">—</span></td>
+                        <td><span class="dash">—</span></td>
+                        <td><span class="dash">—</span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="dash">—</span></td>
+                    </tr>
+                    <tr>
+                        <td>대시보드 / 리포트</td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                    </tr>
+                    <tr>
+                        <td>엔터프라이즈 지원</td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-bg"></div>
+        <div class="cta-inner fade-in">
+            <h2>제품에 대해 더 알고 싶으신가요?</h2>
+            <p>전문 상담을 통해 귀사에 최적화된 솔루션을 찾아보세요.</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="cta-btn"><i class="fas fa-envelope"></i> 문의하기</a>
+                <a href="index.html" class="cta-btn-secondary"><i class="fas fa-arrow-left"></i> 메인으로 돌아가기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <h2 class="footer-title fade-in">Contact Us</h2>
+            <div class="footer-grid">
+                <div class="footer-hq fade-in-left">
+                    <div class="logo-text"><i class="fas fa-cog"></i> SHINHWA E&P</div>
+                    <h3>Headquarters (부산 본사)</h3>
+                    <p>부산광역시 동래구 아시아드대로 208번길 19</p>
+                    <div class="contact-info">
+                        <span><i class="fas fa-phone"></i> Tel: 051) 311-9516</span>
+                        <span><i class="fas fa-fax"></i> Fax: 055) 311-9519</span>
+                    </div>
+                </div>
+                <div class="footer-factories fade-in-right">
+                    <h3>Factory Network</h3>
+                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>김해 (Sangdong)</strong><span>경남 김해시 상동면 동북로 891 (055-311-3500)</span></div></div>
+                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>경주 (Gyeongju)</strong><span>경북 경주시 안강읍 두류리 418-1 (051-311-9516)</span></div></div>
+                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>창녕 (Changnyeong)</strong><span>경남 창녕군 남지읍 학계리 1050 (051-311-9516)</span></div></div>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2024 SHINHWA E&P Co., Ltd. All Rights Reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        /* Mobile Toggle */
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+
+        /* Navbar scroll effect */
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        /* Scroll fade-in animation */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
