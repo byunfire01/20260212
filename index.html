@@ -698,7 +698,7 @@
             .hero-content{padding:0 40px;}
             .hero-title .ht-line-2{font-size:clamp(2.4rem,5.5vw,4.5rem);}
             .hero-title .ht-line-3{font-size:clamp(1.5rem,3.2vw,2.8rem);}
-            
+
             /* History Responsive */
             .analyst-grid { grid-template-columns: 1fr; }
             .timeline-view { padding: 24px; }
@@ -708,11 +708,20 @@
             .timeline-icon-box svg { width: 20px; height: 20px; }
             .timeline-text-box { padding: 16px; }
         }
+        @media(max-width:900px){
+            .org-level{gap:30px;}
+        }
         @media(max-width:768px){
+            /* Navigation */
+            .nav-container{padding:0 16px;height:60px;}
             .nav-links{display:none;}
-            .nav-links.open{display:flex;flex-direction:column;position:absolute;top:70px;left:0;width:100%;background:var(--navy-dark);padding:20px;gap:4px;box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+            .nav-links.open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;width:100%;background:var(--navy-dark);padding:20px;gap:4px;box-shadow:0 8px 20px rgba(0,0,0,0.3);z-index:1000;}
             .mobile-toggle{display:block;}
+
+            /* Sections */
             .section{padding:60px 20px;}
+
+            /* Hero */
             .hero-content{padding:0 20px;}
             .hero-text-box{max-width:100%;}
             .hero-tagline{font-size:0.72rem;letter-spacing:2px;margin-bottom:20px;}
@@ -724,16 +733,135 @@
             .hero-cta{gap:12px;margin-top:32px;}
             .hero-cta-btn{padding:12px 28px;font-size:0.88rem;}
             .hero-title .ht-line-2::before{display:none;}
+
+            /* Greeting */
+            .greeting-content h3{font-size:1.3rem;}
+            .greeting-content p{font-size:0.95rem;}
+            .greeting-signature{font-size:0.95rem;margin-top:24px;}
+
+            /* Value Cards */
             .value-cards{grid-template-columns:1fr;}
-            
-            .footer-grid{grid-template-columns:1fr;gap:40px;}
+            .value-card{height:300px;}
+            .value-card h3{font-size:1.6rem;}
+            .value-card p{font-size:1rem;}
+            .value-card-content{padding:24px;}
+            .value-cards-wrapper{margin-top:40px !important;}
+
+            /* Tagline Box */
+            .tagline-box{padding:20px 24px;}
+
+            /* Overview */
+            .overview-table{padding:24px 20px;}
+            .overview-table h3{font-size:1.3rem;}
+            .overview-label,.overview-value{font-size:1rem;}
+
+            /* Network Map */
+            .network-map-container{min-height:350px;}
+            .korea-map-bg{width:95%;background-size:contain;}
+            .map-label-card{display:none;}
+            .map-location:hover .map-label-card{display:block;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:80%;z-index:100;box-shadow:0 0 1000px rgba(0,0,0,0.5);}
+
+            /* Business Cards */
+            .business-card h3{font-size:1.3rem;}
+            .business-card-content{padding:20px;}
+
+            /* Air Grid — single column */
+            .air-grid{grid-template-columns:1fr;}
+            .air-card-img{height:160px;}
+
+            /* Process Flow — single column */
+            .process-flow{grid-template-columns:1fr;}
+            .process-card-img{height:140px;}
+
+            /* Org Chart */
+            .org-box.ceo{padding:16px 24px;}
+            .expertise-card{padding:20px;}
+
+            /* Patents */
+            .patent-card{padding:24px 16px;}
+            .patent-icon{width:60px;height:60px;font-size:1.5rem;}
+
+            /* Eco Cards */
             .eco-card{grid-template-columns:1fr;}
             .eco-card-img{height:180px;}
-            
-            /* Map Adjustment Mobile */
-            .korea-map-bg { width: 95%; }
-            .map-label-card { display: none; } /* Hide details on very small screens, keep pins */
-            .map-location:hover .map-label-card { display: block; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; z-index: 100; box-shadow: 0 0 1000px rgba(0,0,0,0.5); }
+            .eco-card-text{padding:20px;}
+
+            /* License Items */
+            .license-item{padding:16px;transition:var(--transition);}
+            .license-item:hover{transform:translateY(-2px);}
+
+            /* Equipment */
+            .equip-section{padding:20px;}
+
+            /* CTA Section */
+            .cta-section{height:auto;min-height:300px;padding:60px 20px;}
+            .cta-content{padding:0 16px;}
+            .cta-btn,.cta-btn-secondary{padding:14px 28px;}
+
+            /* Footer */
+            .footer{padding:50px 20px 30px;}
+            .footer-title{font-size:1.6rem;}
+            .footer-grid{grid-template-columns:1fr;gap:40px;}
+            .footer-hq .logo-text{font-size:1.3rem;}
+
+            /* History */
+            .history-tab-btn{min-width:120px;}
+        }
+
+        /* ========== Small Phones (≤480px) ========== */
+        @media(max-width:480px){
+            /* Navigation */
+            .nav-logo{font-size:1.2rem;}
+
+            /* Sections */
+            .section{padding:40px 16px;}
+
+            /* Hero */
+            .hero{min-height:100vh;min-height:100dvh;}
+            .hero-scroll{bottom:20px;}
+            .hero-cta{flex-direction:column;align-items:center;width:100%;}
+            .hero-cta-btn{width:100%;justify-content:center;}
+
+            /* Greeting */
+            .greeting-image-box{height:200px;}
+            .greeting-content h3{font-size:1.15rem;}
+
+            /* Value Cards */
+            .value-card{height:250px;}
+
+            /* Tagline Box */
+            .tagline-box{padding:16px 16px;}
+
+            /* Overview */
+            .overview-row{grid-template-columns:100px 1fr;gap:12px;padding:16px 0;}
+
+            /* Network Map */
+            .network-map-container{min-height:280px;}
+
+            /* Business Cards */
+            .business-card{height:260px;}
+
+            /* Org Chart — single column */
+            .org-teams{grid-template-columns:1fr;}
+            .expertise-cards{grid-template-columns:1fr;}
+
+            /* Patents — single column */
+            .patents-grid{grid-template-columns:1fr;}
+
+            /* Equipment */
+            .equip-item .count{font-size:1.5rem;}
+
+            /* History Footer */
+            .history-footer{flex-direction:column;gap:12px;text-align:center;}
+            .footer-icons{justify-content:center;}
+
+            /* CTA Buttons */
+            .cta-buttons{flex-direction:column;align-items:center;width:100%;}
+            .cta-btn,.cta-btn-secondary{width:100%;justify-content:center;}
+
+            /* Contact Modal */
+            .modal-content{padding:24px 16px;}
+            .modal-header h2{font-size:1.3rem;}
         }
     </style>
 </head>
@@ -1059,7 +1187,7 @@
     <section class="section bg-light">
         <div class="section-inner">
             <!-- [UPDATED] Value Cards Section -->
-            <div style="margin-top: 100px;">
+            <div class="value-cards-wrapper" style="margin-top: 100px;">
                 <h2 class="smartest-title fade-in">The Smartest Answer<br>for Your Business</h2>
                 <div class="value-cards fade-in">
                     <!-- Solution Card -->
