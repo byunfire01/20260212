@@ -296,25 +296,23 @@
         /* 공통 섹션 */
         .section{padding:100px 40px;position:relative;}
         .section-inner{max-width:1400px;margin:0 auto;}
-        .section-title{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:800;color:var(--text-dark);margin-bottom:16px;}
-        .section-subtitle{font-family:'Montserrat',sans-serif;font-size:1.1rem;color:var(--text-gray);font-weight:400;margin-bottom:60px;}
+        .section-title{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:800;color:var(--text-dark);margin-bottom:16px;word-break:keep-all;overflow-wrap:break-word;}
+        .section-subtitle{font-family:'Montserrat',sans-serif;font-size:1.1rem;color:var(--text-gray);font-weight:400;margin-bottom:60px;word-break:keep-all;overflow-wrap:break-word;}
         .bg-light{background:var(--bg-light);}
         .bg-lighter{background:var(--bg-lighter);}
 
         /* [NEW] COMPANY GREETING STYLES (페이지 2 상단) */
         .greeting-wrapper { display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px; align-items: start; margin-bottom: 80px; }
-        .greeting-image-box { 
-            position: relative; width: 100%; height: 500px; background: #d0d5db; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-card); 
-            display: flex; align-items: center; justify-content: center; flex-direction: column;
+        .greeting-image-box {
+            position: relative; width: 100%; height: 480px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-card);
         }
-        .greeting-image-box::before { content: ''; position: absolute; inset: 0; border: 1px solid rgba(0,0,0,0.1); pointer-events: none; }
-        .placeholder-text { color: #6B7B8D; font-weight: 600; font-size: 1.2rem; text-align: center; z-index: 1;}
-        .placeholder-sub { font-size: 0.9rem; margin-top: 8px; font-weight: 400; opacity: 0.8; }
-        
-        .greeting-content h3 { font-family:'Noto Sans KR','Montserrat',sans-serif; font-size: 2rem; font-weight: 800; color: var(--navy); line-height: 1.5; margin-bottom: 36px; border-bottom: 2px solid var(--green); padding-bottom: 22px; display: inline-block;}
-        .greeting-content .greeting-hello { font-size: 1.4rem; font-weight: 600; color: var(--navy); margin-bottom: 28px; line-height: 1.6; }
-        .greeting-content p { font-size: 1.18rem; line-height: 1.9; color: var(--text-dark); margin-bottom: 26px; word-break: keep-all; text-align: justify; }
-        .greeting-signature { margin-top: 44px; text-align: right; font-weight: 700; font-size: 1.15rem; color: var(--navy); }
+        .greeting-image-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .greeting-image-box::before { content: ''; position: absolute; inset: 0; border: 1px solid rgba(0,0,0,0.1); pointer-events: none; z-index: 1; }
+
+        .greeting-content h3 { font-family:'Noto Sans KR','Montserrat',sans-serif; font-size: 1.85rem; font-weight: 800; color: var(--navy); line-height: 1.5; margin-bottom: 30px; border-bottom: 2px solid var(--green); padding-bottom: 18px; display: inline-block;}
+        .greeting-content .greeting-hello { font-size: 1.3rem; font-weight: 600; color: var(--navy); margin-bottom: 22px; line-height: 1.6; }
+        .greeting-content p { font-size: 1.1rem; line-height: 1.85; color: var(--text-dark); margin-bottom: 22px; word-break: keep-all; text-align: justify; }
+        .greeting-signature { margin-top: 36px; text-align: right; font-weight: 700; font-size: 1.1rem; color: var(--navy); }
 
         /* [UPDATED] VALUE CARDS STYLES (페이지 2 하단) */
         .smartest-title{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:var(--text-dark);margin-bottom:60px;line-height:1.3;text-align:center;}
@@ -411,63 +409,57 @@
         /* [UPDATED] OVERVIEW GRID (Balanced 1:1 Layout) */
         .overview-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 1:1 Ratio for Balance */
-            gap: 50px;
-            align-items: stretch; /* Stretch both boxes to same height */
+            grid-template-columns: 5fr 5fr;
+            gap: 40px;
+            align-items: stretch;
             margin-top: 40px;
         }
 
         .overview-table {
             background: var(--white);
             border-radius: var(--radius);
-            padding: 50px; /* Increased Padding */
+            padding: 36px 40px;
             box-shadow: var(--shadow-card);
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Center content vertically */
+            justify-content: center;
         }
-        
-        /* Larger Text for Overview */
-        .overview-table h3 { font-size: 1.8rem; margin-bottom: 20px; font-weight: 800; color: var(--navy); }
-        .overview-row { display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid rgba(27,42,74,0.06); align-items: center; }
-        .overview-label { font-weight: 800; color: var(--navy); font-size: 1.15rem; } /* Larger Label */
-        .overview-value { color: var(--text-gray); font-size: 1.15rem; line-height: 1.6; font-weight: 500; } /* Larger Value */
 
-        /* [UPDATED] NETWORK MAP STYLES */
+        .overview-table h3 { font-size: 1.6rem; margin-bottom: 16px; font-weight: 800; color: var(--navy); }
+        .overview-row { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(27,42,74,0.06); align-items: center; }
+        .overview-label { font-weight: 800; color: var(--navy); font-size: 1.05rem; }
+        .overview-value { color: var(--text-gray); font-size: 1.05rem; line-height: 1.6; font-weight: 500; }
+
+        /* NETWORK MAP STYLES */
         .network-map-container {
             position: relative;
-            background: #f8fafc; /* Very light slate */
+            background: #f8fafc;
             border-radius: var(--radius);
             box-shadow: var(--shadow-card);
             overflow: hidden;
-            height: 100%;
-            min-height: 600px; /* Increased minimum height for impact */
+            min-height: 420px;
             border: 1px solid #e2e8f0;
         }
 
-        /* Generic Korea Map Silhouette - CSS Only Representation for Reliability */
         .korea-map-bg {
             position: absolute;
             inset: 0;
-            /* Update to new image */
             background-image: url('image/n1.png');
             background-repeat: no-repeat;
-            background-size: 100% 100%; /* Fill entire box */
+            background-size: contain;
             background-position: center;
-            opacity: 1; /* Show full image */
         }
-        
-        /* Map Title */
+
         .map-title-overlay {
             position: absolute;
-            top: 30px;
-            left: 30px;
+            top: 20px;
+            left: 20px;
             z-index: 5;
-            display: none; /* Hide title as it's likely in the image now */
+            display: none;
         }
         .map-title-overlay h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: var(--navy);
             margin-bottom: 4px;
@@ -567,11 +559,11 @@
         .business-card{position:relative;border-radius:var(--radius);overflow:hidden;height:320px;cursor:pointer;}
         .business-card-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 0.6s ease;}
         .business-card:hover .business-card-bg{transform:scale(1.05);}
-        .business-card-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,27,51,0.8)0%,rgba(27,42,74,0.6)100%);transition:var(--transition);}
-        .business-card-content{position:relative;z-index:2;padding:35px;height:100%;display:flex;flex-direction:column;justify-content:space-between;}
-        .business-card-icon{align-self:flex-end;width:50px;height:50px;background:rgba(76,175,80,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--green-light);font-size:1.3rem;}
-        .business-card h3{font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:800;color:var(--white);margin-bottom:16px;line-height:1.3;}
-        .business-card ul{list-style:none;font-size:0.9rem;color:rgba(255,255,255,0.8);line-height:1.8;}
+        .business-card-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,27,51,0.9)0%,rgba(27,42,74,0.75)100%);transition:var(--transition);}
+        .business-card-content{position:relative;z-index:2;padding:35px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;}
+        .business-card h3{font-family:'Montserrat',sans-serif;font-size:2.5rem;font-weight:800;color:var(--white);margin-bottom:16px;line-height:1.4;text-shadow:0 2px 12px rgba(0,0,0,0.5);word-break:keep-all;overflow-wrap:break-word;}
+        .business-card ul{list-style:none;font-size:1.27rem;color:rgba(255,255,255,0.95);line-height:1.8;font-weight:500;}
+        .business-card ul li{word-break:keep-all;overflow-wrap:break-word;}
         .business-card ul li::before{content:'•';color:var(--green-light);margin-right:8px;}
 
         /* DETAIL GRIDS */
@@ -580,25 +572,25 @@
         .eco-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
         .eco-card-img{height:220px;background-size:cover;background-position:center;}
         .eco-card-text{padding:30px;display:flex;flex-direction:column;justify-content:center;}
-        .eco-card-text h4{font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:12px;}
-        .eco-card-text p{font-size:0.88rem;color:var(--text-gray);line-height:1.7;}
+        .eco-card-text h4{font-size:1.44rem;font-weight:700;color:var(--navy);margin-bottom:14px;line-height:1.5;word-break:keep-all;overflow-wrap:break-word;}
+        .eco-card-text p{font-size:1.03rem;color:var(--text-gray);line-height:1.75;font-weight:400;word-break:keep-all;overflow-wrap:break-word;}
 
         .air-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
         .air-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);transition:var(--transition);}
         .air-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
-        .air-card-header{padding:16px 20px;display:flex;align-items:center;gap:10px;}
-        .air-card-header i{color:var(--green);font-size:1.2rem;}
-        .air-card-header h4{font-size:0.95rem;font-weight:700;color:var(--navy);}
+        .air-card-header{padding:18px 22px;display:flex;align-items:center;gap:10px;}
+        .air-card-header i{color:var(--green);font-size:1.4rem;}
+        .air-card-header h4{font-size:1.19rem;font-weight:700;color:var(--navy);line-height:1.5;word-break:keep-all;overflow-wrap:break-word;}
         .air-card-img{height:200px;background-size:cover;background-position:center;}
-        .air-card-desc{padding:16px 20px;font-size:0.82rem;color:var(--text-gray);line-height:1.7;}
+        .air-card-desc{padding:18px 22px;font-size:0.96rem;color:var(--text-gray);line-height:1.75;font-weight:400;word-break:keep-all;overflow-wrap:break-word;}
 
         .process-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
         .process-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);text-align:center;transition:var(--transition);position:relative;}
         .process-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
         .process-card-img{height:180px;background-size:cover;background-position:center;}
-        .process-card-text{padding:24px 16px;}
-        .process-card h4{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.4;}
-        .process-card p{font-size:0.82rem;color:var(--text-gray);line-height:1.6;}
+        .process-card-text{padding:26px 18px;}
+        .process-card h4{font-family:'Montserrat',sans-serif;font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.5;word-break:keep-all;overflow-wrap:break-word;}
+        .process-card p{font-size:0.96rem;color:var(--text-gray);line-height:1.7;font-weight:400;word-break:keep-all;overflow-wrap:break-word;}
         .process-arrow{position:absolute;top:50%;right:-20px;transform:translateY(-50%);color:var(--green);font-size:1.8rem;z-index:2;}
 
         /* ETC */
@@ -689,7 +681,7 @@
 
         @media(max-width:1024px){
             .greeting-wrapper{grid-template-columns:1fr; gap:30px;}
-            .greeting-image-box{height:300px;}
+            .greeting-image-box{height:350px;}
             .overview-grid,.business-grid,.eco-grid{grid-template-columns:1fr;}
             .air-grid{grid-template-columns:repeat(2,1fr);}
             .process-flow{grid-template-columns:repeat(2,1fr);}
@@ -736,10 +728,10 @@
             .hero-title .ht-line-2::before{display:none;}
 
             /* Greeting */
-            .greeting-content h3{font-size:1.4rem;}
-            .greeting-content .greeting-hello{font-size:1.15rem;}
-            .greeting-content p{font-size:1.05rem;}
-            .greeting-signature{font-size:0.95rem;margin-top:24px;}
+            .greeting-content h3{font-size:1.3rem;}
+            .greeting-content .greeting-hello{font-size:1.1rem;}
+            .greeting-content p{font-size:1rem;}
+            .greeting-signature{font-size:0.9rem;margin-top:20px;}
 
             /* Value Cards */
             .value-cards{grid-template-columns:1fr;}
@@ -755,25 +747,31 @@
             /* Overview */
             .overview-table{padding:24px 20px;}
             .overview-table h3{font-size:1.3rem;}
-            .overview-label,.overview-value{font-size:1rem;}
+            .overview-label,.overview-value{font-size:0.95rem;}
+            .overview-row{grid-template-columns:110px 1fr;gap:12px;padding:14px 0;}
 
             /* Network Map */
-            .network-map-container{min-height:350px;}
-            .korea-map-bg{width:95%;background-size:contain;}
+            .network-map-container{min-height:320px;}
+            .korea-map-bg{background-size:contain;background-position:center;}
             .map-label-card{display:none;}
             .map-location:hover .map-label-card{display:block;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:80%;z-index:100;box-shadow:0 0 1000px rgba(0,0,0,0.5);}
 
             /* Business Cards */
-            .business-card h3{font-size:1.3rem;}
-            .business-card-content{padding:20px;}
+            .business-card h3{font-size:1.88rem;}
+            .business-card ul{font-size:1.12rem;line-height:1.75;}
+            .business-card-content{padding:24px;}
 
             /* Air Grid — single column */
             .air-grid{grid-template-columns:1fr;}
             .air-card-img{height:160px;}
+            .air-card-header h4{font-size:1.06rem;}
+            .air-card-desc{font-size:0.9rem;}
 
             /* Process Flow — single column */
             .process-flow{grid-template-columns:1fr;}
             .process-card-img{height:140px;}
+            .process-card h4{font-size:1.13rem;}
+            .process-card p{font-size:0.9rem;}
 
             /* Org Chart */
             .org-box.ceo{padding:16px 24px;}
@@ -787,6 +785,8 @@
             .eco-card{grid-template-columns:1fr;}
             .eco-card-img{height:180px;}
             .eco-card-text{padding:20px;}
+            .eco-card-text h4{font-size:1.25rem;}
+            .eco-card-text p{font-size:0.94rem;}
 
             /* License Items */
             .license-item{padding:16px;transition:var(--transition);}
@@ -825,9 +825,9 @@
             .hero-cta-btn{width:100%;justify-content:center;}
 
             /* Greeting */
-            .greeting-image-box{height:200px;}
-            .greeting-content h3{font-size:1.2rem;}
-            .greeting-content .greeting-hello{font-size:1.05rem;}
+            .greeting-image-box{height:240px;}
+            .greeting-content h3{font-size:1.15rem;}
+            .greeting-content .greeting-hello{font-size:1rem;}
 
             /* Value Cards */
             .value-card{height:250px;}
@@ -839,10 +839,25 @@
             .overview-row{grid-template-columns:100px 1fr;gap:12px;padding:16px 0;}
 
             /* Network Map */
-            .network-map-container{min-height:280px;}
+            .network-map-container{min-height:260px;}
 
             /* Business Cards */
-            .business-card{height:260px;}
+            .business-card{height:280px;}
+            .business-card h3{font-size:1.65rem;}
+            .business-card ul{font-size:1.05rem;line-height:1.7;}
+            .business-card-content{padding:20px;}
+
+            /* Eco Cards */
+            .eco-card-text h4{font-size:1.19rem;}
+            .eco-card-text p{font-size:0.9rem;}
+
+            /* Air Cards */
+            .air-card-header h4{font-size:1rem;}
+            .air-card-desc{font-size:0.86rem;}
+
+            /* Process Cards */
+            .process-card h4{font-size:1.06rem;}
+            .process-card p{font-size:0.86rem;}
 
             /* Org Chart — single column */
             .org-teams{grid-template-columns:1fr;}
@@ -925,23 +940,21 @@
             
             <div class="greeting-wrapper fade-in">
                 <div class="greeting-image-box">
-                    <i class="fas fa-building" style="font-size: 3rem; color: #aab2bd; margin-bottom: 15px;"></i>
-                    <div class="placeholder-text">COMPANY VIEW</div>
-                    <div class="placeholder-sub">(회사 전경 사진 공간)</div>
+                    <img src="image/c1.jpg" alt="신화이엔피 회사 전경">
                 </div>
                 <div class="greeting-content">
-                    <h3>변화와 혁신을 통한 도전으로<br>환경 & 에너지 패러다임을 창조합니다.</h3>
+                    <h3>혁신과 도전으로<br>환경 & 에너지 패러다임을 창조합니다.</h3>
                     <p class="greeting-hello">
-                        신화이엔피 홈페이지를 방문해 주신 고객 여러분 반갑습니다.
+                        신화이엔피 홈페이지를 방문해 주신 여러분, 반갑습니다.
                     </p>
                     <p>
-                        신화이엔피는 창립 이래 전문 지식과 기술력을 바탕으로 환경·에너지 분야의 최적 솔루션을 제공하며, 고객의 신뢰를 받는 친환경 엔지니어링 기업으로 성장해 왔습니다. 우리는 스마트한 미래 환경 구축과 지속 가능한 발전을 위해 끊임없이 노력하고 있습니다.
+                        신화이엔피는 창립 이래 전문 기술력을 바탕으로 환경·에너지 분야의 최적 솔루션을 제공하며, 신뢰받는 친환경 엔지니어링 기업으로 성장해 왔습니다. 스마트한 미래 환경과 지속 가능한 발전을 위해 끊임없이 노력하고 있습니다.
                     </p>
                     <p>
-                        당사는 토양정화 플랜트, 대기오염 방지시설, 자원순환 플랜트, 정밀 산업기계 제작 분야의 특화된 컨설팅과 솔루션을 보유하고 있습니다. 또한 고객 지향적인 비즈니스 모델을 통해 미래를 선도할 유망한 기술을 제공하며 고객의 가치 창출에 기여하고 있습니다.
+                        토양정화 플랜트, 대기오염 방지시설, 자원순환 플랜트, 정밀 산업기계 제작 분야의 특화된 솔루션을 보유하고 있으며, 고객 지향적 비즈니스 모델로 미래를 선도하는 기술을 제공하여 고객 가치 창출에 기여하고 있습니다.
                     </p>
                     <p>
-                        신화이엔피 임직원 모두는 열린 기업문화를 지향하며, 언제나 고객과 함께 성장하는 진정한 파트너가 되도록 최선을 다하겠습니다.
+                        임직원 모두는 열린 기업문화를 지향하며, 고객과 함께 성장하는 진정한 파트너가 되도록 최선을 다하겠습니다.
                     </p>
                     <div class="greeting-signature">
                         - 주식회사 신화이엔피 대표이사 신성현 -
@@ -980,10 +993,10 @@
         <div class="section-inner">
             <h2 class="section-title fade-in">Business Portfolio</h2>
             <div class="business-grid">
-                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('https://images.unsplash.com/photo-1590496793929-36417d3117de?w=800&q=80');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div class="business-card-icon"><i class="fas fa-leaf"></i></div><div><h3>Eco-Plant<br>Solution</h3><ul><li>해양 준설토 세척시설</li><li>토양세척 시설</li><li>열분해 등 자원순환 플랜트</li><li>유기물 바이오차 생산 설비</li></ul></div></div></div>
-                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=800&q=80');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div class="business-card-icon"><i class="fas fa-wind"></i></div><div><h3>Air Pollution<br>Control</h3><ul><li>집진시설, 링 필터 제작 설치</li><li>폐기물 소각로 제작설치</li><li>A/C 필터, 스크러버 등</li></ul></div></div></div>
-                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div class="business-card-icon"><i class="fas fa-gears"></i></div><div><h3>Industrial<br>Machine & Plant</h3><ul><li>산업기계, 대형 덕트</li><li>대형 철구조물 및 플랜트 제작 설치</li></ul></div></div></div>
-                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div class="business-card-icon"><i class="fas fa-compass-drafting"></i></div><div><h3>Engineering<br>& Developer</h3><ul><li>프로젝트 타당성 검토 (FS)</li><li>기본 및 상세설계 / 엔지니어링</li><li>EPC 관리</li></ul></div></div></div>
+                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('image/B1.jpg');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Eco-Plant<br>Solution</h3><ul><li>해양 준설토 세척시설</li><li>토양세척 시설</li><li>열분해 등 자원순환 플랜트</li><li>유기물 바이오차 생산 설비</li></ul></div></div></div>
+                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('image/B2.png');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Air Pollution<br>Control</h3><ul><li>집진시설, 링 필터 제작 설치</li><li>폐기물 소각로 제작설치</li><li>A/C 필터, 스크러버 등</li></ul></div></div></div>
+                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('image/B3.jpg');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Industrial<br>Machine & Plant</h3><ul><li>산업기계, 대형 덕트</li><li>대형 철구조물 및 플랜트 제작 설치</li></ul></div></div></div>
+                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('image/B4.jpg');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Engineering<br>& Developer</h3><ul><li>프로젝트 타당성 검토 (FS)</li><li>기본 및 상세설계 / 엔지니어링</li><li>EPC 관리</li></ul></div></div></div>
             </div>
         </div>
     </section>
@@ -991,7 +1004,7 @@
     <!-- [UPDATED] SECTION 5: HISTORY OF GROWTH (Revised Style) -->
     <section class="section bg-lighter">
         <div class="section-inner">
-            
+
             <header class="history-header fade-in">
                 <h2 class="history-title">
                     신화이엔피 성장사 <span>(History)</span>
@@ -1109,10 +1122,10 @@
             <h2 class="section-title fade-in" style="text-align:center;">Eco-Plant Solution</h2>
             <p class="section-subtitle fade-in" style="text-align:center;">Sustainable Engineering for Resource Circulation</p>
             <div class="eco-grid">
-                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('https://images.unsplash.com/photo-1590496793929-36417d3117de?w=600&q=80');"></div><div class="eco-card-text"><h4>해양 준설토 세척시설</h4><p>고염분/유기물 제거<br>정밀 입도 분리<br>처리 용량 10~100 ton/hr 연속 처리</p></div></div>
-                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80');"></div><div class="eco-card-text"><h4>열분해 등 자원순환플랜트</h4><p>폐플라스틱/폐비닐 열분해 처리<br>고효율 에너지 회수<br>자원 재활용률 85% 이상 달성</p></div></div>
-                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80');"></div><div class="eco-card-text"><h4>유기물 바이오차 생산설비</h4><p>폐목재/가축분뇨 활용<br>탄소 격리 및 토양 개량 효과</p></div></div>
-                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('https://images.unsplash.com/photo-1616432043562-3671ea2e5242?w=600&q=80');"></div><div class="eco-card-text"><h4>토양 세척 시설</h4><p>유류/중금속 오염 제거<br>오염물질 제거율 90% 이상</p></div></div>
+                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E1.png');"></div><div class="eco-card-text"><h4>해양 준설토 세척시설</h4><p>고염분/유기물 제거<br>정밀 입도 분리<br>처리 용량 10~100 ton/hr 연속 처리</p></div></div>
+                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E2.png');"></div><div class="eco-card-text"><h4>열분해 등 자원순환플랜트</h4><p>폐플라스틱/폐비닐 열분해 처리<br>고효율 에너지 회수<br>자원 재활용률 85% 이상 달성</p></div></div>
+                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E3.png');"></div><div class="eco-card-text"><h4>유기물 바이오차 생산설비</h4><p>폐목재/가축분뇨 활용<br>탄소 격리 및 토양 개량 효과</p></div></div>
+                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E4.jpg');"></div><div class="eco-card-text"><h4>토양 세척 시설</h4><p>유류/중금속 오염 제거<br>오염물질 제거율 90% 이상</p></div></div>
             </div>
         </div>
     </section>
@@ -1125,10 +1138,10 @@
             <h2 class="section-title fade-in" style="text-align:center;">Air Pollution Control</h2>
             <p class="section-subtitle fade-in" style="text-align:center;">Clean Air Technology & Systems</p>
             <div class="air-grid">
-                <div class="air-card fade-in"><div class="air-card-header"><i class="fas fa-wind"></i><h4>고효율 집진 설비</h4></div><div class="air-card-img" style="background-image:url('https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&q=80');"></div><div class="air-card-desc">백필터, 사이클론, 링 필터 적용<br>미세먼지 99.9% 포집 고성능 설비</div></div>
-                <div class="air-card fade-in"><div class="air-card-header"><i class="fas fa-droplet"></i><h4>유해가스 세정탑</h4></div><div class="air-card-img" style="background-image:url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&q=80');"></div><div class="air-card-desc">팩트 타워, 분무탑<br>산성/알칼리성 가스 액체 세정</div></div>
-                <div class="air-card fade-in"><div class="air-card-header"><i class="fas fa-filter"></i><h4>흡착 및 탈취 설비</h4></div><div class="air-card-img" style="background-image:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&q=80');"></div><div class="air-card-desc">활성탄 흡착탑(A/C Tower)<br>VOCs 및 악취 물리적 흡착 제거</div></div>
-                <div class="air-card fade-in"><div class="air-card-header"><i class="fas fa-fire-flame-curved"></i><h4>폐기물 소각 플랜트</h4></div><div class="air-card-img" style="background-image:url('https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=400&q=80');"></div><div class="air-card-desc">소각로, 폐열회수설비<br>가연성 폐기물 고온 산화 및 감량</div></div>
+                <div class="air-card fade-in"><div class="air-card-header"><i class="fas fa-wind"></i><h4>고효율 집진 설비</h4></div><div class="air-card-img" style="background-image:url('image/A1.png');"></div><div class="air-card-desc">백필터, 사이클론, 링 필터 적용<br>미세먼지 99.9% 포집 고성능 설비</div></div>
+                <div class="air-card fade-in"><div class="air-card-header"><i class="fas fa-droplet"></i><h4>유해가스 세정탑</h4></div><div class="air-card-img" style="background-image:url('image/A2.jpg');"></div><div class="air-card-desc">팩트 타워, 분무탑<br>산성/알칼리성 가스 액체 세정</div></div>
+                <div class="air-card fade-in"><div class="air-card-header"><i class="fas fa-filter"></i><h4>흡착 및 탈취 설비</h4></div><div class="air-card-img" style="background-image:url('image/A3.png');"></div><div class="air-card-desc">활성탄 흡착탑(A/C Tower)<br>VOCs 및 악취 물리적 흡착 제거</div></div>
+                <div class="air-card fade-in"><div class="air-card-header"><i class="fas fa-fire-flame-curved"></i><h4>폐기물 소각 플랜트</h4></div><div class="air-card-img" style="background-image:url('image/A4.JPG');"></div><div class="air-card-desc">소각로, 폐열회수설비<br>가연성 폐기물 고온 산화 및 감량</div></div>
             </div>
         </div>
     </section>
@@ -1143,7 +1156,7 @@
             <div class="process-flow">
                 <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&q=80');"></div><div class="process-card-text"><h4>Project Planning<br>& Engineering</h4><p>타당성 검토(FS) 및 기본/상세 설계 기술 서비스</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
                 <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&q=80');"></div><div class="process-card-text"><h4>Core<br>Manufacturing</h4><p>고성능 산업기계 및 대형 덕트 정밀 설계·제작</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
-                <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=80');"></div><div class="process-card-text"><h4>Construction</h4><p>대형 철구조물 및 플랜트 종합 시공</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
+                <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('image/T3.jpg');"></div><div class="process-card-text"><h4>Construction</h4><p>대형 철구조물 및 플랜트 종합 시공</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
                 <div class="process-card fade-in"><div class="process-card-img" style="background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&q=80');"></div><div class="process-card-text"><h4>Integrated EPC<br>Management</h4><p>설계(E), 조달(P), 시공(C) 통합 관리 솔루션 제공</p></div></div>
             </div>
         </div>
@@ -1173,17 +1186,6 @@
                 <div class="license-item fade-in"><div class="license-icon"><i class="fas fa-certificate"></i></div><div><h4>방지시설업등록증</h4><p>대기 방지시설업</p></div></div>
                 <div class="license-item fade-in"><div class="license-icon"><i class="fas fa-circle-check"></i></div><div><h4>사업자등록증</h4><p>업태 : 제조, 서비스 / 종목 : 산업기계, 비금속광물처리</p></div></div>
                 <div class="license-item fade-in"><div class="license-icon"><i class="fas fa-circle-check"></i></div><div><h4>공장등록증</h4><p>김해, 창녕, 경주 공장 등록 완료</p></div></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section bg-lighter">
-        <div class="section-inner">
-            <h2 class="section-title fade-in" style="text-align:center;">Equipment Holdings & Infrastructure</h2>
-            <div style="margin-top:50px;">
-                <div class="equip-section fade-in"><div class="equip-section-title"><i class="fas fa-cog"></i> Heavy Machinery</div><div class="equip-grid"><div class="equip-item"><i class="fas fa-tower-broadcast"></i><div class="count">1</div><div class="spec">(5ton)</div></div><div class="equip-item"><i class="fas fa-truck-monster"></i><div class="count">2</div><div class="spec">(1.0/0.2m³)</div></div><div class="equip-item"><i class="fas fa-truck-ramp-box"></i><div class="count">3</div><div class="spec">(15/5/3ton)</div></div><div class="equip-item"><i class="fas fa-truck"></i><div class="count">3</div><div class="spec">(1ton)</div></div></div></div>
-                <div class="equip-section fade-in"><div class="equip-section-title"><i class="fas fa-wrench"></i> Production Equipment</div><div class="equip-grid"><div class="equip-item"><i class="fas fa-anchor"></i><div class="count">8</div><div class="spec">(15/10/5ton)</div></div><div class="equip-item"><i class="fas fa-gears"></i><div class="count">3</div><div class="spec">선반/밀링</div></div><div class="equip-item"><i class="fas fa-industry"></i><div class="count">2</div><div class="spec">절단기</div></div></div></div>
-                <div class="equip-section fade-in"><div class="equip-section-title"><i class="fas fa-toolbox"></i> Utility Tools</div><div class="equip-grid"><div class="equip-item"><i class="fas fa-gauge-high"></i><div class="count">4</div><div class="spec">컴프레서</div></div><div class="equip-item"><i class="fas fa-fire"></i><div class="count">26</div><div class="spec">(CO2/ARC)</div></div><div class="equip-item"><i class="fas fa-up-down"></i><div class="count">1</div><div class="spec">고소작업차</div></div></div></div>
             </div>
         </div>
     </section>
