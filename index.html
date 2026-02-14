@@ -184,6 +184,41 @@
             97%{opacity:0;transform:none;}
         }
 
+        /* Brand name glow in hero subtitle */
+        .hero-brand {
+            display: inline;
+            font-size: 1.35em;
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow:
+                0 0 8px rgba(255,255,255,0.9),
+                0 0 20px rgba(255,255,255,0.5),
+                0 0 40px rgba(76,175,80,0.4),
+                0 0 60px rgba(76,175,80,0.2);
+            letter-spacing: 2px;
+            position: relative;
+            padding: 0 2px;
+            animation: heroFadeUp 1s cubic-bezier(0.16,1,0.3,1) 1.4s forwards, brandPulse 3s ease-in-out 2.5s infinite;
+        }
+
+        @keyframes brandPulse {
+            0%, 100% {
+                text-shadow:
+                    0 0 8px rgba(255,255,255,0.9),
+                    0 0 20px rgba(255,255,255,0.5),
+                    0 0 40px rgba(76,175,80,0.4),
+                    0 0 60px rgba(76,175,80,0.2);
+            }
+            50% {
+                text-shadow:
+                    0 0 12px rgba(255,255,255,1),
+                    0 0 28px rgba(255,255,255,0.7),
+                    0 0 50px rgba(76,175,80,0.6),
+                    0 0 80px rgba(76,175,80,0.3),
+                    0 0 100px rgba(200,169,81,0.15);
+            }
+        }
+
         /* --- Animated divider with scanning light beam --- */
         .hero-divider{
             width:100px;height:2px;margin:36px auto;position:relative;
@@ -274,11 +309,18 @@
             padding:12px 16px;
             border-radius:30px;
             box-shadow:0 2px 12px rgba(0,0,0,0.2);
+            min-width:44px;
+            min-height:44px;
+            -webkit-tap-highlight-color:transparent;
+            touch-action:manipulation;
         }
         .hero-scroll.hidden{
             opacity:0;
             visibility:hidden;
             pointer-events:none;
+        }
+        .hero-scroll.at-bottom .hero-scroll-inner{
+            transform:rotate(180deg);
         }
         .hero-scroll-inner{
             display:flex;
@@ -287,7 +329,7 @@
             gap:8px;
             text-decoration:none;
             color:rgba(255,255,255,0.85);
-            transition:color 0.3s;
+            transition:color 0.3s, transform 0.3s ease;
         }
         .hero-scroll:hover .hero-scroll-inner{
             color:rgba(255,255,255,1);
@@ -337,6 +379,7 @@
             }
             .hero-divider::before,.hero-divider::after,.hero-title .ht-line-2::before,.hero-title .ht-line-2::after{animation:none !important;}
             .hero-overlay::before,.hero-overlay::after{animation:none !important;}
+            .hero-brand{animation:none !important;}
         }
 
         /* 공통 섹션 */
@@ -644,9 +687,9 @@
         .process-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);text-align:center;transition:var(--transition);position:relative;}
         .process-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
         .process-card-img{height:180px;background-size:cover;background-position:center;}
-        .process-card-text{padding:26px 18px;}
-        .process-card h4{font-family:'Montserrat',sans-serif;font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.5;word-break:keep-all;overflow-wrap:break-word;}
-        .process-card p{font-size:0.96rem;color:var(--text-gray);line-height:1.7;font-weight:400;word-break:keep-all;overflow-wrap:break-word;}
+        .process-card-text{padding:24px;display:flex;flex-direction:column;}
+        .process-card h4{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.4;min-height:2.8em;display:flex;align-items:center;justify-content:center;word-break:keep-all;overflow-wrap:break-word;}
+        .process-card p{font-size:0.95rem;color:var(--text-gray);line-height:1.7;font-weight:400;word-break:keep-all;overflow-wrap:break-word;}
         .process-arrow{position:absolute;top:50%;right:-20px;transform:translateY(-50%);color:var(--green);font-size:1.8rem;z-index:2;}
 
         /* ETC */
@@ -795,6 +838,7 @@
             .hero-title .ht-line-3{font-size:clamp(1.3rem,5vw,2rem);letter-spacing:3px;}
             .hero-divider{width:60px;margin:24px auto;}
             .hero-subtitle{font-size:clamp(0.9rem,3.5vw,1.1rem);letter-spacing:0.5px;line-height:1.7;}
+            .hero-brand{font-size:1.2em;letter-spacing:1px;}
             .hero-cta{gap:12px;margin-top:32px;}
             .hero-cta-btn{padding:12px 28px;font-size:0.88rem;}
             .hero-title .ht-line-2::before{display:none;}
@@ -843,7 +887,7 @@
             /* Process Flow — single column */
             .process-flow{grid-template-columns:1fr;}
             .process-card-img{height:140px;}
-            .process-card h4{font-size:1.13rem;}
+            .process-card h4{font-size:1.13rem;min-height:auto;}
             .process-card p{font-size:0.9rem;}
 
             /* Org Chart */
@@ -872,6 +916,11 @@
             .cta-section{height:auto;min-height:300px;padding:60px 20px;}
             .cta-content{padding:0 16px;}
             .cta-btn,.cta-btn-secondary{padding:14px 28px;}
+
+            /* Scroll indicator - mobile safe area */
+            .hero-scroll{
+                bottom:calc(20px + env(safe-area-inset-bottom));
+            }
 
             /* Footer */
             .footer{padding:50px 20px 30px;}
@@ -909,8 +958,9 @@
 
             /* Hero */
             .hero{min-height:100vh;min-height:100dvh;}
+            .hero-brand{font-size:1.15em;letter-spacing:0.5px;}
             .hero-scroll{
-                bottom:20px;
+                bottom:calc(16px + env(safe-area-inset-bottom));
                 transform:translateX(-50%) scale(0.85);
                 padding:10px 14px;
             }
@@ -954,7 +1004,7 @@
             .air-card-desc{font-size:0.86rem;}
 
             /* Process Cards */
-            .process-card h4{font-size:1.06rem;}
+            .process-card h4{font-size:1.06rem;min-height:auto;}
             .process-card p{font-size:0.86rem;}
 
             /* Org Chart — single column */
@@ -1066,7 +1116,7 @@
                     <span class="ht-line ht-line-3">PROVIDER</span>
                 </h1>
                 <div class="hero-divider"></div>
-                <p class="hero-subtitle">미래 가치를 창조하는 스마트 엔지니어링, 믿을 수 있는 기술 파트너 신화이엔피가 함께합니다.<span class="hero-cursor"></span></p>
+                <p class="hero-subtitle">미래 가치를 창조하는 스마트 엔지니어링, 믿을 수 있는 기술 파트너 <span class="hero-brand">신화이엔피</span>가 함께합니다.<span class="hero-cursor"></span></p>
                 <div class="hero-cta">
                     <a href="#business" class="hero-cta-btn primary"><i class="fas fa-arrow-right"></i> 사업분야 보기</a>
                     <button class="hero-cta-btn secondary contact-modal-trigger"><i class="fas fa-envelope"></i> 문의하기</button>
@@ -1265,6 +1315,22 @@
             <div style="margin-bottom: 20px;">
                 <span style="font-size: 1rem; font-weight: 700; color: var(--navy); background: var(--gold); padding: 6px 16px; border-radius: 6px; display: inline-block;">사업분야</span>
             </div>
+            <h2 class="section-title fade-in" style="text-align:center;">Total Plant & Engineering Solutions</h2>
+            <p class="section-subtitle fade-in" style="text-align:center;">설계부터 제작, 시공, 관리까지 – 통합 솔루션 파트너</p>
+            <div class="process-flow">
+                <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&q=80');"></div><div class="process-card-text"><h4>Process Engineering</h4><p>최적의 효율을 위한 타당성 분석 및 플랜트 기본/상세 설계</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
+                <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&q=80');"></div><div class="process-card-text"><h4>Advanced Fabrication</h4><p>산업용 기계, 환경 설비 및 대형 철구조물 정밀 제작 시스템</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
+                <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('image/T3.jpg');"></div><div class="process-card-text"><h4>Installation &amp; Commissioning</h4><p>환경 플랜트 현장 설치, 시운전 및 성능 보증 테스트 수행</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
+                <div class="process-card fade-in"><div class="process-card-img" style="background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&q=80');"></div><div class="process-card-text"><h4>Technical Consulting</h4><p>환경 인허가 지원, 기술 진단 및 EPC 통합 관리 자문</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-lighter">
+        <div class="section-inner">
+            <div style="margin-bottom: 20px;">
+                <span style="font-size: 1rem; font-weight: 700; color: var(--navy); background: var(--gold); padding: 6px 16px; border-radius: 6px; display: inline-block;">사업분야</span>
+            </div>
             <h2 class="section-title fade-in" style="text-align:center;">Eco-Plant Solution</h2>
             <p class="section-subtitle fade-in" style="text-align:center;">Sustainable Engineering for Resource Circulation</p>
             <div class="eco-grid">
@@ -1276,7 +1342,7 @@
         </div>
     </section>
 
-    <section class="section bg-lighter">
+    <section class="section bg-light">
         <div class="section-inner">
             <div style="margin-bottom: 20px;">
                 <span style="font-size: 1rem; font-weight: 700; color: var(--navy); background: var(--gold); padding: 6px 16px; border-radius: 6px; display: inline-block;">사업분야</span>
@@ -1288,22 +1354,6 @@
                 <div class="air-card fade-in"><div class="air-card-header"><i class="fas fa-droplet"></i><h4>유해가스 세정탑</h4></div><div class="air-card-img" style="background-image:url('image/A2.jpg');"></div><div class="air-card-desc">팩트 타워, 분무탑<br>산성/알칼리성 가스 액체 세정</div></div>
                 <div class="air-card fade-in"><div class="air-card-header"><i class="fas fa-filter"></i><h4>흡착 및 탈취 설비</h4></div><div class="air-card-img" style="background-image:url('image/A3.png');"></div><div class="air-card-desc">활성탄 흡착탑(A/C Tower)<br>VOCs 및 악취 물리적 흡착 제거</div></div>
                 <div class="air-card fade-in"><div class="air-card-header"><i class="fas fa-fire-flame-curved"></i><h4>폐기물 소각 플랜트</h4></div><div class="air-card-img" style="background-image:url('image/A4.JPG');"></div><div class="air-card-desc">소각로, 폐열회수설비<br>가연성 폐기물 고온 산화 및 감량</div></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section bg-light">
-        <div class="section-inner">
-            <div style="margin-bottom: 20px;">
-                <span style="font-size: 1rem; font-weight: 700; color: var(--navy); background: var(--gold); padding: 6px 16px; border-radius: 6px; display: inline-block;">사업분야</span>
-            </div>
-            <h2 class="section-title fade-in" style="text-align:center;">Total Plant & Engineering Solutions</h2>
-            <p class="section-subtitle fade-in" style="text-align:center;">설계부터 제작, 시공, 관리까지 – 통합 솔루션 파트너</p>
-            <div class="process-flow">
-                <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&q=80');"></div><div class="process-card-text"><h4>Project Planning<br>& Engineering</h4><p>타당성 검토(FS) 및 기본/상세 설계 기술 서비스</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
-                <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&q=80');"></div><div class="process-card-text"><h4>Core<br>Manufacturing</h4><p>고성능 산업기계 및 대형 덕트 정밀 설계·제작</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
-                <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('image/T3.jpg');"></div><div class="process-card-text"><h4>Construction</h4><p>대형 철구조물 및 플랜트 종합 시공</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
-                <div class="process-card fade-in"><div class="process-card-img" style="background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&q=80');"></div><div class="process-card-text"><h4>Integrated EPC<br>Management</h4><p>설계(E), 조달(P), 시공(C) 통합 관리 솔루션 제공</p></div></div>
             </div>
         </div>
     </section>
@@ -1823,9 +1873,26 @@
         // Get all main sections
         const sections = Array.from(document.querySelectorAll('.section, .hero'));
 
-        // Find current section and scroll to next
+        function isAtBottom() {
+            return window.innerHeight + window.scrollY >= document.body.scrollHeight - 100;
+        }
+
+        // Debounce to prevent double-firing from click + touchend
+        let lastScrollTime = 0;
+
+        // Find current section and scroll to next, scroll to page bottom, or back to top
         function scrollToNextSection(e) {
             e.preventDefault();
+
+            var now = Date.now();
+            if (now - lastScrollTime < 400) return;
+            lastScrollTime = now;
+
+            // At bottom: scroll back to top
+            if (isAtBottom()) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
 
             const currentScroll = window.scrollY;
             const viewportHeight = window.innerHeight;
@@ -1843,34 +1910,42 @@
                 }
             }
 
-            // Scroll to next section if found
             if (nextSection) {
-                nextSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                // Check if this is the last section (no more sections after it)
+                const nextIndex = sections.indexOf(nextSection);
+                const isLastSection = nextIndex === sections.length - 1;
+
+                if (isLastSection) {
+                    // Last section before footer: scroll to the absolute bottom of the page
+                    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+                } else {
+                    nextSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            } else {
+                // No next section found: scroll to the absolute bottom of the page
+                window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
             }
         }
 
         // Check if user is near bottom of page
         function checkScrollPosition() {
-            const scrollTop = window.scrollY;
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-
-            // Hide scroll indicator when near bottom (within 400px)
-            if (scrollTop + windowHeight >= documentHeight - 400) {
-                heroScroll.classList.add('hidden');
-            } else {
+            if (isAtBottom()) {
                 heroScroll.classList.remove('hidden');
+                heroScroll.classList.add('at-bottom');
+            } else {
+                heroScroll.classList.remove('at-bottom');
             }
         }
 
-        // Add click event listener
+        // Add click and touchend event listeners for mobile compatibility
         heroScroll.addEventListener('click', scrollToNextSection);
+        heroScroll.addEventListener('touchend', scrollToNextSection);
 
-        // Add scroll event listener
-        window.addEventListener('scroll', checkScrollPosition);
+        // Add scroll event listener (passive for performance)
+        window.addEventListener('scroll', checkScrollPosition, { passive: true });
 
         // Initial check
         checkScrollPosition();
