@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>제품소개 | SHINHWA E&P</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,8 +27,8 @@
             --transition: all 0.4s cubic-bezier(0.25,0.8,0.25,1);
         }
         *{margin:0;padding:0;box-sizing:border-box;}
-        html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden;}
-        body{font-family:'Noto Sans KR','Montserrat',sans-serif;color:var(--text-dark);background:var(--bg-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;max-width:100vw;}
+        html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden;-webkit-text-size-adjust:100%;}
+        body{font-family:'Noto Sans KR','Montserrat',sans-serif;color:var(--text-dark);background:var(--bg-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;max-width:100%;}
 
         /* NAV */
         .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;background:var(--navy-dark);border-bottom:1px solid rgba(255,255,255,0.08);transition:var(--transition);}
@@ -49,17 +49,18 @@
         .products-bg-slide.active{opacity:1;}
         .products-bg-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(10,20,40,0.75)0%,rgba(10,20,40,0.65)50%,rgba(10,20,40,0.80)100%);z-index:1;}
         .hero-inner{position:relative;z-index:2;padding:80px 40px;}
-        .hero-inner h1{font-family:'Montserrat',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:900;color:var(--white);margin-bottom:16px;letter-spacing:-0.5px;text-shadow:0 2px 10px rgba(0,0,0,0.5);}
+        .hero-inner h1{font-family:'Montserrat',sans-serif;font-size:clamp(2.2rem, 5vw, 3.5rem);font-weight:900;color:var(--white);margin-bottom:16px;letter-spacing:-0.5px;text-shadow:0 2px 10px rgba(0,0,0,0.5);}
         .hero-inner h1 span{color:var(--green-light);}
-        .hero-inner p{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,0.9);font-weight:400;max-width:600px;margin:0 auto;line-height:1.8;text-shadow:0 2px 8px rgba(0,0,0,0.5);}
+        .hero-inner p{font-size:clamp(1rem, 2vw, 1.2rem);color:rgba(255,255,255,0.9);font-weight:400;max-width:700px;margin:0 auto;line-height:1.8;text-shadow:0 2px 8px rgba(0,0,0,0.5);}
 
         /* SECTIONS */
-        .section{padding:100px 40px;}
-        .section-title{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:800;color:var(--navy);text-align:center;margin-bottom:12px;}
-        .section-subtitle{font-size:1.05rem;color:var(--text-gray);text-align:center;margin-bottom:60px;font-weight:400;line-height:1.7;}
+        .section{padding:64px 40px;background:var(--white);}
+        .section-inner{max-width:1400px;margin:0 auto;}
+        .section-title{font-family:'Montserrat',sans-serif;font-size:clamp(2rem, 3.5vw, 3rem);font-weight:800;color:var(--navy);text-align:center;margin-bottom:12px;}
+        .section-subtitle{font-size:1.05rem;color:var(--text-gray);text-align:center;margin-bottom:32px;font-weight:400;line-height:1.7;}
 
         /* PRODUCT GRID */
-        .product-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;overflow:hidden;}
+        .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;overflow:hidden;}
         .product-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);transition:transform 0.3s ease,box-shadow 0.3s ease;position:relative;display:flex;flex-direction:column;height:100%;min-height:520px;}
         .product-card:hover{transform:scale(1.05);box-shadow:0 20px 40px rgba(27,42,74,0.15);z-index:10;}
         .product-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--green),var(--navy));opacity:0;transition:var(--transition);z-index:1;}
@@ -83,26 +84,35 @@
         .product-btn:hover i{transform:translateX(4px);}
 
         /* COMPARISON TABLE */
-        .comparison-section{background:var(--white);}
-        .comparison-wrapper{max-width:1100px;margin:0 auto;overflow-x:auto;}
-        .comparison-table{width:100%;border-collapse:collapse;font-size:0.95rem;}
-        .comparison-table thead th{background:var(--navy);color:var(--white);padding:16px 20px;font-family:'Montserrat',sans-serif;font-weight:600;text-align:center;white-space:nowrap;}
-        .comparison-table thead th:first-child{text-align:left;border-radius:var(--radius-sm) 0 0 0;}
+        .comparison-section{background:var(--white);overflow:hidden;}
+        .comparison-wrapper{max-width:1400px;margin:0 auto;overflow-x:auto;}
+        .comparison-table{width:100%;border-collapse:collapse;table-layout:fixed;}
+        .comparison-table col:nth-child(1){width:22%;}
+        .comparison-table col:nth-child(2){width:25%;}
+        .comparison-table col:nth-child(3){width:18%;}
+        .comparison-table col:nth-child(4){width:13%;}
+        .comparison-table col:nth-child(5){width:22%;}
+        .comparison-table thead th{background:var(--navy);color:var(--white);padding:14px 18px;font-family:'Montserrat',sans-serif;font-weight:600;white-space:normal;}
+        .comparison-table thead th:nth-child(1),.comparison-table thead th:nth-child(2),.comparison-table thead th:nth-child(5){text-align:left;}
+        .comparison-table thead th:nth-child(3),.comparison-table thead th:nth-child(4){text-align:center;}
+        .comparison-table thead th:first-child{border-radius:var(--radius-sm) 0 0 0;}
         .comparison-table thead th:last-child{border-radius:0 var(--radius-sm) 0 0;}
-        .comparison-table tbody td{padding:14px 20px;border-bottom:1px solid rgba(27,42,74,0.08);text-align:center;color:var(--text-dark);}
-        .comparison-table tbody td:first-child{font-weight:600;color:var(--navy);text-align:left;}
+        .comparison-table tbody td{padding:15px 18px;border-bottom:1px solid rgba(27,42,74,0.08);font-size:14px;line-height:1.6;white-space:normal;color:var(--text-dark);}
+        .comparison-table tbody td:nth-child(1),.comparison-table tbody td:nth-child(2),.comparison-table tbody td:nth-child(5){text-align:left;}
+        .comparison-table tbody td:nth-child(3),.comparison-table tbody td:nth-child(4){text-align:center;}
+        .comparison-table tbody td:first-child{font-weight:600;color:var(--navy);}
         .comparison-table tbody tr:hover{background:rgba(76,175,80,0.04);}
         .comparison-table .check{color:var(--green);font-size:1.1rem;}
         .comparison-table .dash{color:var(--text-gray);font-size:1rem;}
 
         /* CTA */
-        .cta-section{position:relative;padding:100px 40px;text-align:center;overflow:hidden;}
+        .cta-section{position:relative;padding:56px 40px;text-align:center;overflow:hidden;}
         .cta-bg{position:absolute;inset:0;background:linear-gradient(135deg, #0F1B33 0%, #1B2A4A 40%, #243554 60%, #0F1B33 100%);}
         .cta-bg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);background-size:50px 50px;}
         .cta-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 40%, rgba(76,175,80,0.1) 0%, transparent 50%),radial-gradient(circle at 70% 60%, rgba(76,175,80,0.06) 0%, transparent 40%);}
         .cta-inner{position:relative;z-index:2;max-width:800px;margin:0 auto;}
-        .cta-inner h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--white);margin-bottom:16px;line-height:1.3;}
-        .cta-inner p{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,0.85);margin-bottom:36px;font-weight:500;}
+        .cta-inner h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem, 3.5vw, 2.8rem);font-weight:800;color:var(--white);margin-bottom:16px;line-height:1.3;}
+        .cta-inner p{font-size:clamp(1rem, 2vw, 1.2rem);color:rgba(255,255,255,0.85);margin-bottom:36px;font-weight:500;}
         .cta-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
         .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:var(--white);padding:16px 40px;border-radius:50px;font-size:1.05rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;font-family:inherit;transition:var(--transition);}
         .cta-btn:hover{background:var(--green-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(76,175,80,0.3);}
@@ -129,6 +139,19 @@
         .form-submit:disabled{background:var(--text-gray);cursor:not-allowed;transform:none;}
         @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
         @keyframes scaleUp{from{transform:scale(0.9);opacity:0;}to{transform:scale(1);opacity:1;}}
+
+/* SCROLL INDICATOR */
+.hero-scroll{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);z-index:999;opacity:0;animation:heroFadeUp 0.8s ease 1.5s forwards, scrollBounce 2s ease-in-out 2.5s infinite;transition:opacity 0.3s ease,visibility 0.3s ease;cursor:pointer;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);background:rgba(0,0,0,0.15);padding:12px 16px;border-radius:30px;box-shadow:0 2px 12px rgba(0,0,0,0.2);min-width:44px;min-height:44px;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+.hero-scroll.hidden{opacity:0;visibility:hidden;pointer-events:none;}
+.hero-scroll.at-bottom .hero-scroll-inner{transform:rotate(180deg);}
+.hero-scroll-inner{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.3s,transform 0.3s ease;}
+.hero-scroll:hover .hero-scroll-inner{color:rgba(255,255,255,1);}
+.hero-scroll-mouse{width:24px;height:38px;border:2px solid currentColor;border-radius:12px;position:relative;}
+.hero-scroll-mouse::after{content:'';position:absolute;top:7px;left:50%;transform:translateX(-50%);width:3px;height:7px;border-radius:2px;background:currentColor;animation:heroScrollDot 1.8s ease-in-out infinite;}
+.hero-scroll-label{font-family:'Montserrat',sans-serif;font-size:0.65rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;}
+@keyframes heroFadeUp{to{opacity:1;transform:translateX(-50%) translateY(0);}}
+@keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(-8px);}}
+@keyframes heroScrollDot{0%{opacity:1;transform:translateX(-50%) translateY(0);}50%{opacity:0.3;transform:translateX(-50%) translateY(10px);}100%{opacity:0;transform:translateX(-50%) translateY(16px);}}
 
         /* FOOTER */
         .footer{background:var(--navy-dark);color:var(--white);padding:80px 40px 40px;}
@@ -174,14 +197,14 @@
             .mobile-toggle .fa-times{transform:rotate(90deg);}
             .cta-buttons{flex-direction:column;align-items:center;width:100%;}
             .cta-btn,.cta-btn-secondary{width:100%;max-width:320px;justify-content:center;text-align:center;}
-            .modal-content{padding:24px 16px;width:95%;max-width:95vw;border-radius:12px;}
+            .modal-content{padding:24px 16px;width:95%;max-width:95%;border-radius:12px;}
             .modal-header h2{font-size:1.4rem;}
             .form-group input,.form-group textarea,.form-group select{font-size:16px;}
             .nav-links.open a{display:flex;align-items:center;padding:14px 20px;font-size:1.05rem;font-weight:500;color:rgba(255,255,255,0.85);border-radius:8px;transition:background 0.2s ease,color 0.2s ease;min-height:48px;line-height:1.4;}
             .nav-links.open a:hover,.nav-links.open a:active{background:rgba(76,175,80,0.12);color:#66BB6A;}
             .nav-links.open a.active{background:rgba(76,175,80,0.15);color:#66BB6A;font-weight:600;}
             .nav-links.open a.active::after{display:none;}
-            .section{padding:60px 20px;}
+            .section{padding:48px 20px;}
             .products-hero{min-height:320px;}
             .hero-inner{padding:60px 20px;}
             .product-grid{grid-template-columns:1fr;gap:20px;}
@@ -197,19 +220,22 @@
             .comparison-table thead th{padding:12px 10px;font-size:0.75rem;white-space:normal;}
             .comparison-table tbody td{padding:10px 8px;font-size:0.8rem;}
             .comparison-table tbody td:first-child{white-space:normal;min-width:80px;}
-            .cta-section{padding:60px 20px;}
+            .cta-section{padding:40px 20px;}
             .nav-logo{font-size:1.2rem;}
+            .hero-scroll{bottom:20px;padding:10px 14px;min-width:40px;min-height:40px;}
+            .hero-scroll-mouse{width:20px;height:32px;}
+            .hero-scroll-label{font-size:0.6rem;}
         }
 
         /* RESPONSIVE - Small Mobile */
         @media(max-width:480px){
-            .section{padding:40px 16px;}
+            .section{padding:36px 16px;}
             .products-hero{min-height:280px;}
             .hero-inner{padding:40px 16px;}
-            .hero-inner h1{font-size:clamp(1.8rem,6vw,2.2rem);}
+            .hero-inner h1{font-size:clamp(1.8rem, 6vw, 2.2rem);}
             .hero-inner p{font-size:0.95rem;}
-            .section-title{font-size:clamp(1.4rem,5vw,1.8rem);}
-            .section-subtitle{font-size:0.95rem;margin-bottom:40px;}
+            .section-title{font-size:clamp(1.4rem, 5vw, 1.8rem);}
+            .section-subtitle{font-size:0.95rem;margin-bottom:24px;}
             .product-card{border-radius:12px;}
             .product-img{height:140px;}
             .product-name{font-size:1.05rem;padding:16px 20px 6px 20px;}
@@ -223,12 +249,15 @@
             .comparison-table tbody td{padding:8px 6px;font-size:0.78rem;}
             .comparison-table tbody td:first-child{min-width:70px;font-size:0.75rem;}
             .comparison-section{padding-left:12px;padding-right:12px;}
-            .cta-section{padding:50px 16px;}
-            .cta-inner h2{font-size:clamp(1.5rem,5vw,1.8rem);margin-bottom:12px;}
+            .cta-section{padding:32px 16px;}
+            .cta-inner h2{font-size:clamp(1.5rem, 5vw, 1.8rem);margin-bottom:12px;}
             .cta-inner p{font-size:0.95rem;margin-bottom:28px;}
             .product-card:hover{transform:none;}
             .cta-buttons{gap:10px;}
             .cta-btn,.cta-btn-secondary{max-width:100%;padding:14px 24px;font-size:0.9rem;}
+            .hero-scroll{bottom:16px;padding:8px 12px;}
+            .hero-scroll-mouse{width:18px;height:28px;}
+            .hero-scroll-label{font-size:0.55rem;letter-spacing:1.5px;}
             .footer{padding:40px 16px 24px;}
             .footer-title{font-size:1.4rem;margin-bottom:40px;}
             .footer-grid{gap:30px;margin-bottom:30px;}
@@ -242,7 +271,7 @@
             .footer-inner{max-width:100%;overflow-x:hidden;}
             .footer-hq .contact-info span{flex-wrap:wrap;word-break:break-all;}
             .factory-item span{word-break:break-all;}
-            .modal-content{padding:20px 14px;max-width:100vw;width:calc(100% - 24px);}
+            .modal-content{padding:20px 14px;max-width:100%;width:calc(100% - 24px);}
             .modal-header h2{font-size:1.3rem;}
             .form-submit{padding:12px 24px;font-size:0.95rem;}
         }
@@ -250,6 +279,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
+<div id="page-wrapper" style="overflow:hidden;width:100%;max-width:100%;position:relative;">
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -286,12 +316,21 @@
         </div>
     </section>
 
+    <!-- Scroll Indicator -->
+    <div class="hero-scroll">
+        <a href="#products" class="hero-scroll-inner">
+            <div class="hero-scroll-mouse"></div>
+            <span class="hero-scroll-label">Scroll</span>
+        </a>
+    </div>
+
     <!-- Product List Section -->
     <section class="section" id="products">
-        <h2 class="section-title fade-in">Product Lineup</h2>
-        <p class="section-subtitle fade-in">고객의 다양한 요구에 맞는 최적의 솔루션을 제공합니다</p>
+        <div class="section-inner">
+            <h2 class="section-title fade-in">Product Lineup</h2>
+            <p class="section-subtitle fade-in">고객의 다양한 요구에 맞는 최적의 솔루션을 제공합니다</p>
 
-        <div class="product-grid">
+            <div class="product-grid">
 
             <!-- Product 1: 지능형 고효율 링필터 시스템 -->
             <div class="product-card fade-in">
@@ -331,18 +370,18 @@
                 </div>
             </div>
 
-            <!-- Product 3: 연속식 열분해 탄화 및 바이오차 플랜트 -->
+            <!-- Product 3: 유기성 슬러지 건조·탄화 시스템 -->
             <div class="product-card fade-in">
                 <div class="product-img">
-                    <img src="image/P3.webp" alt="연속식 열분해 탄화 및 바이오차 플랜트">
+                    <img src="image/P3.webp" alt="유기성 슬러지 건조·탄화 시스템">
                 </div>
                 <div class="product-body">
-                    <h3 class="product-name">연속식 열분해 탄화 및 바이오차 플랜트</h3>
-                    <p class="product-desc">폐비닐, 폐플라스틱 및 유기성 폐기물을 열분해하여 고부가가치 바이오차와 에너지로 전환하는 탄소중립 핵심 설비입니다.</p>
+                    <h3 class="product-name">유기성 슬러지 건조·탄화 시스템</h3>
+                    <p class="product-desc">자체 특허 기술(Patented Technology)을 적용하여 유기성 슬러지의 부피를 80% 이상 획기적으로 감량하고, 이를 친환경 고형 연료(Bio-SRF)로 전환하는 고효율 자원 순환 설비입니다.</p>
                     <div class="product-tags">
-                        <span class="product-tag">#탄소배출권</span>
-                        <span class="product-tag">#바이오차</span>
-                        <span class="product-tag">#재생에너지</span>
+                        <span class="product-tag">#특허기술</span>
+                        <span class="product-tag">#슬러지감량</span>
+                        <span class="product-tag">#고형연료화</span>
                     </div>
                     <div class="product-btn-wrapper">
                         <a href="resources.html" class="product-btn">자세히 보기 <i class="fas fa-arrow-right"></i></a>
@@ -350,18 +389,18 @@
                 </div>
             </div>
 
-            <!-- Product 4: 대기오염 방지 토탈 엔지니어링 -->
+            <!-- Product 4: 해양·호소 준설토 정화 시스템 -->
             <div class="product-card fade-in">
                 <div class="product-img">
-                    <img src="image/P4.webp" alt="대기오염 방지 토탈 엔지니어링">
+                    <img src="image/P4.webp" alt="해양·호소 준설토 정화 시스템">
                 </div>
                 <div class="product-body">
-                    <h3 class="product-name">대기오염 방지 토탈 엔지니어링</h3>
-                    <p class="product-desc">RTO, SCR 시스템 및 산업용 덕트 설계를 포함하여 산업 현장의 유해 물질을 완벽하게 제어하는 맞춤형 환경 솔루션입니다.</p>
+                    <h3 class="product-name">해양·호소 준설토 정화 시스템</h3>
+                    <p class="product-desc">특허(제10-2141236호) 기술을 적용하여 <strong>해양(항만) 및 호소(댐/저수지)</strong>에서 발생하는 오염된 준설토를 정밀 세척·선별하고, 염분과 유기물을 제거하여 친환경 성토재로 자원화하는 통합 솔루션입니다.</p>
                     <div class="product-tags">
-                        <span class="product-tag">#대기방지시설</span>
-                        <span class="product-tag">#RTO_SCR</span>
-                        <span class="product-tag">#환경엔지니어링</span>
+                        <span class="product-tag">#해양항만준설</span>
+                        <span class="product-tag">#호소수질개선</span>
+                        <span class="product-tag">#특허기술_2141236</span>
                     </div>
                     <div class="product-btn-wrapper">
                         <a href="resources.html" class="product-btn">자세히 보기 <i class="fas fa-arrow-right"></i></a>
@@ -407,93 +446,76 @@
                 </div>
             </div>
 
+            </div>
         </div>
     </section>
 
     <!-- Comparison Section -->
     <section class="section comparison-section" id="comparison">
-        <h2 class="section-title fade-in">Feature Comparison</h2>
-        <p class="section-subtitle fade-in">제품별 주요 기능을 한눈에 비교해 보세요</p>
+        <div class="section-inner">
+            <h2 class="section-title fade-in">Feature Comparison</h2>
+            <p class="section-subtitle fade-in">제품별 주요 기능을 한눈에 비교해 보세요</p>
 
         <div class="comparison-wrapper fade-in">
             <table class="comparison-table">
+                <colgroup>
+                    <col><col><col><col><col>
+                </colgroup>
                 <thead>
                     <tr>
-                        <th>기능</th>
-                        <th>링필터 시스템</th>
-                        <th>토양세척설비</th>
-                        <th>탄화/바이오차</th>
-                        <th>대기방지/덕트</th>
-                        <th>저온 열탈착</th>
-                        <th>플랜트 EPC</th>
+                        <th>제품명</th>
+                        <th>핵심기술</th>
+                        <th>적용분야</th>
+                        <th>특허/인증</th>
+                        <th>처리대상</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>자동화 제어 시스템</td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="dash">—</span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td>지능형 고효율 링필터 시스템</td>
+                        <td>프리코팅 + IoT 모니터링</td>
+                        <td>대기환경 / 집진</td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i> 특허 보유</span></td>
+                        <td>미세먼지, 분진</td>
                     </tr>
                     <tr>
-                        <td>실시간 성능 모니터링</td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="dash">—</span></td>
+                        <td>유류중금속 오염토양세척설비</td>
+                        <td>하이드로사이클론 정밀 입경 분리</td>
+                        <td>오염토양 정화</td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i> 특허 보유</span></td>
+                        <td>중금속, 유류 오염토양</td>
                     </tr>
                     <tr>
-                        <td>에너지 효율 최적화</td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td>유기성 슬러지 건조·탄화 시스템</td>
+                        <td>자체 특허 건조·탄화 기술</td>
+                        <td>슬러지 자원화</td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i> 특허 보유</span></td>
+                        <td>유기성 슬러지 → Bio-SRF</td>
                     </tr>
                     <tr>
-                        <td>친환경/탄소저감 기술</td>
-                        <td><span class="dash">—</span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="dash">—</span></td>
+                        <td>해양·호소 준설토 정화 시스템</td>
+                        <td>정밀 세척·선별, 염분/유기물 제거</td>
+                        <td>해양(항만), 호소(댐/저수지)</td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i> 특허 보유</span></td>
+                        <td>오염 준설토 → 성토재</td>
                     </tr>
                     <tr>
-                        <td>IoT 원격 관리 지원</td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="dash">—</span></td>
-                        <td><span class="dash">—</span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="dash">—</span></td>
+                        <td>저온 열탈착(TPU) 오염토양 정화 설비</td>
+                        <td>저온 열탈착 분리·정화</td>
+                        <td>고난도 환경 복원</td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i> 특허 보유</span></td>
+                        <td>유류, 유기화합물 오염토양</td>
                     </tr>
                     <tr>
-                        <td>유지보수(A/S) 패키지</td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                    </tr>
-                    <tr>
-                        <td>고객사 맞춤형 최적 설계</td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i></span></td>
+                        <td>산업 플랜트 EPC 및 구조 설계</td>
+                        <td>설계-제작-시공 원스톱</td>
+                        <td>산업용 덕트, 구조물, 설비</td>
+                        <td><span class="dash">—</span></td>
+                        <td>플랜트 구조물 전반</td>
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
     </section>
 
@@ -751,7 +773,63 @@
                     submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> 문의 전송';
                 });
         });
+
+/* Persistent Scroll Indicator */
+(function() {
+    const heroScroll = document.querySelector('.hero-scroll');
+    if (!heroScroll) return;
+
+    const sections = Array.from(document.querySelectorAll('.section, .products-hero, .cta-section'));
+    let lastScrollTime = 0;
+
+    function isAtBottom() {
+        return window.innerHeight + window.scrollY >= document.body.scrollHeight - 100;
+    }
+
+    function scrollToNextSection(e) {
+        e.preventDefault();
+        var now = Date.now();
+        if (now - lastScrollTime < 400) return;
+        lastScrollTime = now;
+
+        if (isAtBottom()) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+
+        const currentPosition = window.scrollY + (window.innerHeight / 3);
+        let nextSection = null;
+
+        for (let i = 0; i < sections.length; i++) {
+            if (sections[i].offsetTop > currentPosition + 100) {
+                nextSection = sections[i];
+                break;
+            }
+        }
+
+        if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+        }
+    }
+
+    function checkScrollPosition() {
+        if (isAtBottom()) {
+            heroScroll.classList.remove('hidden');
+            heroScroll.classList.add('at-bottom');
+        } else {
+            heroScroll.classList.remove('at-bottom');
+        }
+    }
+
+    heroScroll.addEventListener('click', scrollToNextSection);
+    heroScroll.addEventListener('touchend', scrollToNextSection);
+    window.addEventListener('scroll', checkScrollPosition, { passive: true });
+    checkScrollPosition();
+})();
     </script>
 
+</div>
 </body>
 </html>

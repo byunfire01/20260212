@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>SHINHWA E&P - Total Engineering & Eco-Plant Solution Provider</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,8 +46,8 @@
             --indigo-700: #4338ca;
         }
         *{margin:0;padding:0;box-sizing:border-box;}
-        html{scroll-behavior:smooth;font-size:16px;}
-        body{font-family:'Noto Sans KR','Montserrat',sans-serif;color:var(--text-dark);background:var(--bg-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+        html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden;-webkit-text-size-adjust:100%;}
+        body{font-family:'Noto Sans KR','Montserrat',sans-serif;color:var(--text-dark);background:var(--bg-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;max-width:100%;}
 
         /* 파티클 캔버스 */
         #particleCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 5; pointer-events: none; }
@@ -73,17 +73,17 @@
         .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease-in-out, transform 8s linear;filter:brightness(0.55) contrast(1.2) saturate(0.9);}
         .hero-slide.active{opacity:1;transform:scale(1.06);}
 
-        .hero-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg, rgba(10,22,40,0.80) 0%, rgba(15,27,51,0.55) 50%, rgba(10,22,40,0.85) 100%);}
+        .hero-overlay{position:absolute;inset:0;z-index:2;overflow:hidden;background:linear-gradient(180deg, rgba(10,22,40,0.80) 0%, rgba(15,27,51,0.55) 50%, rgba(10,22,40,0.85) 100%);}
 
         /* --- Light streak pseudo-elements behind text --- */
         .hero-overlay::before{
-            content:'';position:absolute;top:35%;left:-10%;width:120%;height:180px;
+            content:'';position:absolute;top:35%;left:0;width:100%;height:180px;
             background:linear-gradient(90deg, transparent 0%, rgba(76,175,80,0.06) 20%, rgba(200,169,81,0.08) 50%, rgba(76,175,80,0.06) 80%, transparent 100%);
             transform:rotate(-4deg);z-index:0;
             animation:heroStreak 6s ease-in-out infinite alternate;
         }
         .hero-overlay::after{
-            content:'';position:absolute;top:50%;left:-10%;width:120%;height:100px;
+            content:'';position:absolute;top:50%;left:0;width:100%;height:100px;
             background:linear-gradient(90deg, transparent 0%, rgba(200,169,81,0.04) 30%, rgba(76,175,80,0.06) 70%, transparent 100%);
             transform:rotate(2deg);z-index:0;
             animation:heroStreak 8s ease-in-out infinite alternate-reverse;
@@ -126,12 +126,12 @@
             animation:heroFadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards;
         }
         .hero-title .ht-line-1{
-            font-size:clamp(1.2rem,2.5vw,2rem);font-weight:500;letter-spacing:4px;
+            font-size:clamp(1.2rem, 2.5vw, 2rem);font-weight:500;letter-spacing:4px;
             color:rgba(255,255,255,0.7);text-transform:uppercase;
             margin-bottom:8px;animation-delay:0.5s;
         }
         .hero-title .ht-line-2{
-            font-size:clamp(2.8rem,6.5vw,5.5rem);font-weight:900;
+            font-size:clamp(2.8rem, 6.5vw, 5.5rem);font-weight:900;
             background:linear-gradient(100deg,#ffffff 0%,#f0f0f0 50%,rgba(76,175,80,0.4) 80%,rgba(200,169,81,0.3) 100%);
             background-size:200% 100%;
             -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
@@ -142,7 +142,7 @@
             animation:heroFadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.7s forwards, heroGradientShift 6s ease-in-out 2s infinite;
         }
         .hero-title .ht-line-3{
-            font-size:clamp(1.8rem,4vw,3.5rem);font-weight:800;letter-spacing:6px;
+            font-size:clamp(1.8rem, 4vw, 3.5rem);font-weight:800;letter-spacing:6px;
             color:var(--gold);text-transform:uppercase;
             margin-top:4px;animation-delay:0.9s;
         }
@@ -251,7 +251,7 @@
         /* --- Subtitle with typing cursor --- */
         .hero-subtitle{
             font-family:'Noto Sans KR',sans-serif;
-            font-size:clamp(1rem,2vw,1.3rem);font-weight:400;
+            font-size:clamp(1rem, 2vw, 1.3rem);font-weight:400;
             line-height:1.8;letter-spacing:1.5px;
             color:rgba(255,255,255,0.85);
             opacity:0;transform:translateY(24px);filter:blur(6px);
@@ -383,10 +383,10 @@
         }
 
         /* 공통 섹션 */
-        .section{padding:100px 40px;position:relative;}
+        .section{padding:64px 40px;position:relative;}
         .section-inner{max-width:1400px;margin:0 auto;}
-        .section-title{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:800;color:var(--text-dark);margin-bottom:16px;word-break:keep-all;overflow-wrap:break-word;}
-        .section-subtitle{font-family:'Montserrat',sans-serif;font-size:1.1rem;color:var(--text-gray);font-weight:400;margin-bottom:60px;word-break:keep-all;overflow-wrap:break-word;}
+        .section-title{font-family:'Montserrat',sans-serif;font-size:clamp(2rem, 3.5vw, 3rem);font-weight:800;color:var(--text-dark);margin-bottom:16px;word-break:keep-all;overflow-wrap:break-word;}
+        .section-subtitle{font-family:'Montserrat',sans-serif;font-size:1.1rem;color:var(--text-gray);font-weight:400;margin-bottom:36px;word-break:keep-all;overflow-wrap:break-word;}
         .bg-light{background:var(--bg-light);}
         .bg-lighter{background:var(--bg-lighter);}
 
@@ -404,7 +404,7 @@
         .greeting-signature { margin-top: 36px; text-align: right; font-weight: 700; font-size: 1.1rem; color: var(--navy); }
 
         /* [UPDATED] VALUE CARDS STYLES (페이지 2 하단) */
-        .smartest-title{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:var(--text-dark);margin-bottom:60px;line-height:1.3;text-align:center;}
+        .smartest-title{font-family:'Montserrat',sans-serif;font-size:clamp(2rem, 4vw, 3.2rem);font-weight:800;color:var(--text-dark);margin-bottom:60px;line-height:1.3;text-align:center;}
         .value-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:50px;}
         
         /* New Image-based Value Card Style */
@@ -493,7 +493,7 @@
         }
 
         .tagline-box{background:var(--white);border:2px solid var(--gold);border-radius:var(--radius);padding:28px 50px;display:inline-block;text-align:center;width:100%;}
-        .tagline-box p{font-size:clamp(1.1rem,2vw,1.5rem);font-weight:700;color:var(--navy);}
+        .tagline-box p{font-size:clamp(1.1rem, 2vw, 1.5rem);font-weight:700;color:var(--navy);}
 
         /* [UPDATED] OVERVIEW GRID (Balanced 1:1 Layout) */
         .overview-grid {
@@ -666,13 +666,13 @@
         .business-card ul li::before{content:'•';color:var(--green-light);margin-right:8px;}
 
         /* DETAIL GRIDS */
-        .eco-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
-        .eco-card{display:grid;grid-template-columns:1fr 1fr;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);transition:var(--transition);}
+        .eco-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+        .eco-card{display:grid;grid-template-columns:1fr 1fr;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);transition:var(--transition);height:260px;}
         .eco-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
-        .eco-card-img{height:220px;background-size:cover;background-position:center;}
-        .eco-card-text{padding:30px;display:flex;flex-direction:column;justify-content:center;}
-        .eco-card-text h4{font-size:1.44rem;font-weight:700;color:var(--navy);margin-bottom:14px;line-height:1.5;word-break:keep-all;overflow-wrap:break-word;}
-        .eco-card-text p{font-size:1.03rem;color:var(--text-gray);line-height:1.75;font-weight:400;word-break:keep-all;overflow-wrap:break-word;}
+        .eco-card-img{min-height:100%;background-size:cover;background-position:center;}
+        .eco-card-text{padding:28px 30px;display:flex;flex-direction:column;justify-content:center;}
+        .eco-card-text h4{font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:14px;line-height:1.5;word-break:keep-all;overflow-wrap:break-word;}
+        .eco-card-text p{font-size:0.98rem;color:var(--text-gray);line-height:1.8;font-weight:400;word-break:keep-all;overflow-wrap:break-word;}
 
         .air-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
         .air-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);transition:var(--transition);}
@@ -717,13 +717,13 @@
         .equip-item .count{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:var(--navy);}
         .equip-item .spec{font-size:0.8rem;color:var(--text-gray);}
 
-        .cta-section{position:relative;padding:80px 40px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+        .cta-section{position:relative;padding:60px 40px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
         .cta-bg{position:absolute;inset:0;background:linear-gradient(135deg, #0F1B33 0%, #1B2A4A 40%, #243554 60%, #0F1B33 100%);}
         .cta-bg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);background-size:50px 50px;}
         .cta-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 40%, rgba(76,175,80,0.1) 0%, transparent 50%),radial-gradient(circle at 70% 60%, rgba(76,175,80,0.06) 0%, transparent 40%);}
         .cta-content{position:relative;z-index:2;max-width:800px;padding:0 40px;}
-        .cta-content h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--white);margin-bottom:16px;line-height:1.3;}
-        .cta-content p{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,0.85);margin-bottom:32px;font-weight:500;}
+        .cta-content h2{font-size:clamp(1.8rem, 3.5vw, 2.8rem);font-weight:800;color:var(--white);margin-bottom:16px;line-height:1.3;}
+        .cta-content p{font-size:clamp(1rem, 2vw, 1.2rem);color:rgba(255,255,255,0.85);margin-bottom:32px;font-weight:500;}
         .cta-buttons{display:flex;gap:20px;justify-content:center;align-items:center;flex-wrap:wrap;}
         .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:var(--white);padding:16px 40px;border-radius:50px;font-size:1.05rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;font-family:inherit;transition:var(--transition);}
         .cta-btn:hover{background:var(--green-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(76,175,80,0.3);}
@@ -788,8 +788,8 @@
             .org-teams,.expertise-cards{grid-template-columns:repeat(2,1fr);}
             .patents-grid{grid-template-columns:repeat(2,1fr);}
             .hero-content{padding:0 40px;}
-            .hero-title .ht-line-2{font-size:clamp(2.4rem,5.5vw,4.5rem);}
-            .hero-title .ht-line-3{font-size:clamp(1.5rem,3.2vw,2.8rem);}
+            .hero-title .ht-line-2{font-size:clamp(2.4rem, 5.5vw, 4.5rem);}
+            .hero-title .ht-line-3{font-size:clamp(1.5rem, 3.2vw, 2.8rem);}
 
             /* History Responsive */
             .history-header { margin-bottom: 40px; }
@@ -833,17 +833,18 @@
             .nav-links.open a.active::after{display:none;}
 
             /* Sections */
-            .section{padding:60px 20px;}
+            .section{padding:48px 20px;overflow-x:hidden;}
+            .section-inner{max-width:100%;overflow-x:hidden;}
 
             /* Hero */
             .hero-content{padding:0 20px;}
             .hero-text-box{max-width:100%;}
             .hero-tagline{font-size:0.72rem;letter-spacing:2px;margin-bottom:20px;}
-            .hero-title .ht-line-1{font-size:clamp(0.85rem,3vw,1.3rem);letter-spacing:2px;margin-bottom:4px;}
-            .hero-title .ht-line-2{font-size:clamp(2rem,8vw,3.2rem);}
-            .hero-title .ht-line-3{font-size:clamp(1.3rem,5vw,2rem);letter-spacing:3px;}
+            .hero-title .ht-line-1{font-size:clamp(0.85rem, 3vw, 1.3rem);letter-spacing:2px;margin-bottom:4px;}
+            .hero-title .ht-line-2{font-size:clamp(2rem, 8vw, 3.2rem);}
+            .hero-title .ht-line-3{font-size:clamp(1.3rem, 5vw, 2rem);letter-spacing:3px;}
             .hero-divider{width:60px;margin:24px auto;}
-            .hero-subtitle{font-size:clamp(0.9rem,3.5vw,1.1rem);letter-spacing:0.5px;line-height:1.7;}
+            .hero-subtitle{font-size:clamp(0.9rem, 3.5vw, 1.1rem);letter-spacing:0.5px;line-height:1.7;}
             .hero-brand{font-size:1.2em;letter-spacing:1px;}
             .hero-cta{gap:12px;margin-top:32px;}
             .hero-cta-btn{padding:12px 28px;font-size:0.88rem;}
@@ -905,11 +906,11 @@
             .patent-icon{width:60px;height:60px;font-size:1.5rem;}
 
             /* Eco Cards */
-            .eco-card{grid-template-columns:1fr;}
+            .eco-card{grid-template-columns:1fr;height:auto;}
             .eco-card-img{height:180px;}
-            .eco-card-text{padding:20px;}
-            .eco-card-text h4{font-size:1.25rem;}
-            .eco-card-text p{font-size:0.94rem;}
+            .eco-card-text{padding:22px;}
+            .eco-card-text h4{font-size:1.2rem;}
+            .eco-card-text p{font-size:0.94rem;line-height:1.75;}
 
             /* License Items */
             .license-item{padding:16px;transition:var(--transition);}
@@ -942,7 +943,7 @@
             .nav-logo{font-size:1.2rem;}
 
             /* Sections */
-            .section{padding:40px 16px;}
+            .section{padding:36px 16px;}
 
             /* Scroll indicator - smaller on small mobile */
             .hero-scroll{
@@ -1057,7 +1058,7 @@
             /* CTA Section */
             .cta-section{padding:50px 16px;}
             .cta-content{padding:0 16px;}
-            .cta-content h2{font-size:clamp(1.5rem,5vw,1.8rem);}
+            .cta-content h2{font-size:clamp(1.5rem, 5vw, 1.8rem);}
             .cta-content p{font-size:0.95rem;margin-bottom:24px;}
 
             /* CTA Buttons */
@@ -1070,6 +1071,7 @@
 
             /* Footer */
             .footer{padding:40px 16px 24px;}
+            .footer-inner{max-width:100%;overflow-x:hidden;}
             .footer-title{font-size:1.4rem;margin-bottom:40px;}
             .footer-grid{gap:30px;margin-bottom:30px;}
             .footer-hq .logo-text{font-size:1.2rem;margin-bottom:20px;}
@@ -1163,6 +1165,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
     <section class="section bg-light">
         <div class="section-inner">
@@ -1195,7 +1199,7 @@
         <div class="section-inner">
             <h2 class="section-title fade-in">Business Portfolio</h2>
             <div class="business-grid">
-                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('image/B1.webp');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Eco-Plant<br>Solution</h3><ul><li>해양 준설토 세척시설</li><li>토양세척 시설</li><li>열분해 등 자원순환 플랜트</li><li>유기물 바이오차 생산 설비</li></ul></div></div></div>
+                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('image/B1.webp');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Eco-Plant<br>Solution</h3><ul><li>해양 준설토 정화 플랜트</li><li>자원순환플랜트</li><li>유기성 슬러지 건조·탄화 시스템</li><li>오염 토양 정화·복원 시스템</li></ul></div></div></div>
                 <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('image/B2.webp');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Air Pollution<br>Control</h3><ul><li>집진시설, 링 필터 제작 설치</li><li>폐기물 소각로 제작설치</li><li>A/C 필터, 스크러버 등</li></ul></div></div></div>
                 <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('image/B3.webp');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Industrial<br>Machine & Plant</h3><ul><li>산업기계, 대형 덕트</li><li>대형 철구조물 및 플랜트 제작 설치</li></ul></div></div></div>
                 <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('image/B4.webp');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Engineering<br>& Developer</h3><ul><li>프로젝트 타당성 검토 (FS)</li><li>기본 및 상세설계 / 엔지니어링</li><li>EPC 관리</li></ul></div></div></div>
@@ -1340,10 +1344,10 @@
             <h2 class="section-title fade-in" style="text-align:center;">Eco-Plant Solution</h2>
             <p class="section-subtitle fade-in" style="text-align:center;">Sustainable Engineering for Resource Circulation</p>
             <div class="eco-grid">
-                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E1.webp');"></div><div class="eco-card-text"><h4>해양 준설토 세척시설</h4><p>고염분/유기물 제거<br>정밀 입도 분리<br>처리 용량 10~100 ton/hr 연속 처리</p></div></div>
-                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E2.webp');"></div><div class="eco-card-text"><h4>열분해 등 자원순환플랜트</h4><p>폐플라스틱/폐비닐 열분해 처리<br>고효율 에너지 회수<br>자원 재활용률 85% 이상 달성</p></div></div>
-                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E3.webp');"></div><div class="eco-card-text"><h4>유기물 바이오차 생산설비</h4><p>폐목재/가축분뇨 활용<br>탄소 격리 및 토양 개량 효과</p></div></div>
-                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E4.webp');"></div><div class="eco-card-text"><h4>토양 세척 시설</h4><p>유류/중금속 오염 제거<br>오염물질 제거율 90% 이상</p></div></div>
+                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E1.webp');"></div><div class="eco-card-text"><h4>해양 준설토 정화 플랜트</h4><p>고염분 및 유기물 정밀 전처리 공정<br>대용량 연속 처리 시스템 구축 (10~100 ton/hr)<br>준설토의 친환경적 자원 순환 실현</p></div></div>
+                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E2.webp');"></div><div class="eco-card-text"><h4>자원순환플랜트</h4><p>폐자원 에너지화(WtE) 및 고효율 열회수 시스템<br>다단 배가스 처리 설비(Cyclone, Scrubber) 적용<br>대기오염물질(SOx, NOx, 먼지) 배출 제로화 달성</p></div></div>
+                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E3.webp');"></div><div class="eco-card-text"><h4>유기성 슬러지 건조·탄화 시스템</h4><p>자체 특허 기술 적용 (Patented Technology)<br>슬러지 부피 80% 획기적 감량 (Volume Reduction)<br>친환경 고형 연료화 (Bio-Solid Fuel)</p></div></div>
+                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E4.webp');"></div><div class="eco-card-text"><h4>오염 토양 정화·복원 시스템</h4><p>유류(TPH)·중금속 등 복합 오염 정밀 정화<br>고효율 입도 분리 및 세척 메커니즘 적용<br>정화 토양의 성토재 재활용 및 부지 가치 복원</p></div></div>
             </div>
         </div>
     </section>
@@ -1488,7 +1492,7 @@
         const connectDist = 140;
 
         function initCanvas() {
-            canvas.width = window.innerWidth;
+            canvas.width = document.body.clientWidth;
             canvas.height = window.innerHeight;
         }
 
