@@ -143,8 +143,12 @@
         @media(max-width:768px){
             .nav-container{padding:0 16px;height:60px;}
             .nav-links{display:none;}
-            .nav-links.open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;width:100%;background:var(--navy-dark);padding:20px;gap:4px;box-shadow:0 8px 20px rgba(0,0,0,0.3);z-index:1000;}
+            .nav-links.open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;width:100%;background:var(--navy-dark);padding:24px 20px;gap:2px;box-shadow:0 8px 20px rgba(0,0,0,0.3);z-index:1000;}
             .mobile-toggle{display:block;}
+            .nav-links.open a{display:flex;align-items:center;padding:14px 20px;font-size:1.05rem;font-weight:500;color:rgba(255,255,255,0.85);border-radius:8px;transition:background 0.2s ease,color 0.2s ease;min-height:48px;line-height:1.4;}
+            .nav-links.open a:hover,.nav-links.open a:active{background:rgba(76,175,80,0.12);color:#66BB6A;}
+            .nav-links.open a.active{background:rgba(76,175,80,0.15);color:#66BB6A;font-weight:600;}
+            .nav-links.open a.active::after{display:none;}
             .section{padding:60px 20px;}
             .resources-hero{min-height:320px;}
             .hero-inner{padding:60px 20px;}
