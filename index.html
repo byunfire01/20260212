@@ -850,9 +850,18 @@
             .nav-links.open a.active{background:rgba(76,175,80,0.15);color:#66BB6A;font-weight:600;}
             .nav-links.open a.active::after{display:none;}
 
-            /* Sections */
-            .section{padding:48px 20px;overflow-x:hidden;}
+            /* Sections — 모바일에서 contain 제거: fade-in transform과 충돌하여 스크롤 걸림 유발 */
+            .section{padding:48px 20px;overflow-x:hidden;contain:none;isolation:auto;}
             .section-inner{max-width:100%;overflow-x:hidden;}
+
+            /* 모바일 fade-in: transform 이동 제거 → opacity만 사용하여 스크롤 걸림 방지 */
+            /* 원본: transform:translateY(30px) / translateX(-40px) / translateX(40px) */
+            .fade-in{transform:none;transition:opacity 0.5s ease;}
+            .fade-in.visible{transform:none;}
+            .fade-in-left{transform:none;transition:opacity 0.5s ease;}
+            .fade-in-left.visible{transform:none;}
+            .fade-in-right{transform:none;transition:opacity 0.5s ease;}
+            .fade-in-right.visible{transform:none;}
 
             /* Hero */
             .hero-content{padding:0 20px;}

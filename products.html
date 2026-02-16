@@ -205,6 +205,13 @@
             .nav-links.open a.active{background:rgba(76,175,80,0.15);color:#66BB6A;font-weight:600;}
             .nav-links.open a.active::after{display:none;}
             .section{padding:48px 20px;}
+            /* 모바일 fade-in: transform 이동 제거 → opacity만 사용하여 스크롤 걸림 방지 */
+            .fade-in{transform:none;transition:opacity 0.5s ease;}
+            .fade-in.visible{transform:none;}
+            .fade-in-left{transform:none;transition:opacity 0.5s ease;}
+            .fade-in-left.visible{transform:none;}
+            .fade-in-right{transform:none;transition:opacity 0.5s ease;}
+            .fade-in-right.visible{transform:none;}
             .products-hero{min-height:320px;}
             .hero-inner{padding:60px 20px;}
             .product-grid{grid-template-columns:1fr;gap:20px;}
