@@ -297,7 +297,7 @@
             position:fixed;
             bottom:30px;
             left:50%;
-            transform:translateX(-50%);
+            transform:translateX(-50%) translateZ(0);
             z-index:999;
             opacity:0;
             animation:heroFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 2.4s forwards, scrollBounce 2s ease-in-out 3s infinite;
@@ -380,6 +380,24 @@
             .hero-divider::before,.hero-divider::after,.hero-title .ht-line-2::before,.hero-title .ht-line-2::after{animation:none !important;}
             .hero-overlay::before,.hero-overlay::after{animation:none !important;}
             .hero-brand{animation:none !important;}
+        }
+
+        /* =============================================
+           PERFORMANCE: GPU Promotion & Scroll Optimization
+           ============================================= */
+        /* Promote fixed/sticky elements to own compositor layer */
+        .navbar{will-change:background-color,box-shadow;transform:translateZ(0);}
+        .hero-scroll{will-change:transform,opacity;}
+
+        /* Section isolation: contain layout/paint to prevent cross-section repaints */
+        .section{contain:layout style paint;isolation:isolate;}
+
+        /* Momentum scrolling for any scrollable containers */
+        .modal-content{-webkit-overflow-scrolling:touch;}
+
+        /* Reduce mobile backdrop-filter cost */
+        @media(max-width:768px){
+            .navbar.scrolled{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
         }
 
         /* 공통 섹션 */
@@ -1600,35 +1618,64 @@
             }
         }, { passive: true });
 
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-
+        /* --- Optimized Scroll Handler: rAF-throttled, passive, no layout thrashing --- */
+        const navbar = document.getElementById('navbar');
         const sections = document.querySelectorAll('section[id], footer[id]');
         const navLinksList = document.querySelectorAll('.nav-links a');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= (sectionTop - 150)) {
-                    current = section.getAttribute('id');
-                }
-            });
+        // Pre-cache section offsets (recalculate on resize, not on every scroll)
+        let sectionOffsets = [];
+        function cacheSectionOffsets() {
+            sectionOffsets = Array.from(sections).map(section => ({
+                id: section.getAttribute('id'),
+                top: section.offsetTop
+            }));
+        }
+        cacheSectionOffsets();
+        window.addEventListener('resize', cacheSectionOffsets, { passive: true });
 
-            navLinksList.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
+        let scrollTicking = false;
+        function onScroll() {
+            if (scrollTicking) return;
+            scrollTicking = true;
+            requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+
+                // Navbar state
+                navbar.classList.toggle('scrolled', scrollY > 50);
+
+                // Active nav link — reads from cached offsets (no forced reflow)
+                let current = '';
+                for (let i = 0; i < sectionOffsets.length; i++) {
+                    if (scrollY >= sectionOffsets[i].top - 150) {
+                        current = sectionOffsets[i].id;
+                    }
                 }
+                navLinksList.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href').includes(current));
+                });
+
+                scrollTicking = false;
             });
-        });
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
         document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
 
+        /* Pause hero animations when scrolled out of viewport (saves GPU on mobile) */
+        const heroEl = document.querySelector('.hero');
+        if (heroEl) {
+            const heroObserver = new IntersectionObserver(([entry]) => {
+                heroEl.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+                heroEl.querySelectorAll('[style*="animation"], .hero-overlay, .hero-divider, .hero-brand, .hero-scroll-mouse').forEach(el => {
+                    el.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+                });
+            }, { threshold: 0 });
+            heroObserver.observe(heroEl);
+        }
 
         /* -----------------------------------------------------
            4. [NEW] HISTORY TAB LOGIC
@@ -1977,7 +2024,7 @@
 
         // Add click and touchend event listeners for mobile compatibility
         heroScroll.addEventListener('click', scrollToNextSection);
-        heroScroll.addEventListener('touchend', scrollToNextSection);
+        heroScroll.addEventListener('touchend', scrollToNextSection, { passive: false });
 
         // Add scroll event listener (passive for performance)
         window.addEventListener('scroll', checkScrollPosition, { passive: true });
