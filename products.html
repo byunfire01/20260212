@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>제품소개 | SHINHWA E&P</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,8 +27,8 @@
             --transition: all 0.4s cubic-bezier(0.25,0.8,0.25,1);
         }
         *{margin:0;padding:0;box-sizing:border-box;}
-        html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden;-webkit-text-size-adjust:100%;}
-        body{font-family:'Noto Sans KR','Montserrat',sans-serif;color:var(--text-dark);background:var(--bg-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;max-width:100%;}
+        html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden;}
+        body{font-family:'Noto Sans KR','Montserrat',sans-serif;color:var(--text-dark);background:var(--bg-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;max-width:100vw;}
 
         /* NAV */
         .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;background:var(--navy-dark);border-bottom:1px solid rgba(255,255,255,0.08);transition:var(--transition);}
@@ -84,7 +84,7 @@
         .product-btn:hover i{transform:translateX(4px);}
 
         /* COMPARISON TABLE */
-        .comparison-section{background:var(--white);overflow:hidden;}
+        .comparison-section{background:var(--white);}
         .comparison-wrapper{max-width:1400px;margin:0 auto;overflow-x:auto;}
         .comparison-table{width:100%;border-collapse:collapse;table-layout:fixed;}
         .comparison-table col:nth-child(1){width:22%;}
@@ -271,7 +271,7 @@
             .footer-inner{max-width:100%;overflow-x:hidden;}
             .footer-hq .contact-info span{flex-wrap:wrap;word-break:break-all;}
             .factory-item span{word-break:break-all;}
-            .modal-content{padding:20px 14px;max-width:100%;width:calc(100% - 24px);}
+            .modal-content{padding:20px 14px;max-width:100vw;width:calc(100% - 24px);}
             .modal-header h2{font-size:1.3rem;}
             .form-submit{padding:12px 24px;font-size:0.95rem;}
         }
@@ -279,7 +279,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
-<div id="page-wrapper" style="overflow:hidden;width:100%;max-width:100%;position:relative;">
+
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -830,6 +830,5 @@
 })();
     </script>
 
-</div>
 </body>
 </html>
