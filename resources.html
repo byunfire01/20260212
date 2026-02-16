@@ -247,7 +247,7 @@
         <!-- Hero content -->
         <div class="hero-inner">
             <h1 class="fade-in"><span>자료실</span></h1>
-            <p class="fade-in">회사 매뉴얼, 시공사진, 기술자료 등을 다운로드 하실 수 있습니다.</p>
+            <p class="fade-in">회사소개서, 시공사진, 기술자료 등을 다운로드 하실 수 있습니다.</p>
         </div>
     </section>
 
@@ -257,7 +257,7 @@
             <!-- Category Filter Tabs -->
             <div class="filter-tabs fade-in">
                 <button class="filter-tab active" data-category="all">전체 <span class="count" id="count-all">(0)</span></button>
-                <button class="filter-tab" data-category="회사 매뉴얼">회사 매뉴얼 <span class="count" id="count-manual">(0)</span></button>
+                <button class="filter-tab" data-category="회사소개서">회사소개서 <span class="count" id="count-manual">(0)</span></button>
                 <button class="filter-tab" data-category="시공사진">시공사진 <span class="count" id="count-photos">(0)</span></button>
                 <button class="filter-tab" data-category="기술자료">기술자료 <span class="count" id="count-tech">(0)</span></button>
                 <button class="filter-tab" data-category="카탈로그">카탈로그 <span class="count" id="count-catalog">(0)</span></button>
@@ -318,7 +318,7 @@
            4. 홈페이지 자료실에 자동 반영됨
 
            📝 파일 분류 방법 (파일명 앞에 태그 붙이기):
-           - [매뉴얼] 회사소개서.pdf       → "회사 매뉴얼" 카테고리
+           - [매뉴얼] 회사소개서.pdf       → "회사소개서" 카테고리
            - [시공사진] 김해공장 설치.jpg  → "시공사진" 카테고리
            - [기술자료] 링필터 사양서.pdf  → "기술자료" 카테고리
            - [카탈로그] 2025 제품카탈로그.pdf → "카탈로그" 카테고리
@@ -419,7 +419,7 @@
 
         /* Category Detection from filename */
         function detectCategory(filename) {
-            if (filename.startsWith('[매뉴얼]') || filename.startsWith('[메뉴얼]')) return '회사 매뉴얼';
+            if (filename.startsWith('[매뉴얼]') || filename.startsWith('[메뉴얼]')) return '회사소개서';
             if (filename.startsWith('[시공사진]') || filename.startsWith('[시공]')) return '시공사진';
             if (filename.startsWith('[기술자료]') || filename.startsWith('[기술]')) return '기술자료';
             if (filename.startsWith('[카탈로그]') || filename.startsWith('[카타로그]')) return '카탈로그';
@@ -461,7 +461,7 @@
         function updateCategoryCounts(files) {
             const counts = {
                 'all': files.length,
-                '회사 매뉴얼': 0,
+                '회사소개서': 0,
                 '시공사진': 0,
                 '기술자료': 0,
                 '카탈로그': 0
@@ -475,7 +475,7 @@
             });
 
             document.getElementById('count-all').textContent = `(${counts['all']})`;
-            document.getElementById('count-manual').textContent = `(${counts['회사 매뉴얼']})`;
+            document.getElementById('count-manual').textContent = `(${counts['회사소개서']})`;
             document.getElementById('count-photos').textContent = `(${counts['시공사진']})`;
             document.getElementById('count-tech').textContent = `(${counts['기술자료']})`;
             document.getElementById('count-catalog').textContent = `(${counts['카탈로그']})`;
@@ -661,7 +661,7 @@
 4. 홈페이지 자료실에 자동 반영됨
 
 📝 파일 분류 방법 (파일명 앞에 태그 붙이기):
-- [매뉴얼] 회사소개서.pdf       → "회사 매뉴얼" 카테고리
+- [매뉴얼] 회사소개서.pdf       → "회사소개서" 카테고리
 - [시공사진] 김해공장 설치.jpg  → "시공사진" 카테고리
 - [기술자료] 링필터 사양서.pdf  → "기술자료" 카테고리
 - [카탈로그] 2025 제품카탈로그.pdf → "카탈로그" 카테고리
