@@ -419,7 +419,7 @@
 
         /* Category Detection from filename */
         function detectCategory(filename) {
-            if (filename.startsWith('[매뉴얼]') || filename.startsWith('[메뉴얼]')) return '회사소개서';
+            if (filename.startsWith('[매뉴얼]') || filename.startsWith('[메뉴얼]') || filename.startsWith('[회사소개서]')) return '회사소개서';
             if (filename.startsWith('[시공사진]') || filename.startsWith('[시공]')) return '시공사진';
             if (filename.startsWith('[기술자료]') || filename.startsWith('[기술]')) return '기술자료';
             if (filename.startsWith('[카탈로그]') || filename.startsWith('[카타로그]')) return '카탈로그';
