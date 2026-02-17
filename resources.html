@@ -122,6 +122,19 @@
         .factory-item span{font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;}
         .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;text-align:center;font-size:0.85rem;color:rgba(255,255,255,0.4);}
 
+        /* SCROLL INDICATOR */
+        .hero-scroll{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);z-index:999;opacity:0;animation:heroFadeUp 0.8s ease 1.5s forwards, scrollBounce 2s ease-in-out 2.5s infinite;transition:opacity 0.3s ease,visibility 0.3s ease;cursor:pointer;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);background:rgba(0,0,0,0.15);padding:12px 16px;border-radius:30px;box-shadow:0 2px 12px rgba(0,0,0,0.2);min-width:44px;min-height:44px;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+        .hero-scroll.hidden{opacity:0;visibility:hidden;pointer-events:none;}
+        .hero-scroll.at-bottom .hero-scroll-inner{transform:rotate(180deg);}
+        .hero-scroll-inner{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.3s,transform 0.3s ease;}
+        .hero-scroll:hover .hero-scroll-inner{color:rgba(255,255,255,1);}
+        .hero-scroll-mouse{width:24px;height:38px;border:2px solid currentColor;border-radius:12px;position:relative;}
+        .hero-scroll-mouse::after{content:'';position:absolute;top:7px;left:50%;transform:translateX(-50%);width:3px;height:7px;border-radius:2px;background:currentColor;animation:heroScrollDot 1.8s ease-in-out infinite;}
+        .hero-scroll-label{font-family:'Montserrat',sans-serif;font-size:0.65rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;}
+        @keyframes heroFadeUp{to{opacity:1;transform:translateX(-50%) translateY(0);}}
+        @keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(-8px);}}
+        @keyframes heroScrollDot{0%{opacity:1;transform:translateX(-50%) translateY(0);}50%{opacity:0.3;transform:translateX(-50%) translateY(10px);}100%{opacity:0;transform:translateX(-50%) translateY(16px);}}
+
         /* ANIMATIONS */
         .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
         .fade-in.visible{opacity:1;transform:translateY(0);}
@@ -174,6 +187,9 @@
             .footer-grid{grid-template-columns:1fr;gap:40px;}
             .footer-hq .logo-text{font-size:1.3rem;}
             .nav-logo{font-size:1.2rem;}
+            .hero-scroll{bottom:20px;padding:10px 14px;min-width:40px;min-height:40px;}
+            .hero-scroll-mouse{width:20px;height:32px;}
+            .hero-scroll-label{font-size:0.6rem;}
         }
 
         /* RESPONSIVE - Small Mobile */
@@ -211,6 +227,9 @@
             .footer-inner{max-width:100%;overflow-x:hidden;}
             .footer-hq .contact-info span{flex-wrap:wrap;word-break:break-all;}
             .factory-item span{word-break:break-all;}
+            .hero-scroll{bottom:16px;padding:8px 12px;}
+            .hero-scroll-mouse{width:18px;height:28px;}
+            .hero-scroll-label{font-size:0.55rem;letter-spacing:1.5px;}
         }
     </style>
 </head>
@@ -250,6 +269,14 @@
             <p class="fade-in">회사소개서, 시공사진, 기술자료 등을 다운로드 하실 수 있습니다.</p>
         </div>
     </section>
+
+    <!-- Scroll Indicator -->
+    <div class="hero-scroll">
+        <a href="#" class="hero-scroll-inner">
+            <div class="hero-scroll-mouse"></div>
+            <span class="hero-scroll-label">Scroll</span>
+        </a>
+    </div>
 
     <!-- Resources Section -->
     <section class="section">
@@ -643,6 +670,61 @@
 
             // Start auto-rotation every 5 seconds
             setInterval(rotateResourceBg, 5000);
+        })();
+
+        /* Persistent Scroll Indicator */
+        (function() {
+            const heroScroll = document.querySelector('.hero-scroll');
+            if (!heroScroll) return;
+
+            const sections = Array.from(document.querySelectorAll('.section, .resources-hero, .footer'));
+            let lastScrollTime = 0;
+
+            function isAtBottom() {
+                return window.innerHeight + window.scrollY >= document.body.scrollHeight - 100;
+            }
+
+            function scrollToNextSection(e) {
+                e.preventDefault();
+                var now = Date.now();
+                if (now - lastScrollTime < 400) return;
+                lastScrollTime = now;
+
+                if (isAtBottom()) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+
+                const currentPosition = window.scrollY + (window.innerHeight / 3);
+                let nextSection = null;
+
+                for (let i = 0; i < sections.length; i++) {
+                    if (sections[i].offsetTop > currentPosition + 100) {
+                        nextSection = sections[i];
+                        break;
+                    }
+                }
+
+                if (nextSection) {
+                    nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+                }
+            }
+
+            function checkScrollPosition() {
+                if (isAtBottom()) {
+                    heroScroll.classList.remove('hidden');
+                    heroScroll.classList.add('at-bottom');
+                } else {
+                    heroScroll.classList.remove('at-bottom');
+                }
+            }
+
+            heroScroll.addEventListener('click', scrollToNextSection);
+            heroScroll.addEventListener('touchend', scrollToNextSection, { passive: false });
+            window.addEventListener('scroll', checkScrollPosition, { passive: true });
+            checkScrollPosition();
         })();
     </script>
 
