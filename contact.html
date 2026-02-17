@@ -99,6 +99,16 @@
         .map-loading i{margin-right:8px;animation:spin 1s linear infinite;}
         @keyframes spin{to{transform:rotate(360deg);}}
 
+        /* Mobile Map Fallback */
+        .map-fallback{display:none;width:100%;height:100%;position:absolute;inset:0;z-index:2;background:linear-gradient(135deg,rgba(27,42,74,0.06)0%,rgba(76,175,80,0.08)100%);flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:20px;padding:24px;}
+        .map-fallback.active{display:flex;}
+        .map-fallback-icon{width:80px;height:80px;background:rgba(76,175,80,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+        .map-fallback-icon i{font-size:2rem;color:var(--green);}
+        .map-fallback-text{font-size:1rem;color:var(--text-gray);line-height:1.6;}
+        .map-fallback-text strong{display:block;font-size:1.1rem;color:var(--navy);margin-bottom:4px;}
+        .map-fallback-btn{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:var(--white);padding:14px 32px;border-radius:50px;font-size:1rem;font-weight:600;text-decoration:none;transition:var(--transition);border:none;cursor:pointer;font-family:inherit;}
+        .map-fallback-btn:hover{background:var(--green-light);transform:translateY(-2px);box-shadow:0 4px 16px rgba(76,175,80,0.3);}
+
         .location-info-card{margin-top:24px;background:var(--white);border-radius:var(--radius);padding:24px 32px;box-shadow:var(--shadow-card);display:flex;align-items:center;gap:16px;opacity:0;transform:translateY(10px);transition:opacity 0.4s ease,transform 0.4s ease;}
         .location-info-card.visible{opacity:1;transform:translateY(0);}
         .location-info-card .loc-icon{width:48px;height:48px;background:rgba(76,175,80,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
@@ -355,6 +365,16 @@
             <!-- Map Container -->
             <div class="map-container fade-in" id="mapContainer">
                 <div class="map-loading"><i class="fas fa-spinner"></i> 지도를 불러오는 중...</div>
+                <div class="map-fallback" id="mapFallback">
+                    <div class="map-fallback-icon"><i class="fas fa-map-location-dot"></i></div>
+                    <div class="map-fallback-text">
+                        <strong id="fallbackName">본사 (부산)</strong>
+                        <span id="fallbackAddress">부산광역시 동래구 아시아드대로 208번길 19</span>
+                    </div>
+                    <a class="map-fallback-btn" id="fallbackLink" href="#" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-map-marked-alt"></i> 네이버 지도에서 보기
+                    </a>
+                </div>
             </div>
 
             <!-- Location Info Card -->
@@ -428,6 +448,9 @@
 
         let loadedMaps = {};
 
+        // Detect mobile/tablet (touch device with narrow screen)
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+
         /* ============================================
            MAP TAB SWITCHING
            ============================================ */
@@ -437,6 +460,7 @@
 
             const container = document.getElementById('mapContainer');
             const locationInfo = document.getElementById('locationInfo');
+            const fallback = document.getElementById('mapFallback');
 
             // Update active tab
             document.querySelectorAll('.map-tab').forEach(tab => tab.classList.remove('active'));
@@ -445,23 +469,32 @@
             // Fade out location info
             locationInfo.classList.remove('visible');
 
-            // Hide all existing iframes
-            container.querySelectorAll('iframe').forEach(iframe => iframe.classList.remove('active'));
-
-            // Lazy load: create iframe only if not already loaded
-            if (!loadedMaps[locationKey]) {
-                const iframe = document.createElement('iframe');
-                iframe.src = loc.mapUrl;
-                iframe.setAttribute('allowfullscreen', '');
-                iframe.setAttribute('loading', 'lazy');
-                iframe.dataset.location = locationKey;
-                iframe.addEventListener('load', function() {
-                    this.classList.add('active');
-                });
-                container.appendChild(iframe);
-                loadedMaps[locationKey] = iframe;
+            if (isMobile) {
+                // Mobile: show fallback card with link to open Naver Maps
+                container.querySelectorAll('iframe').forEach(iframe => iframe.classList.remove('active'));
+                document.getElementById('fallbackName').textContent = loc.name;
+                document.getElementById('fallbackAddress').textContent = loc.address;
+                document.getElementById('fallbackLink').href = loc.mapUrl;
+                fallback.classList.add('active');
             } else {
-                loadedMaps[locationKey].classList.add('active');
+                // Desktop: embed iframe
+                fallback.classList.remove('active');
+                container.querySelectorAll('iframe').forEach(iframe => iframe.classList.remove('active'));
+
+                if (!loadedMaps[locationKey]) {
+                    const iframe = document.createElement('iframe');
+                    iframe.src = loc.mapUrl;
+                    iframe.setAttribute('allowfullscreen', '');
+                    iframe.setAttribute('loading', 'lazy');
+                    iframe.dataset.location = locationKey;
+                    iframe.addEventListener('load', function() {
+                        this.classList.add('active');
+                    });
+                    container.appendChild(iframe);
+                    loadedMaps[locationKey] = iframe;
+                } else {
+                    loadedMaps[locationKey].classList.add('active');
+                }
             }
 
             // Update location info with fade
