@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Core Technology | SHINHWA E&P</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
@@ -28,16 +28,9 @@
         }
         *{margin:0;padding:0;box-sizing:border-box;}
         html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden;}
-        body{font-family:'Noto Sans KR','Montserrat',sans-serif;color:var(--text-dark);background:var(--bg-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;max-width:100vw;}
+        body{font-family:'Inter','Montserrat','Noto Sans KR',sans-serif;color:var(--text-dark);background:var(--bg-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;max-width:100vw;}
 
         /* NAV */
-        /* LANG SWITCH */
-        .lang-switch{display:flex;align-items:center;gap:4px;margin-left:16px;padding-left:16px;border-left:1px solid rgba(255,255,255,0.15);}
-        .lang-btn{color:rgba(255,255,255,0.5);text-decoration:none;font-family:"Montserrat",sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.5px;padding:4px 8px;border-radius:4px;transition:all 0.3s ease;}
-        .lang-btn:hover{color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.08);}
-        .lang-btn.active{color:var(--green-light);}
-        .lang-divider{color:rgba(255,255,255,0.2);font-size:0.85rem;}
-
         .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;background:var(--navy-dark);border-bottom:1px solid rgba(255,255,255,0.08);transition:var(--transition);}
         .navbar.scrolled{background:rgba(15,27,51,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
         .nav-container{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:70px;}
@@ -48,6 +41,13 @@
         .nav-links a:hover,.nav-links a.active{color:var(--green-light);}
         .nav-links a.active::after{content:'';position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);width:24px;height:3px;background:var(--green);border-radius:2px;}
         .mobile-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer;}
+
+        /* LANG SWITCH */
+        .lang-switch{display:flex;align-items:center;gap:4px;margin-left:16px;padding-left:16px;border-left:1px solid rgba(255,255,255,0.15);}
+        .lang-btn{color:rgba(255,255,255,0.5);text-decoration:none;font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.5px;padding:4px 8px;border-radius:4px;transition:all 0.3s ease;}
+        .lang-btn:hover{color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.08);}
+        .lang-btn.active{color:var(--green-light);}
+        .lang-divider{color:rgba(255,255,255,0.2);font-size:0.85rem;}
 
         /* HERO */
         .technology-hero{position:relative;min-height:400px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding-top:70px;}
@@ -213,9 +213,6 @@
             .nav-links{display:none;}
             .nav-links.open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;width:100%;background:var(--navy-dark);padding:24px 20px;gap:2px;box-shadow:0 8px 20px rgba(0,0,0,0.3);z-index:1000;}
             .mobile-toggle{display:block;}
-            .lang-switch{border-left:none;margin-left:0;padding-left:0;margin-right:8px;}
-            .nav-links.open .lang-switch{display:none;}
-
             .mobile-toggle i{transition:transform 0.3s ease;}
             .mobile-toggle .fa-times{transform:rotate(90deg);}
             .cta-buttons{flex-direction:column;align-items:center;width:100%;}
@@ -228,7 +225,6 @@
             .nav-links.open a.active{background:rgba(76,175,80,0.15);color:#66BB6A;font-weight:600;}
             .nav-links.open a.active::after{display:none;}
             .section{padding:48px 20px;}
-            /* 모바일 fade-in: transform 이동 제거 → opacity만 사용하여 스크롤 걸림 방지 */
             .fade-in{transform:none;transition:opacity 0.5s ease;}
             .fade-in.visible{transform:none;}
             .fade-in-left{transform:none;transition:opacity 0.5s ease;}
@@ -255,6 +251,8 @@
             .hero-scroll{bottom:20px;padding:10px 14px;min-width:40px;min-height:40px;}
             .hero-scroll-mouse{width:20px;height:32px;}
             .hero-scroll-label{font-size:0.6rem;}
+            .lang-switch{border-left:none;margin-left:0;padding-left:0;margin-right:8px;}
+            .nav-links.open .lang-switch{border-left:none;padding:10px 20px;border-top:1px solid rgba(255,255,255,0.08);margin-top:8px;}
         }
 
         /* RESPONSIVE - Small Mobile */
@@ -323,9 +321,9 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="lang-switch" id="langSwitch">
-                <a href="technology.html" class="lang-btn active" title="한국어">KR</a>
+                <a href="../technology.html" class="lang-btn" title="한국어">KR</a>
                 <span class="lang-divider">|</span>
-                <a href="en/technology.html" class="lang-btn" title="English">EN</a>
+                <a href="technology.html" class="lang-btn active" title="English">EN</a>
             </div>
             <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
         </div>
@@ -335,17 +333,17 @@
     <section class="technology-hero">
         <!-- Background slideshow layer -->
         <div class="technology-bg-slideshow">
-            <div class="technology-bg-slide active" style="background-image: url('image/O1.webp')"></div>
-            <div class="technology-bg-slide" style="background-image: url('image/O2.webp')"></div>
-            <div class="technology-bg-slide" style="background-image: url('image/O3.webp')"></div>
-            <div class="technology-bg-slide" style="background-image: url('image/O4.webp')"></div>
+            <div class="technology-bg-slide active" style="background-image: url('../image/O1.webp')"></div>
+            <div class="technology-bg-slide" style="background-image: url('../image/O2.webp')"></div>
+            <div class="technology-bg-slide" style="background-image: url('../image/O3.webp')"></div>
+            <div class="technology-bg-slide" style="background-image: url('../image/O4.webp')"></div>
         </div>
         <!-- Dark overlay for text readability -->
         <div class="technology-bg-overlay"></div>
         <!-- Hero content -->
         <div class="hero-inner">
             <h1 class="fade-in">Core <span>Technology</span></h1>
-            <p class="fade-in">신화이엔피의 혁신적인 핵심 기술을 소개합니다.<br>차별화된 기술력으로 산업의 미래를 이끌어갑니다.</p>
+            <p class="fade-in">Discover SHINHWA E&P's innovative core technologies.<br>Leading the future of industry with differentiated expertise.</p>
         </div>
     </section>
 
@@ -361,120 +359,120 @@
     <section class="section" id="technology">
         <div class="section-inner">
             <h2 class="section-title fade-in">Technology Lineup</h2>
-            <p class="section-subtitle fade-in">현장에서 검증된 핵심 기술로 최적의 환경 솔루션을 제공합니다</p>
+            <p class="section-subtitle fade-in">Delivering optimal environmental solutions with field-proven core technologies</p>
 
             <div class="product-grid">
 
-            <!-- Product 1: 지능형 고효율 링필터 시스템 -->
+            <!-- Product 1: Intelligent High-Efficiency Ring Filter System -->
             <div class="product-card fade-in">
                 <div class="product-img">
-                    <img src="image/P1.webp" alt="지능형 고효율 링필터 시스템" loading="lazy" width="400" height="290">
+                    <img src="../image/P1.webp" alt="Intelligent High-Efficiency Ring Filter System" loading="lazy" width="400" height="290">
                 </div>
                 <div class="product-body">
-                    <h3 class="product-name">지능형 고효율 링필터 시스템</h3>
-                    <p class="product-desc">독자적인 프리코팅 기술과 IoT 모니터링을 결합하여 집진 효율을 극대화한 신화이엔피의 핵심 대기환경 솔루션입니다.</p>
+                    <h3 class="product-name">Intelligent High-Efficiency Ring Filter System</h3>
+                    <p class="product-desc">SHINHWA E&P's core air environmental solution that maximizes dust collection efficiency by combining proprietary pre-coating technology with IoT monitoring.</p>
                     <div class="product-tags">
-                        <span class="product-tag">#미세먼지저감</span>
-                        <span class="product-tag">#IoT모니터링</span>
-                        <span class="product-tag">#특허기술</span>
+                        <span class="product-tag">#FineDustReduction</span>
+                        <span class="product-tag">#IoTMonitoring</span>
+                        <span class="product-tag">#PatentedTech</span>
                     </div>
                     <div class="product-btn-wrapper">
-                        <a href="pr-center.html" class="product-btn">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                        <a href="pr-center.html" class="product-btn">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Product 2: 유류중금속 오염토양세척설비 -->
+            <!-- Product 2: Oil & Heavy Metal Contaminated Soil Washing System -->
             <div class="product-card fade-in">
                 <div class="product-img">
-                    <img src="image/P2.webp" alt="유류중금속 오염토양세척설비" loading="lazy" width="400" height="290">
+                    <img src="../image/P2.webp" alt="Oil & Heavy Metal Contaminated Soil Washing System" loading="lazy" width="400" height="290">
                 </div>
                 <div class="product-body">
-                    <h3 class="product-name">유류중금속 오염토양세척설비</h3>
-                    <p class="product-desc">하이드로사이클론을 이용한 정밀 입경 분리로 중금속 등 오염 토양을 물리·화학적으로 정화하고 용수를 재이용하는 시스템입니다.</p>
+                    <h3 class="product-name">Oil & Heavy Metal Contaminated Soil Washing System</h3>
+                    <p class="product-desc">A system that uses hydrocyclone-based precision particle size separation to physically and chemically remediate contaminated soil containing heavy metals and recycles process water.</p>
                     <div class="product-tags">
-                        <span class="product-tag">#토양정화</span>
-                        <span class="product-tag">#중금속제거</span>
-                        <span class="product-tag">#자원순환</span>
+                        <span class="product-tag">#SoilRemediation</span>
+                        <span class="product-tag">#HeavyMetalRemoval</span>
+                        <span class="product-tag">#ResourceRecycling</span>
                     </div>
                     <div class="product-btn-wrapper">
-                        <a href="pr-center.html" class="product-btn">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                        <a href="pr-center.html" class="product-btn">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Product 3: 유기성 슬러지 건조·탄화 시스템 -->
+            <!-- Product 3: Organic Sludge Drying & Carbonization System -->
             <div class="product-card fade-in">
                 <div class="product-img">
-                    <img src="image/P3.webp" alt="유기성 슬러지 건조·탄화 시스템" loading="lazy" width="400" height="290">
+                    <img src="../image/P3.webp" alt="Organic Sludge Drying & Carbonization System" loading="lazy" width="400" height="290">
                 </div>
                 <div class="product-body">
-                    <h3 class="product-name">유기성 슬러지 건조·탄화 시스템</h3>
-                    <p class="product-desc">자체 특허 기술(Patented Technology)을 적용하여 유기성 슬러지의 부피를 80% 이상 획기적으로 감량하고, 이를 친환경 고형 연료(Bio-SRF)로 전환하는 고효율 자원 순환 설비입니다.</p>
+                    <h3 class="product-name">Organic Sludge Drying &amp; Carbonization System</h3>
+                    <p class="product-desc">Applying proprietary patented technology to drastically reduce organic sludge volume by over 80% and convert it into eco-friendly solid fuel (Bio-SRF)—a high-efficiency resource recovery system.</p>
                     <div class="product-tags">
-                        <span class="product-tag">#특허기술</span>
-                        <span class="product-tag">#슬러지감량</span>
-                        <span class="product-tag">#고형연료화</span>
+                        <span class="product-tag">#PatentedTech</span>
+                        <span class="product-tag">#SludgeReduction</span>
+                        <span class="product-tag">#SolidFuel</span>
                     </div>
                     <div class="product-btn-wrapper">
-                        <a href="pr-center.html" class="product-btn">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                        <a href="pr-center.html" class="product-btn">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Product 4: 해양·호소 준설토 정화 시스템 -->
+            <!-- Product 4: Marine & Lake Dredged Sediment Treatment System -->
             <div class="product-card fade-in">
                 <div class="product-img">
-                    <img src="image/P4.webp" alt="해양·호소 준설토 정화 시스템" loading="lazy" width="400" height="290">
+                    <img src="../image/P4.webp" alt="Marine & Lake Dredged Sediment Treatment System" loading="lazy" width="400" height="290">
                 </div>
                 <div class="product-body">
-                    <h3 class="product-name">해양·호소 준설토 정화 시스템</h3>
-                    <p class="product-desc">특허(제10-2141236호) 기술을 적용하여 <strong>해양(항만) 및 호소(댐/저수지)</strong>에서 발생하는 오염된 준설토를 정밀 세척·선별하고, 염분과 유기물을 제거하여 친환경 성토재로 자원화하는 통합 솔루션입니다.</p>
+                    <h3 class="product-name">Marine &amp; Lake Dredged Sediment Treatment System</h3>
+                    <p class="product-desc">An integrated solution applying Patent No. 10-2141236 technology to precisely wash and sort contaminated dredged sediment from marine (port) and lake (dam/reservoir) environments, removing salt and organic matter to convert it into eco-friendly fill material.</p>
                     <div class="product-tags">
-                        <span class="product-tag">#해양항만준설</span>
-                        <span class="product-tag">#호소수질개선</span>
-                        <span class="product-tag">#특허기술_2141236</span>
+                        <span class="product-tag">#MarinePortDredging</span>
+                        <span class="product-tag">#LakeWaterImprovement</span>
+                        <span class="product-tag">#Patent_2141236</span>
                     </div>
                     <div class="product-btn-wrapper">
-                        <a href="pr-center.html" class="product-btn">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                        <a href="pr-center.html" class="product-btn">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Product 5: 저온 열탈착(TPU) 오염토양 정화 설비 -->
+            <!-- Product 5: Low-Temperature Thermal Desorption (TPU) Soil Remediation System -->
             <div class="product-card fade-in">
                 <div class="product-img">
-                    <img src="image/P5.webp" alt="저온 열탈착(TPU) 오염토양 정화 설비" loading="lazy" width="400" height="290">
+                    <img src="../image/P5.webp" alt="Low-Temperature Thermal Desorption (TPU) Soil Remediation System" loading="lazy" width="400" height="290">
                 </div>
                 <div class="product-body">
-                    <h3 class="product-name">저온 열탈착(TPU) 오염토양 정화 설비</h3>
-                    <p class="product-desc">유류 및 유기화합물로 오염된 토양을 열적으로 분리·정화하는 기술로, 고난도 환경 복원 현장에 최적화된 솔루션입니다.</p>
+                    <h3 class="product-name">Low-Temperature Thermal Desorption (TPU) Soil Remediation System</h3>
+                    <p class="product-desc">A technology that thermally separates and purifies soil contaminated with petroleum and organic compounds, optimized for challenging environmental restoration sites.</p>
                     <div class="product-tags">
-                        <span class="product-tag">#열탈착공법</span>
-                        <span class="product-tag">#유류오염정화</span>
-                        <span class="product-tag">#환경복원</span>
+                        <span class="product-tag">#ThermalDesorption</span>
+                        <span class="product-tag">#PetroleumRemediation</span>
+                        <span class="product-tag">#EnvironmentalRestoration</span>
                     </div>
                     <div class="product-btn-wrapper">
-                        <a href="pr-center.html" class="product-btn">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                        <a href="pr-center.html" class="product-btn">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Product 6: 산업 플랜트 EPC 및 구조 설계 -->
+            <!-- Product 6: Industrial Plant EPC & Structural Engineering -->
             <div class="product-card fade-in">
                 <div class="product-img">
-                    <img src="image/P6.webp" alt="산업 플랜트 EPC 및 구조 설계" loading="lazy" width="400" height="290">
+                    <img src="../image/P6.webp" alt="Industrial Plant EPC & Structural Engineering" loading="lazy" width="400" height="290">
                 </div>
                 <div class="product-body">
-                    <h3 class="product-name">산업 플랜트 EPC 및 구조 설계</h3>
-                    <p class="product-desc">풍부한 실무 경험을 바탕으로 산업용 덕트, 구조물, 설비의 설계부터 제작, 시공까지 책임지는 원스톱 엔지니어링 서비스입니다.</p>
+                    <h3 class="product-name">Industrial Plant EPC &amp; Structural Engineering</h3>
+                    <p class="product-desc">A one-stop engineering service backed by extensive field experience, covering design through fabrication and construction of industrial ducts, structures, and equipment.</p>
                     <div class="product-tags">
-                        <span class="product-tag">#플랜트설계</span>
-                        <span class="product-tag">#전문시공</span>
-                        <span class="product-tag">#구조물엔지니어링</span>
+                        <span class="product-tag">#PlantDesign</span>
+                        <span class="product-tag">#ExpertConstruction</span>
+                        <span class="product-tag">#StructuralEngineering</span>
                     </div>
                     <div class="product-btn-wrapper">
-                        <a href="pr-center.html" class="product-btn">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                        <a href="pr-center.html" class="product-btn">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -487,7 +485,7 @@
     <section class="section comparison-section" id="comparison">
         <div class="section-inner">
             <h2 class="section-title fade-in">Technology Comparison</h2>
-            <p class="section-subtitle fade-in">기술별 핵심 역량을 한눈에 비교해 보세요</p>
+            <p class="section-subtitle fade-in">Compare the core capabilities of each technology at a glance</p>
 
         <div class="comparison-wrapper fade-in">
             <table class="comparison-table">
@@ -496,55 +494,55 @@
                 </colgroup>
                 <thead>
                     <tr>
-                        <th>제품명</th>
-                        <th>핵심기술</th>
-                        <th>적용분야</th>
-                        <th>특허/인증</th>
-                        <th>처리대상</th>
+                        <th>Product</th>
+                        <th>Core Technology</th>
+                        <th>Application</th>
+                        <th>Patent/Cert.</th>
+                        <th>Target Material</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>지능형 고효율 링필터 시스템</td>
-                        <td>프리코팅 + IoT 모니터링</td>
-                        <td>대기환경 / 집진</td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i> 특허 보유</span></td>
-                        <td>미세먼지, 분진</td>
+                        <td>Intelligent Ring Filter System</td>
+                        <td>Pre-coating + IoT Monitoring</td>
+                        <td>Air Environment / Dust Collection</td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i> Patent Held</span></td>
+                        <td>Fine dust, Particles</td>
                     </tr>
                     <tr>
-                        <td>유류중금속 오염토양세척설비</td>
-                        <td>하이드로사이클론 정밀 입경 분리</td>
-                        <td>오염토양 정화</td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i> 특허 보유</span></td>
-                        <td>중금속, 유류 오염토양</td>
+                        <td>Oil &amp; Heavy Metal Soil Washing</td>
+                        <td>Hydrocyclone Precision Particle Separation</td>
+                        <td>Contaminated Soil Remediation</td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i> Patent Held</span></td>
+                        <td>Heavy metals, petroleum-contaminated soil</td>
                     </tr>
                     <tr>
-                        <td>유기성 슬러지 건조·탄화 시스템</td>
-                        <td>자체 특허 건조·탄화 기술</td>
-                        <td>슬러지 자원화</td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i> 특허 보유</span></td>
-                        <td>유기성 슬러지 → Bio-SRF</td>
+                        <td>Organic Sludge Drying &amp; Carbonization</td>
+                        <td>Proprietary Drying &amp; Carbonization Technology</td>
+                        <td>Sludge Resource Recovery</td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i> Patent Held</span></td>
+                        <td>Organic Sludge → Bio-SRF</td>
                     </tr>
                     <tr>
-                        <td>해양·호소 준설토 정화 시스템</td>
-                        <td>정밀 세척·선별, 염분/유기물 제거</td>
-                        <td>해양(항만), 호소(댐/저수지)</td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i> 특허 보유</span></td>
-                        <td>오염 준설토 → 성토재</td>
+                        <td>Marine &amp; Lake Sediment Treatment</td>
+                        <td>Precision Washing, Salt/Organic Removal</td>
+                        <td>Marine (Port), Lake (Dam/Reservoir)</td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i> Patent Held</span></td>
+                        <td>Contaminated Dredge → Fill Material</td>
                     </tr>
                     <tr>
-                        <td>저온 열탈착(TPU) 오염토양 정화 설비</td>
-                        <td>저온 열탈착 분리·정화</td>
-                        <td>고난도 환경 복원</td>
-                        <td><span class="check"><i class="fas fa-check-circle"></i> 특허 보유</span></td>
-                        <td>유류, 유기화합물 오염토양</td>
+                        <td>Low-Temp. Thermal Desorption (TPU)</td>
+                        <td>Low-Temperature Thermal Desorption</td>
+                        <td>Complex Environmental Restoration</td>
+                        <td><span class="check"><i class="fas fa-check-circle"></i> Patent Held</span></td>
+                        <td>Petroleum &amp; organic compound-contaminated soil</td>
                     </tr>
                     <tr>
-                        <td>산업 플랜트 EPC 및 구조 설계</td>
-                        <td>설계-제작-시공 원스톱</td>
-                        <td>산업용 덕트, 구조물, 설비</td>
+                        <td>Industrial Plant EPC &amp; Structural Design</td>
+                        <td>One-stop Design-Fabrication-Construction</td>
+                        <td>Industrial Ducts, Structures, Equipment</td>
                         <td><span class="dash">—</span></td>
-                        <td>플랜트 구조물 전반</td>
+                        <td>Overall Plant Structures</td>
                     </tr>
                 </tbody>
             </table>
@@ -556,11 +554,11 @@
     <section class="cta-section">
         <div class="cta-bg"></div>
         <div class="cta-inner fade-in">
-            <h2>기술에 대해 더 알고 싶으신가요?</h2>
-            <p>전문 상담을 통해 귀사에 최적화된 솔루션을 찾아보세요.</p>
+            <h2>Want to Learn More About Our Technology?</h2>
+            <p>Find the optimal solution for your company through expert consultation.</p>
             <div class="cta-buttons">
-                <button class="cta-btn contact-modal-trigger"><i class="fas fa-envelope"></i> 문의하기</button>
-                <a href="index.html" class="cta-btn-secondary"><i class="fas fa-arrow-left"></i> 메인으로 돌아가기</a>
+                <button class="cta-btn contact-modal-trigger"><i class="fas fa-envelope"></i> Contact Us</button>
+                <a href="index.html" class="cta-btn-secondary"><i class="fas fa-arrow-left"></i> Back to Home</a>
             </div>
         </div>
     </section>
@@ -572,8 +570,8 @@
             <div class="footer-grid">
                 <div class="footer-hq fade-in-left">
                     <div class="logo-text"><i class="fas fa-cog"></i> SHINHWA E&P</div>
-                    <h3>Headquarters (부산 본사)</h3>
-                    <p>부산광역시 동래구 아시아드대로 208번길 19</p>
+                    <h3>Head Office (Busan)</h3>
+                    <p>19, Asiad-daero 208beon-gil, Dongnae-gu, Busan, Republic of Korea</p>
                     <div class="contact-info">
                         <span><i class="fas fa-phone"></i> Tel: 051) 311-9516</span>
                         <span><i class="fas fa-fax"></i> Fax: 055) 311-9519</span>
@@ -582,18 +580,18 @@
                     <div class="footer-social-wrap">
                         <p class="footer-social-label">Follow Us</p>
                         <div class="footer-social">
-                            <a href="https://www.youtube.com" class="social-youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a><!-- 채널 개설 후 실제 URL로 교체 -->
-                            <a href="https://blog.naver.com" class="social-naver" target="_blank" rel="noopener noreferrer" aria-label="네이버 블로그"><img src="image/naver-blog.png" alt="네이버 블로그"></a><!-- 채널 개설 후 실제 URL로 교체 -->
-                            <a href="https://www.instagram.com" class="social-instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><!-- 채널 개설 후 실제 URL로 교체 -->
-                            <a href="https://www.x.com" class="social-x" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a><!-- 채널 개설 후 실제 URL로 교체 -->
+                            <a href="https://www.youtube.com" class="social-youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://blog.naver.com" class="social-naver" target="_blank" rel="noopener noreferrer" aria-label="Naver Blog"><img src="../image/naver-blog.png" alt="Naver Blog"></a>
+                            <a href="https://www.instagram.com" class="social-instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.x.com" class="social-x" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="footer-factories fade-in-right">
                     <h3>Factory Network</h3>
-                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>김해 (Sangdong)</strong><span>경남 김해시 상동면 동북로 891 (055-311-3500)</span></div></div>
-                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>경주 (Gyeongju)</strong><span>경북 경주시 안강읍 두류리 418-1 (051-311-9516)</span></div></div>
-                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>창녕 (Changnyeong)</strong><span>경남 창녕군 남지읍 학계리 1050 (051-311-9516)</span></div></div>
+                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>Gimhae Plant (Sangdong)</strong><span>891, Dongbuk-ro, Sangdong-myeon, Gimhae-si, Gyeongnam (055-311-3500)</span></div></div>
+                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>Gyeongju Plant</strong><span>418-1, Duryu-ri, Angang-eup, Gyeongju-si, Gyeongbuk (051-311-9516)</span></div></div>
+                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>Changnyeong Plant</strong><span>1050, Hakgye-ri, Namji-eup, Changnyeong-gun, Gyeongnam (051-311-9516)</span></div></div>
                 </div>
             </div>
             <div class="footer-bottom"><p>&copy; 2024 SHINHWA E&P Co., Ltd. All Rights Reserved.</p></div>
@@ -605,41 +603,41 @@
         <div class="modal-overlay"></div>
         <div class="modal-content">
             <div class="modal-header">
-                <h2><i class="fas fa-envelope"></i> 문의하기</h2>
+                <h2><i class="fas fa-envelope"></i> Contact Us</h2>
                 <button class="modal-close" id="closeModal">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <form class="contact-form" id="contactForm">
                 <div class="form-group">
-                    <label for="name">이름 / 회사명 *</label>
-                    <input type="text" id="name" name="name" required placeholder="홍길동 / (주)신화이엔피">
+                    <label for="name">Name / Company *</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe / Company Name">
                 </div>
                 <div class="form-group">
-                    <label for="email">이메일 *</label>
+                    <label for="email">Email *</label>
                     <input type="email" id="email" name="email" required placeholder="example@company.com">
                 </div>
                 <div class="form-group">
-                    <label for="phone">연락처 *</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="010-1234-5678">
+                    <label for="phone">Phone *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+82-10-1234-5678">
                 </div>
                 <div class="form-group">
-                    <label for="subject">문의 유형</label>
+                    <label for="subject">Inquiry Type</label>
                     <select id="subject" name="subject" required>
-                        <option value="">선택하세요</option>
-                        <option value="product">제품 문의</option>
+                        <option value="">Please select</option>
+                        <option value="product">Product Inquiry</option>
                         <option value="eco-plant">Eco-Plant Solution</option>
                         <option value="air-pollution">Air Pollution Control</option>
-                        <option value="engineering">Total Plant & Engineering</option>
-                        <option value="partnership">Partnership / 협력문의</option>
-                        <option value="other">기타 문의</option>
+                        <option value="engineering">Total Plant &amp; Engineering</option>
+                        <option value="partnership">Partnership Inquiry</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="message">문의 내용 *</label>
-                    <textarea id="message" name="message" required placeholder="문의하실 내용을 자세히 작성해주세요."></textarea>
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required placeholder="Please describe your inquiry in detail."></textarea>
                 </div>
-                <button type="submit" class="form-submit"><i class="fas fa-paper-plane"></i> 문의 전송</button>
+                <button type="submit" class="form-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
             </form>
         </div>
     </div>
@@ -689,7 +687,6 @@
             }
         }, { passive: true });
 
-        /* [SCROLL-FIX] rAF 스로틀 + passive 리스너로 스크롤 최적화 (원본: passive 없이 직접 DOM 조작) */
         let _scrollTicking = false;
         window.addEventListener('scroll', () => {
             if (_scrollTicking) return;
@@ -721,17 +718,11 @@
             let productBgIndex = 0;
 
             function rotateProductBg() {
-                // Remove active class from current slide
                 technologyBgSlides[productBgIndex].classList.remove('active');
-
-                // Move to next slide
                 productBgIndex = (productBgIndex + 1) % technologyBgSlides.length;
-
-                // Add active class to next slide
                 technologyBgSlides[productBgIndex].classList.add('active');
             }
 
-            // Start auto-rotation every 5 seconds
             setInterval(rotateProductBg, 5000);
         })();
 
@@ -775,12 +766,12 @@
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value.trim();
 
-            if (!name) { alert('이름/회사명을 입력해주세요.'); return false; }
+            if (!name) { alert('Please enter your name or company name.'); return false; }
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email || !emailRegex.test(email)) { alert('올바른 이메일 형식을 입력해주세요.'); return false; }
-            if (!phone) { alert('연락처를 입력해주세요.'); return false; }
-            if (!subject) { alert('문의 유형을 선택해주세요.'); return false; }
-            if (!message) { alert('문의 내용을 입력해주세요.'); return false; }
+            if (!email || !emailRegex.test(email)) { alert('Please enter a valid email address.'); return false; }
+            if (!phone) { alert('Please enter your phone number.'); return false; }
+            if (!subject) { alert('Please select an inquiry type.'); return false; }
+            if (!message) { alert('Please enter your message.'); return false; }
             return true;
         }
 
@@ -796,7 +787,7 @@
 
             const submitBtn = contactForm.querySelector('.form-submit');
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 전송 중...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
             const templateParams = {
                 to_email: 'shinhwa9516@daum.net',
@@ -809,16 +800,16 @@
 
             emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
                 .then(function(response) {
-                    alert('문의가 성공적으로 전송되었습니다. 빠른 시일 내에 답변 드리겠습니다.');
+                    alert('Your inquiry has been sent successfully. We will get back to you soon.');
                     contactForm.reset();
                     setTimeout(() => { closeModal(); }, 2000);
                 })
                 .catch(function(error) {
-                    alert('전송에 실패했습니다. 다시 시도해주시거나 shinhwa9516@daum.net 으로 직접 이메일을 보내주세요.');
+                    alert('Sending failed. Please try again or email us directly at shinhwa9516@daum.net.');
                 })
                 .finally(function() {
                     submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> 문의 전송';
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
                 });
         });
 
@@ -872,7 +863,6 @@
     }
 
     heroScroll.addEventListener('click', scrollToNextSection);
-    /* [SCROLL-FIX] touchend에 passive:false 명시 (preventDefault 사용으로 인해 필요) */
     heroScroll.addEventListener('touchend', scrollToNextSection, { passive: false });
     window.addEventListener('scroll', checkScrollPosition, { passive: true });
     checkScrollPosition();

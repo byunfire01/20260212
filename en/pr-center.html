@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PR Center | SHINHWA E&P</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
@@ -28,16 +28,9 @@
         }
         *{margin:0;padding:0;box-sizing:border-box;}
         html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden;}
-        body{font-family:'Noto Sans KR','Montserrat',sans-serif;color:var(--text-dark);background:var(--bg-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;max-width:100vw;}
+        body{font-family:'Inter','Montserrat','Noto Sans KR',sans-serif;color:var(--text-dark);background:var(--bg-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;max-width:100vw;}
 
         /* NAV */
-        /* LANG SWITCH */
-        .lang-switch{display:flex;align-items:center;gap:4px;margin-left:16px;padding-left:16px;border-left:1px solid rgba(255,255,255,0.15);}
-        .lang-btn{color:rgba(255,255,255,0.5);text-decoration:none;font-family:"Montserrat",sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.5px;padding:4px 8px;border-radius:4px;transition:all 0.3s ease;}
-        .lang-btn:hover{color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.08);}
-        .lang-btn.active{color:var(--green-light);}
-        .lang-divider{color:rgba(255,255,255,0.2);font-size:0.85rem;}
-
         .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;background:var(--navy-dark);border-bottom:1px solid rgba(255,255,255,0.08);transition:var(--transition);}
         .navbar.scrolled{background:rgba(15,27,51,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
         .nav-container{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:70px;}
@@ -49,6 +42,13 @@
         .nav-links a.active::after{content:'';position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);width:24px;height:3px;background:var(--green);border-radius:2px;}
         .mobile-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer;}
 
+        /* Lang Switch */
+        .lang-switch{display:flex;align-items:center;gap:4px;margin-left:16px;padding-left:16px;border-left:1px solid rgba(255,255,255,0.15);}
+        .lang-btn{color:rgba(255,255,255,0.5);text-decoration:none;font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.5px;padding:4px 8px;border-radius:4px;transition:all 0.3s ease;}
+        .lang-btn:hover{color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.08);}
+        .lang-btn.active{color:var(--green-light);}
+        .lang-divider{color:rgba(255,255,255,0.2);font-size:0.85rem;}
+
         /* HERO */
         .pr-center-hero{position:relative;min-height:400px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding-top:70px;}
         .pr-center-bg-slideshow{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;}
@@ -56,9 +56,9 @@
         .pr-center-bg-slide.active{opacity:1;}
         .pr-center-bg-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(10,20,40,0.75)0%,rgba(10,20,40,0.65)50%,rgba(10,20,40,0.80)100%);z-index:1;}
         .hero-inner{position:relative;z-index:2;padding:80px 40px;}
-        .hero-inner h1{font-family:'Montserrat',sans-serif;font-size:clamp(2.2rem, 5vw, 3.5rem);font-weight:900;color:var(--white);margin-bottom:16px;letter-spacing:-0.5px;text-shadow:0 2px 10px rgba(0,0,0,0.5);word-break:keep-all;overflow-wrap:break-word;text-wrap:balance;}
+        .hero-inner h1{font-family:'Montserrat',sans-serif;font-size:clamp(2.2rem, 5vw, 3.5rem);font-weight:900;color:var(--white);margin-bottom:16px;letter-spacing:-0.5px;text-shadow:0 2px 10px rgba(0,0,0,0.5);word-break:break-word;overflow-wrap:break-word;}
         .hero-inner h1 span{color:var(--green-light);}
-        .hero-inner p{font-size:clamp(1rem, 2vw, 1.2rem);color:rgba(255,255,255,0.9);font-weight:400;max-width:700px;margin:0 auto;line-height:1.8;text-shadow:0 2px 8px rgba(0,0,0,0.5);word-break:keep-all;overflow-wrap:break-word;text-wrap:balance;}
+        .hero-inner p{font-size:clamp(1rem, 2vw, 1.2rem);color:rgba(255,255,255,0.9);font-weight:400;max-width:700px;margin:0 auto;line-height:1.8;text-shadow:0 2px 8px rgba(0,0,0,0.5);}
 
         /* SECTIONS */
         .section{padding:64px 40px;background:var(--white);}
@@ -66,7 +66,7 @@
 
         /* CATEGORY FILTER TABS */
         .filter-tabs{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:50px;}
-        .filter-tab{background:var(--white);color:var(--text-gray);border:2px solid rgba(27,42,74,0.15);padding:12px 28px;border-radius:50px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:var(--transition);font-family:'Noto Sans KR',sans-serif;}
+        .filter-tab{background:var(--white);color:var(--text-gray);border:2px solid rgba(27,42,74,0.15);padding:12px 28px;border-radius:50px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:var(--transition);font-family:'Inter',sans-serif;}
         .filter-tab:hover{border-color:var(--green-light);color:var(--green);}
         .filter-tab.active{background:var(--green);color:var(--white);border-color:var(--green);box-shadow:0 4px 16px rgba(76,175,80,0.3);}
         .filter-tab .count{font-size:0.85rem;opacity:0.8;margin-left:6px;}
@@ -162,7 +162,6 @@
         .fade-in-left.visible{opacity:1;transform:translateX(0);}
         .fade-in-right{opacity:0;transform:translateX(40px);transition:opacity 0.8s ease,transform 0.8s ease;}
         .fade-in-right.visible{opacity:1;transform:translateX(0);}
-
         .file-card.fade-in{transition-delay:calc(var(--i) * 0.05s);}
 
         /* RESPONSIVE - Tablet */
@@ -178,9 +177,6 @@
             .nav-links{display:none;}
             .nav-links.open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;width:100%;background:var(--navy-dark);padding:24px 20px;gap:2px;box-shadow:0 8px 20px rgba(0,0,0,0.3);z-index:1000;}
             .mobile-toggle{display:block;}
-            .lang-switch{border-left:none;margin-left:0;padding-left:0;margin-right:8px;}
-            .nav-links.open .lang-switch{display:none;}
-
             .mobile-toggle i{transition:transform 0.3s ease;}
             .mobile-toggle .fa-times{transform:rotate(90deg);}
             .nav-links.open a{display:flex;align-items:center;padding:14px 20px;font-size:1.05rem;font-weight:500;color:rgba(255,255,255,0.85);border-radius:8px;transition:background 0.2s ease,color 0.2s ease;min-height:48px;line-height:1.4;}
@@ -188,7 +184,6 @@
             .nav-links.open a.active{background:rgba(76,175,80,0.15);color:#66BB6A;font-weight:600;}
             .nav-links.open a.active::after{display:none;}
             .section{padding:48px 20px;}
-            /* 모바일 fade-in: transform 이동 제거 → opacity만 사용하여 스크롤 걸림 방지 */
             .fade-in{transform:none;transition:opacity 0.5s ease;}
             .fade-in.visible{transform:none;}
             .fade-in-left{transform:none;transition:opacity 0.5s ease;}
@@ -213,6 +208,8 @@
             .hero-scroll{bottom:20px;padding:10px 14px;min-width:40px;min-height:40px;}
             .hero-scroll-mouse{width:20px;height:32px;}
             .hero-scroll-label{font-size:0.6rem;}
+            .lang-switch{border-left:none;margin-left:0;padding-left:0;margin-right:8px;}
+            .nav-links.open .lang-switch{border-left:none;padding:10px 20px;border-top:1px solid rgba(255,255,255,0.08);margin-top:8px;}
         }
 
         /* RESPONSIVE - Small Mobile */
@@ -261,7 +258,7 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">SHINHWA <span>E&P</span></a>
+            <a href="index.html" class="nav-logo">SHINHWA <span>E&amp;P</span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html#company">Company</a></li>
                 <li><a href="index.html#business">Business</a></li>
@@ -270,9 +267,9 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="lang-switch" id="langSwitch">
-                <a href="pr-center.html" class="lang-btn active" title="한국어">KR</a>
+                <a href="../pr-center.html" class="lang-btn" title="한국어">KR</a>
                 <span class="lang-divider">|</span>
-                <a href="en/pr-center.html" class="lang-btn" title="English">EN</a>
+                <a href="pr-center.html" class="lang-btn active" title="English">EN</a>
             </div>
             <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
         </div>
@@ -280,19 +277,16 @@
 
     <!-- Hero Section -->
     <section class="pr-center-hero">
-        <!-- Background slideshow layer -->
         <div class="pr-center-bg-slideshow">
-            <div class="pr-center-bg-slide active" style="background-image: url('image/O1.webp')"></div>
-            <div class="pr-center-bg-slide" style="background-image: url('image/O2.webp')"></div>
-            <div class="pr-center-bg-slide" style="background-image: url('image/O3.webp')"></div>
-            <div class="pr-center-bg-slide" style="background-image: url('image/O4.webp')"></div>
+            <div class="pr-center-bg-slide active" style="background-image: url('../image/O1.webp')"></div>
+            <div class="pr-center-bg-slide" style="background-image: url('../image/O2.webp')"></div>
+            <div class="pr-center-bg-slide" style="background-image: url('../image/O3.webp')"></div>
+            <div class="pr-center-bg-slide" style="background-image: url('../image/O4.webp')"></div>
         </div>
-        <!-- Dark overlay for text readability -->
         <div class="pr-center-bg-overlay"></div>
-        <!-- Hero content -->
         <div class="hero-inner">
             <h1 class="fade-in"><span>PR Center</span></h1>
-            <p class="fade-in">회사소개서, 시공사진, 기술자료 등을 다운로드 하실 수 있습니다.</p>
+            <p class="fade-in">Download company profiles, project photos, technical documents, and more.</p>
         </div>
     </section>
 
@@ -309,16 +303,16 @@
         <div class="section-inner">
             <!-- Category Filter Tabs -->
             <div class="filter-tabs fade-in">
-                <button class="filter-tab active" data-category="all">전체 <span class="count" id="count-all">(0)</span></button>
-                <button class="filter-tab" data-category="회사소개서">회사소개서 <span class="count" id="count-manual">(0)</span></button>
-                <button class="filter-tab" data-category="시공사진">시공사진 <span class="count" id="count-photos">(0)</span></button>
-                <button class="filter-tab" data-category="기술자료">기술자료 <span class="count" id="count-tech">(0)</span></button>
-                <button class="filter-tab" data-category="카탈로그">카탈로그 <span class="count" id="count-catalog">(0)</span></button>
+                <button class="filter-tab active" data-category="all">All <span class="count" id="count-all">(0)</span></button>
+                <button class="filter-tab" data-category="Company Profile">Company Profile <span class="count" id="count-manual">(0)</span></button>
+                <button class="filter-tab" data-category="Project Photos">Project Photos <span class="count" id="count-photos">(0)</span></button>
+                <button class="filter-tab" data-category="Technical Docs">Technical Docs <span class="count" id="count-tech">(0)</span></button>
+                <button class="filter-tab" data-category="Catalog">Catalog <span class="count" id="count-catalog">(0)</span></button>
             </div>
 
             <!-- File Grid -->
             <div class="file-grid fade-in" id="file-list">
-                <div class="loading">파일을 불러오는 중...</div>
+                <div class="loading">Loading files...</div>
             </div>
         </div>
     </section>
@@ -337,9 +331,9 @@
             <h2 class="footer-title fade-in">Contact Us</h2>
             <div class="footer-grid">
                 <div class="footer-hq fade-in-left">
-                    <div class="logo-text"><i class="fas fa-cog"></i> SHINHWA E&P</div>
-                    <h3>Headquarters (부산 본사)</h3>
-                    <p>부산광역시 동래구 아시아드대로 208번길 19</p>
+                    <div class="logo-text"><i class="fas fa-cog"></i> SHINHWA E&amp;P</div>
+                    <h3>Headquarters (Busan, Korea)</h3>
+                    <p>19, Asiad-daero 208beon-gil, Dongnae-gu, Busan, South Korea</p>
                     <div class="contact-info">
                         <span><i class="fas fa-phone"></i> Tel: 051) 311-9516</span>
                         <span><i class="fas fa-fax"></i> Fax: 055) 311-9519</span>
@@ -348,65 +342,27 @@
                     <div class="footer-social-wrap">
                         <p class="footer-social-label">Follow Us</p>
                         <div class="footer-social">
-                            <a href="https://www.youtube.com" class="social-youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a><!-- 채널 개설 후 실제 URL로 교체 -->
-                            <a href="https://blog.naver.com" class="social-naver" target="_blank" rel="noopener noreferrer" aria-label="네이버 블로그"><img src="image/naver-blog.png" alt="네이버 블로그"></a><!-- 채널 개설 후 실제 URL로 교체 -->
-                            <a href="https://www.instagram.com" class="social-instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><!-- 채널 개설 후 실제 URL로 교체 -->
-                            <a href="https://www.x.com" class="social-x" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a><!-- 채널 개설 후 실제 URL로 교체 -->
+                            <a href="https://www.youtube.com" class="social-youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://blog.naver.com" class="social-naver" target="_blank" rel="noopener noreferrer" aria-label="Naver Blog"><img src="../image/naver-blog.png" alt="Naver Blog"></a>
+                            <a href="https://www.instagram.com" class="social-instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.x.com" class="social-x" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="footer-factories fade-in-right">
                     <h3>Factory Network</h3>
-                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>김해 (Sangdong)</strong><span>경남 김해시 상동면 동북로 891 (055-311-3500)</span></div></div>
-                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>경주 (Gyeongju)</strong><span>경북 경주시 안강읍 두류리 418-1 (051-311-9516)</span></div></div>
-                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>창녕 (Changnyeong)</strong><span>경남 창녕군 남지읍 학계리 1050 (051-311-9516)</span></div></div>
+                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>Gimhae Plant</strong><span>891 Dongbuk-ro, Sangdong-myeon, Gimhae-si, Gyeongnam (055-311-3500)</span></div></div>
+                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>Gyeongju Plant</strong><span>418-1 Duryu-ri, Angang-eup, Gyeongju-si, Gyeongbuk (051-311-9516)</span></div></div>
+                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>Changnyeong Plant</strong><span>1050 Hakgye-ri, Namji-eup, Changnyeong-gun, Gyeongnam (051-311-9516)</span></div></div>
                 </div>
             </div>
-            <div class="footer-bottom"><p>&copy; 2024 SHINHWA E&P Co., Ltd. All Rights Reserved.</p></div>
+            <div class="footer-bottom"><p>&copy; 2024 SHINHWA E&amp;P Co., Ltd. All Rights Reserved.</p></div>
         </div>
     </footer>
 
     <script>
-        /* =============================================================
-           GOOGLE DRIVE CONFIGURATION
-           =============================================================
-
-           📋 자료실 관리 방법 (ADMIN GUIDE)
-
-           📁 파일 업로드 방법:
-           1. Google Drive에 로그인
-           2. 자료실 전용 폴더 열기
-           3. 파일을 드래그 & 드롭으로 업로드
-           4. 홈페이지 자료실에 자동 반영됨
-
-           📝 파일 분류 방법 (파일명 앞에 태그 붙이기):
-           - [매뉴얼] 회사소개서.pdf       → "회사소개서" 카테고리
-           - [시공사진] 김해공장 설치.jpg  → "시공사진" 카테고리
-           - [기술자료] 링필터 사양서.pdf  → "기술자료" 카테고리
-           - [카탈로그] 2025 제품카탈로그.pdf → "카탈로그" 카테고리
-           - 태그 없이 올리면 → "기타" 카테고리
-
-           🗑️ 파일 삭제 방법:
-           - Google Drive에서 파일 삭제 → 홈페이지에서 자동 제거
-
-           ⚙️ 초기 설정 (최초 1회):
-           1. Google Drive에 '자료실' 폴더 생성
-           2. 폴더 우클릭 → 공유 → "링크가 있는 모든 사용자" → "뷰어" 권한
-           3. 폴더 URL에서 Folder ID 복사
-              예: https://drive.google.com/drive/folders/XXXXXXXXXXXXX
-              여기서 XXXXXXXXXXXXX 부분이 Folder ID
-           4. Google Cloud Console (https://console.cloud.google.com/)에서:
-              - 프로젝트 생성 (또는 기존 프로젝트 선택)
-              - "Google Drive API" 활성화
-              - "사용자 인증 정보" → "사용자 인증 정보 만들기" → "API 키"
-              - API 키 복사
-           5. 아래 YOUR_FOLDER_ID, YOUR_API_KEY를 실제 값으로 교체
-
-           ============================================================= */
-
-        // ⚠️ 아래 값을 실제 Google Drive Folder ID와 API Key로 교체하세요
-        const GOOGLE_DRIVE_FOLDER_ID = '1MIIJ2o7EL9502pFuf4bpC251LlHQOEzd';  // 예: '1a2b3c4d5e6f7g8h9i0j'
-        const GOOGLE_API_KEY = 'AIzaSyAWlsDEkLijka_ksNmyabXqFguO4pYGGgs';             // 예: 'AIzaSyAaBbCcDdEeFfGgHhIiJjKkLlMm'
+        const GOOGLE_DRIVE_FOLDER_ID = '1MIIJ2o7EL9502pFuf4bpC251LlHQOEzd';
+        const GOOGLE_API_KEY = 'AIzaSyAWlsDEkLijka_ksNmyabXqFguO4pYGGgs';
 
         let allFiles = [];
         let currentCategory = 'all';
@@ -430,32 +386,21 @@
 
         mobileToggle.addEventListener('click', function(e) {
             e.stopPropagation();
-            if (navLinks.classList.contains('open')) {
-                closeMobileNav();
-            } else {
-                openMobileNav();
-            }
+            if (navLinks.classList.contains('open')) { closeMobileNav(); } else { openMobileNav(); }
         });
 
         navLinks.querySelectorAll('a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                closeMobileNav();
-            });
+            link.addEventListener('click', function() { closeMobileNav(); });
         });
 
         document.addEventListener('click', function(e) {
-            if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
-                closeMobileNav();
-            }
+            if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !mobileToggle.contains(e.target)) { closeMobileNav(); }
         });
 
         document.addEventListener('touchstart', function(e) {
-            if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
-                closeMobileNav();
-            }
+            if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !mobileToggle.contains(e.target)) { closeMobileNav(); }
         }, { passive: true });
 
-        /* [SCROLL-FIX] rAF 스로틀 + passive 리스너로 스크롤 최적화 (원본: passive 없이 직접 DOM 조작) */
         let _scrollTicking = false;
         window.addEventListener('scroll', () => {
             if (_scrollTicking) return;
@@ -466,34 +411,27 @@
             });
         }, { passive: true });
 
-        /* Scroll fade-in animation */
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => { observer.observe(el); });
 
         /* Category Detection from filename */
         function detectCategory(filename) {
-            if (filename.startsWith('[매뉴얼]') || filename.startsWith('[메뉴얼]') || filename.startsWith('[회사소개서]')) return '회사소개서';
-            if (filename.startsWith('[시공사진]') || filename.startsWith('[시공]')) return '시공사진';
-            if (filename.startsWith('[기술자료]') || filename.startsWith('[기술]')) return '기술자료';
-            if (filename.startsWith('[카탈로그]') || filename.startsWith('[카타로그]')) return '카탈로그';
-            return '기타';
+            if (filename.startsWith('[매뉴얼]') || filename.startsWith('[메뉴얼]') || filename.startsWith('[회사소개서]')) return 'Company Profile';
+            if (filename.startsWith('[시공사진]') || filename.startsWith('[시공]')) return 'Project Photos';
+            if (filename.startsWith('[기술자료]') || filename.startsWith('[기술]')) return 'Technical Docs';
+            if (filename.startsWith('[카탈로그]') || filename.startsWith('[카타로그]')) return 'Catalog';
+            return 'Other';
         }
 
-        /* Clean filename (remove category prefix) */
         function cleanFilename(filename) {
             return filename.replace(/^\[.*?\]\s*/, '');
         }
 
-        /* File type icon mapping */
         function getFileIcon(mimeType) {
             if (mimeType.includes('pdf')) return '📄';
             if (mimeType.includes('image')) return '🖼️';
@@ -504,7 +442,6 @@
             return '📎';
         }
 
-        /* Format file size */
         function formatSize(bytes) {
             if (!bytes) return '-';
             if (bytes < 1024) return bytes + ' B';
@@ -512,21 +449,19 @@
             return (bytes / 1048576).toFixed(1) + ' MB';
         }
 
-        /* Format date */
         function formatDate(dateString) {
             if (!dateString) return '-';
             const date = new Date(dateString);
-            return date.toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\./g, '.').replace(/\s/g, '');
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
         }
 
-        /* Update category counts */
         function updateCategoryCounts(files) {
             const counts = {
                 'all': files.length,
-                '회사소개서': 0,
-                '시공사진': 0,
-                '기술자료': 0,
-                '카탈로그': 0
+                'Company Profile': 0,
+                'Project Photos': 0,
+                'Technical Docs': 0,
+                'Catalog': 0
             };
 
             files.forEach(file => {
@@ -537,37 +472,32 @@
             });
 
             document.getElementById('count-all').textContent = `(${counts['all']})`;
-            document.getElementById('count-manual').textContent = `(${counts['회사소개서']})`;
-            document.getElementById('count-photos').textContent = `(${counts['시공사진']})`;
-            document.getElementById('count-tech').textContent = `(${counts['기술자료']})`;
-            document.getElementById('count-catalog').textContent = `(${counts['카탈로그']})`;
+            document.getElementById('count-manual').textContent = `(${counts['Company Profile']})`;
+            document.getElementById('count-photos').textContent = `(${counts['Project Photos']})`;
+            document.getElementById('count-tech').textContent = `(${counts['Technical Docs']})`;
+            document.getElementById('count-catalog').textContent = `(${counts['Catalog']})`;
         }
 
-        /* Load files from Google Drive */
         async function loadDriveFiles() {
             const container = document.getElementById('file-list');
 
-            // Check if API configuration is set
             if (GOOGLE_DRIVE_FOLDER_ID === 'YOUR_FOLDER_ID' || GOOGLE_API_KEY === 'YOUR_API_KEY') {
-                container.innerHTML = '<div class="empty-state"><i class="fas fa-exclamation-triangle"></i><div>자료실 설정이 필요합니다.<br>관리자에게 문의하세요.</div></div>';
+                container.innerHTML = '<div class="empty-state"><i class="fas fa-exclamation-triangle"></i><div>Setup required.<br>Please contact admin.</div></div>';
                 return;
             }
 
-            container.innerHTML = '<div class="loading">파일을 불러오는 중...</div>';
+            container.innerHTML = '<div class="loading">Loading files...</div>';
 
             try {
                 const response = await fetch(
                     `https://www.googleapis.com/drive/v3/files?q='${GOOGLE_DRIVE_FOLDER_ID}'+in+parents+and+trashed=false&key=${GOOGLE_API_KEY}&fields=files(id,name,mimeType,size,createdTime,webContentLink,thumbnailLink,iconLink)&orderBy=createdTime desc`
                 );
 
-                if (!response.ok) {
-                    throw new Error('API 요청 실패');
-                }
+                if (!response.ok) throw new Error('API request failed');
 
                 const data = await response.json();
 
                 if (data.files && data.files.length > 0) {
-                    // Process files and add category info
                     allFiles = data.files.map(file => ({
                         ...file,
                         category: detectCategory(file.name),
@@ -577,28 +507,27 @@
                     updateCategoryCounts(allFiles);
                     renderFiles(allFiles);
                 } else {
-                    container.innerHTML = '<div class="empty-state"><i class="fas fa-folder-open"></i><div>등록된 자료가 없습니다.</div></div>';
+                    container.innerHTML = '<div class="empty-state"><i class="fas fa-folder-open"></i><div>No files available.</div></div>';
                 }
             } catch (error) {
                 console.error('Error loading files:', error);
                 container.innerHTML = `
                     <div class="error-state">
                         <i class="fas fa-exclamation-circle"></i>
-                        <div>자료를 불러오는데 실패했습니다.<br>잠시 후 다시 시도해주세요.</div>
+                        <div>Failed to load files.<br>Please try again later.</div>
                         <button class="retry-btn" onclick="loadDriveFiles()">
-                            <i class="fas fa-rotate-right"></i> 다시 시도
+                            <i class="fas fa-rotate-right"></i> Retry
                         </button>
                     </div>
                 `;
             }
         }
 
-        /* Render file cards */
         function renderFiles(files) {
             const container = document.getElementById('file-list');
 
             if (files.length === 0) {
-                container.innerHTML = '<div class="empty-state"><i class="fas fa-folder-open"></i><div>해당 카테고리에 자료가 없습니다.</div></div>';
+                container.innerHTML = '<div class="empty-state"><i class="fas fa-folder-open"></i><div>No files in this category.</div></div>';
                 return;
             }
 
@@ -623,30 +552,22 @@
                                 <span><i class="fas fa-file"></i> ${formatSize(file.size)}</span>
                             </div>
                             <a href="${downloadUrl}" class="file-download-btn" download>
-                                <i class="fas fa-download"></i> 다운로드
+                                <i class="fas fa-download"></i> Download
                             </a>
                         </div>
                     </div>
                 `;
             }).join('');
 
-            // Re-observe new elements for fade-in animation
-            container.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
-            });
+            container.querySelectorAll('.fade-in').forEach(el => { observer.observe(el); });
         }
 
-        /* Filter files by category */
         function filterFiles(category) {
             currentCategory = category;
 
-            // Update active tab
-            document.querySelectorAll('.filter-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
+            document.querySelectorAll('.filter-tab').forEach(tab => { tab.classList.remove('active'); });
             event.target.closest('.filter-tab').classList.add('active');
 
-            // Filter and render
             const filtered = category === 'all'
                 ? allFiles
                 : allFiles.filter(file => file.category === category);
@@ -654,7 +575,6 @@
             renderFiles(filtered);
         }
 
-        /* Lightbox functionality */
         function openLightbox(imageUrl) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
@@ -669,12 +589,9 @@
 
         document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
         document.getElementById('lightbox').addEventListener('click', (e) => {
-            if (e.target.id === 'lightbox') {
-                closeLightbox();
-            }
+            if (e.target.id === 'lightbox') { closeLightbox(); }
         });
 
-        /* Category filter tab event listeners */
         document.querySelectorAll('.filter-tab').forEach(tab => {
             tab.addEventListener('click', (e) => {
                 const category = tab.getAttribute('data-category');
@@ -682,32 +599,20 @@
             });
         });
 
-        /* Initialize on page load */
         document.addEventListener('DOMContentLoaded', loadDriveFiles);
 
-        /* Resources Background Slideshow - Auto-rotation */
         (function() {
             const prCenterBgSlides = document.querySelectorAll('.pr-center-bg-slide');
             if (!prCenterBgSlides.length) return;
-
             let resourceBgIndex = 0;
-
             function rotateResourceBg() {
-                // Remove active class from current slide
                 prCenterBgSlides[resourceBgIndex].classList.remove('active');
-
-                // Move to next slide
                 resourceBgIndex = (resourceBgIndex + 1) % prCenterBgSlides.length;
-
-                // Add active class to next slide
                 prCenterBgSlides[resourceBgIndex].classList.add('active');
             }
-
-            // Start auto-rotation every 5 seconds
             setInterval(rotateResourceBg, 5000);
         })();
 
-        /* Persistent Scroll Indicator */
         (function() {
             const heroScroll = document.querySelector('.hero-scroll');
             if (!heroScroll) return;
@@ -715,45 +620,26 @@
             const sections = Array.from(document.querySelectorAll('.section, .pr-center-hero, .footer'));
             let lastScrollTime = 0;
 
-            function isAtBottom() {
-                return window.innerHeight + window.scrollY >= document.body.scrollHeight - 100;
-            }
+            function isAtBottom() { return window.innerHeight + window.scrollY >= document.body.scrollHeight - 100; }
 
             function scrollToNextSection(e) {
                 e.preventDefault();
                 var now = Date.now();
                 if (now - lastScrollTime < 400) return;
                 lastScrollTime = now;
-
-                if (isAtBottom()) {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    return;
-                }
-
+                if (isAtBottom()) { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
                 const currentPosition = window.scrollY + (window.innerHeight / 3);
                 let nextSection = null;
-
                 for (let i = 0; i < sections.length; i++) {
-                    if (sections[i].offsetTop > currentPosition + 100) {
-                        nextSection = sections[i];
-                        break;
-                    }
+                    if (sections[i].offsetTop > currentPosition + 100) { nextSection = sections[i]; break; }
                 }
-
-                if (nextSection) {
-                    nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
-                }
+                if (nextSection) { nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                else { window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' }); }
             }
 
             function checkScrollPosition() {
-                if (isAtBottom()) {
-                    heroScroll.classList.remove('hidden');
-                    heroScroll.classList.add('at-bottom');
-                } else {
-                    heroScroll.classList.remove('at-bottom');
-                }
+                if (isAtBottom()) { heroScroll.classList.remove('hidden'); heroScroll.classList.add('at-bottom'); }
+                else { heroScroll.classList.remove('at-bottom'); }
             }
 
             heroScroll.addEventListener('click', scrollToNextSection);
@@ -765,33 +651,3 @@
 
 </body>
 </html>
-
-<!--
-============================================================
-자료실 관리 방법 (ADMIN GUIDE)
-============================================================
-
-📁 파일 업로드 방법:
-1. Google Drive에 로그인
-2. 자료실 전용 폴더 열기
-3. 파일을 드래그 & 드롭으로 업로드
-4. 홈페이지 자료실에 자동 반영됨
-
-📝 파일 분류 방법 (파일명 앞에 태그 붙이기):
-- [매뉴얼] 회사소개서.pdf       → "회사소개서" 카테고리
-- [시공사진] 김해공장 설치.jpg  → "시공사진" 카테고리
-- [기술자료] 링필터 사양서.pdf  → "기술자료" 카테고리
-- [카탈로그] 2025 제품카탈로그.pdf → "카탈로그" 카테고리
-- 태그 없이 올리면 → "기타" 카테고리
-
-🗑️ 파일 삭제 방법:
-- Google Drive에서 파일 삭제 → 홈페이지에서 자동 제거
-
-⚙️ 초기 설정 (최초 1회):
-1. Google Drive에 '자료실' 폴더 생성
-2. 폴더 우클릭 → 공유 → "링크가 있는 모든 사용자" → "뷰어" 권한
-3. 폴더 URL에서 Folder ID 복사
-4. Google Cloud Console에서 API Key 발급
-5. resources.html 코드에서 YOUR_FOLDER_ID, YOUR_API_KEY 교체
-============================================================
--->

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHINHWA E&P - Total Engineering & Eco-Plant Solution Provider</title>
+    <title>Home | SHINHWA E&P</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- EmailJS SDK for contact form email delivery -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -47,19 +47,19 @@
         }
         *{margin:0;padding:0;box-sizing:border-box;}
         html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden;}
-        body{font-family:'Noto Sans KR','Montserrat',sans-serif;color:var(--text-dark);background:var(--bg-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;max-width:100vw;}
+        body{font-family:'Inter','Montserrat','Noto Sans KR',sans-serif;color:var(--text-dark);background:var(--bg-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;max-width:100vw;}
 
         /* 파티클 캔버스 */
         #particleCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 5; pointer-events: none; }
 
-        /* NAV */
         /* LANG SWITCH */
         .lang-switch{display:flex;align-items:center;gap:4px;margin-left:16px;padding-left:16px;border-left:1px solid rgba(255,255,255,0.15);}
-        .lang-btn{color:rgba(255,255,255,0.5);text-decoration:none;font-family:"Montserrat",sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.5px;padding:4px 8px;border-radius:4px;transition:all 0.3s ease;}
+        .lang-btn{color:rgba(255,255,255,0.5);text-decoration:none;font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.5px;padding:4px 8px;border-radius:4px;transition:all 0.3s ease;}
         .lang-btn:hover{color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.08);}
         .lang-btn.active{color:var(--green-light);}
         .lang-divider{color:rgba(255,255,255,0.2);font-size:0.85rem;}
 
+        /* NAV */
         .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;background:var(--navy-dark);border-bottom:1px solid rgba(255,255,255,0.08);transition:var(--transition);}
         .navbar.scrolled{background:rgba(15,27,51,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
         .nav-container{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:70px;}
@@ -558,7 +558,7 @@
         .korea-map-bg {
             position: absolute;
             inset: 0;
-            background-image: url('image/n1.webp');
+            background-image: url('../image/n1.webp');
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center;
@@ -691,22 +691,21 @@
         .business-card ul li::before{content:'•';color:var(--green-light);margin-right:8px;}
 
         /* DETAIL GRIDS */
-        .eco-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
-        .eco-card{display:grid;grid-template-columns:1fr 1fr;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);transition:var(--transition);height:260px;}
+        .eco-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;align-items:stretch;}
+        .eco-card{display:flex;align-items:stretch;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);transition:var(--transition);}
         .eco-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
-        .eco-card-img{min-height:100%;background-size:cover;background-position:center;}
-        .eco-card-text{padding:28px 30px;display:flex;flex-direction:column;justify-content:center;}
-        .eco-card-text h4{font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:14px;line-height:1.5;word-break:keep-all;overflow-wrap:break-word;}
-        .eco-card-text p{font-size:0.98rem;color:var(--text-gray);line-height:1.8;font-weight:400;word-break:keep-all;overflow-wrap:break-word;}
+        .eco-card-img{flex:0 0 45%;background-size:cover;background-position:center;min-height:220px;}
+        .eco-card-text{flex:1;padding:20px 22px;display:flex;flex-direction:column;justify-content:center;}
+        .eco-card-text h4{font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.5;word-break:keep-all;overflow-wrap:break-word;text-align:center;}
+        .eco-card-text p{font-size:0.95rem;color:var(--text-gray);line-height:1.7;font-weight:400;word-break:normal;overflow-wrap:break-word;overflow:visible;text-align:left;}
 
-        .air-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
-        .air-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);transition:var(--transition);}
+        .air-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;align-items:stretch;}
+        .air-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);transition:var(--transition);display:flex;flex-direction:column;}
         .air-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
-        .air-card-header{padding:18px 22px;display:flex;align-items:center;gap:10px;}
-        .air-card-header i{color:var(--green);font-size:1.4rem;}
-        .air-card-header h4{font-size:1.19rem;font-weight:700;color:var(--navy);line-height:1.5;word-break:keep-all;overflow-wrap:break-word;}
-        .air-card-img{height:200px;background-size:cover;background-position:center;}
-        .air-card-desc{padding:18px 22px;font-size:0.96rem;color:var(--text-gray);line-height:1.75;font-weight:400;word-break:keep-all;overflow-wrap:break-word;}
+        .air-card-header{padding:16px 20px;display:flex;align-items:center;justify-content:center;min-height:66px;}
+        .air-card-header h4{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.5;word-break:keep-all;overflow-wrap:break-word;text-align:center;}
+        .air-card-img{height:200px;background-size:cover;background-position:center;flex-shrink:0;}
+        .air-card-desc{padding:16px 20px;font-size:0.93rem;color:var(--text-gray);line-height:1.7;font-weight:400;word-break:normal;overflow-wrap:break-word;text-align:left;flex:1;}
 
         .process-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
         .process-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);text-align:center;transition:var(--transition);position:relative;}
@@ -863,9 +862,6 @@
             .nav-links{display:none;}
             .nav-links.open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;width:100%;background:var(--navy-dark);padding:24px 20px;gap:2px;box-shadow:0 8px 20px rgba(0,0,0,0.3);z-index:1000;}
             .mobile-toggle{display:block;}
-            .lang-switch{border-left:none;margin-left:0;padding-left:0;margin-right:8px;}
-            .nav-links.open .lang-switch{display:none;}
-
             .mobile-toggle i{transition:transform 0.3s ease;}
             .mobile-toggle .fa-times{transform:rotate(90deg);}
             .nav-links.open a{display:block;padding:14px 20px;font-size:1.05rem;font-weight:500;color:rgba(255,255,255,0.85);border-radius:8px;transition:background 0.2s ease,color 0.2s ease;min-height:48px;line-height:1.4;display:flex;align-items:center;}
@@ -956,8 +952,8 @@
             .patent-icon{width:60px;height:60px;font-size:1.5rem;}
 
             /* Eco Cards */
-            .eco-card{grid-template-columns:1fr;height:auto;}
-            .eco-card-img{height:180px;}
+            .eco-card{flex-direction:column;}
+            .eco-card-img{flex:0 0 180px;min-height:180px;}
             .eco-card-text{padding:22px;}
             .eco-card-text h4{font-size:1.2rem;}
             .eco-card-text p{font-size:0.94rem;line-height:1.75;}
@@ -1151,9 +1147,9 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="lang-switch" id="langSwitch">
-                <a href="index.html" class="lang-btn active" title="한국어">KR</a>
+                <a href="../index.html" class="lang-btn" title="한국어">KR</a>
                 <span class="lang-divider">|</span>
-                <a href="en/index.html" class="lang-btn" title="English">EN</a>
+                <a href="index.html" class="lang-btn active" title="English">EN</a>
             </div>
             <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
         </div>
@@ -1161,11 +1157,11 @@
 
     <section class="hero" id="home">
         <div class="hero-slideshow">
-            <div class="hero-slide active" style="background-image: url('image/h1.webp');"></div>
-            <div class="hero-slide" style="background-image: url('image/h2.webp');"></div>
-            <div class="hero-slide" style="background-image: url('image/h3.webp');"></div>
-            <div class="hero-slide" style="background-image: url('image/h4.webp');"></div>
-            <div class="hero-slide" style="background-image: url('image/h5.webp');"></div>
+            <div class="hero-slide active" style="background-image: url('../image/h1.webp');"></div>
+            <div class="hero-slide" style="background-image: url('../image/h2.webp');"></div>
+            <div class="hero-slide" style="background-image: url('../image/h3.webp');"></div>
+            <div class="hero-slide" style="background-image: url('../image/h4.webp');"></div>
+            <div class="hero-slide" style="background-image: url('../image/h5.webp');"></div>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -1177,10 +1173,10 @@
                     <span class="ht-line ht-line-3">PROVIDER</span>
                 </h1>
                 <div class="hero-divider"></div>
-                <p class="hero-subtitle">미래 가치를 창조하는 스마트 엔지니어링, 믿을 수 있는 기술 파트너 <span class="hero-brand">신화이엔피</span>가 함께합니다.<span class="hero-cursor"></span></p>
+                <p class="hero-subtitle">Smart engineering that creates future value — your trusted technology partner, <span class="hero-brand">SHINHWA E&P</span>, is with you.<span class="hero-cursor"></span></p>
                 <div class="hero-cta">
-                    <a href="#business" class="hero-cta-btn primary"><i class="fas fa-arrow-right"></i> 사업분야 보기</a>
-                    <button class="hero-cta-btn secondary contact-modal-trigger"><i class="fas fa-envelope"></i> 문의하기</button>
+                    <a href="#business" class="hero-cta-btn primary"><i class="fas fa-arrow-right"></i> View Business</a>
+                    <button class="hero-cta-btn secondary contact-modal-trigger"><i class="fas fa-envelope"></i> Contact Us</button>
                 </div>
             </div>
         </div>
@@ -1197,24 +1193,24 @@
             
             <div class="greeting-wrapper fade-in">
                 <div class="greeting-image-box">
-                    <img src="image/c1.webp" alt="신화이엔피 회사 전경" loading="lazy">
+                    <img src="../image/c1.webp" alt="SHINHWA E&P Company Overview" loading="lazy">
                 </div>
                 <div class="greeting-content">
-                    <h3>혁신과 도전으로<br>환경 & 에너지 패러다임을 창조합니다.</h3>
+                    <h3>Creating the Environmental &amp; Energy Paradigm<br>through Innovation and Challenge.</h3>
                     <p class="greeting-hello">
-                        신화이엔피 홈페이지를 방문해 주신 여러분, 반갑습니다.
+                        Welcome to the SHINHWA E&P website.
                     </p>
                     <p>
-                        신화이엔피는 창립 이래 전문 기술력을 바탕으로 환경·에너지 분야의 최적 솔루션을 제공하며, 신뢰받는 친환경 엔지니어링 기업으로 성장해 왔습니다. 스마트한 미래 환경과 지속 가능한 발전을 위해 끊임없이 노력하고 있습니다.
+                        Since its founding, SHINHWA E&P has grown into a trusted eco-friendly engineering company by delivering optimal solutions in the environmental and energy sectors. We continuously strive for a smart future environment and sustainable development.
                     </p>
                     <p>
-                        토양정화 플랜트, 대기오염 방지시설, 자원순환 플랜트, 정밀 산업기계 제작 분야의 특화된 솔루션을 보유하고 있으며, 고객 지향적 비즈니스 모델로 미래를 선도하는 기술을 제공하여 고객 가치 창출에 기여하고 있습니다.
+                        We hold specialized solutions in soil remediation plants, air pollution control facilities, resource circulation plants, and precision industrial machinery manufacturing. Through a customer-oriented business model, we provide future-leading technologies that contribute to creating customer value.
                     </p>
                     <p>
-                        임직원 모두는 열린 기업문화를 지향하며, 고객과 함께 성장하는 진정한 파트너가 되도록 최선을 다하겠습니다.
+                        All of our employees embrace an open corporate culture, and we will do our best to become true partners who grow together with our customers.
                     </p>
                     <div class="greeting-signature">
-                        - 주식회사 신화이엔피 대표이사 신성현 -
+                        - CEO, SHINHWA E&P Co., Ltd. — Shin Sung-hyeon -
                     </div>
                 </div>
             </div>
@@ -1227,10 +1223,10 @@
             <div class="overview-grid">
                 <div class="overview-table fade-in-left">
                     <h3>Company Overview</h3>
-                    <div class="overview-row"><div class="overview-label">상호명</div><div class="overview-value">주식회사 신화이엔피 (SHINHWA E&P Co., Ltd)</div></div>
-                    <div class="overview-row"><div class="overview-label">대표이사</div><div class="overview-value">신성현</div></div>
-                    <div class="overview-row"><div class="overview-label">설립일</div><div class="overview-value">2008년 1월</div></div>
-                    <div class="overview-row"><div class="overview-label">주요 업종</div><div class="overview-value">환경전문공사업, 방지시설 공사업(대기), 환경용역 및 연구개발, 기자재 제조업</div></div>
+                    <div class="overview-row"><div class="overview-label">Company</div><div class="overview-value">SHINHWA E&P Co., Ltd.</div></div>
+                    <div class="overview-row"><div class="overview-label">CEO</div><div class="overview-value">Shin Sung-hyeon</div></div>
+                    <div class="overview-row"><div class="overview-label">Founded</div><div class="overview-value">January 2008</div></div>
+                    <div class="overview-row"><div class="overview-label">Business</div><div class="overview-value">Environmental Specialized Construction, Air Pollution Control, Environmental Services &amp; R&amp;D, Equipment Manufacturing</div></div>
                 </div>
                 
                 <!-- [NEW] Interactive Network Map Replacement -->
@@ -1252,10 +1248,10 @@
         <div class="section-inner">
             <h2 class="section-title fade-in">Business Portfolio</h2>
             <div class="business-grid">
-                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('image/B1.webp');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Eco-Plant<br>Solution</h3><ul><li>해양 준설토 정화 플랜트</li><li>자원순환플랜트</li><li>유기성 슬러지 건조·탄화 시스템</li><li>오염 토양 정화·복원 시스템</li></ul></div></div></div>
-                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('image/B2.webp');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Air Pollution<br>Control</h3><ul><li>집진시설, 링 필터 제작 설치</li><li>폐기물 소각로 제작설치</li><li>A/C 필터, 스크러버 등</li></ul></div></div></div>
-                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('image/B3.webp');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Industrial<br>Machine & Plant</h3><ul><li>산업기계, 대형 덕트</li><li>대형 철구조물 및 플랜트 제작 설치</li></ul></div></div></div>
-                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('image/B4.webp');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Engineering<br>& Developer</h3><ul><li>프로젝트 타당성 검토 (FS)</li><li>기본 및 상세설계 / 엔지니어링</li><li>EPC 관리</li></ul></div></div></div>
+                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('../image/B1.webp');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Eco-Plant<br>Solution</h3><ul><li>Marine Dredged Soil Treatment Plant</li><li>Resource Circulation Plant</li><li>Organic Sludge Drying &amp; Carbonization System</li><li>Contaminated Soil Remediation System</li></ul></div></div></div>
+                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('../image/B2.webp');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Air Pollution<br>Control</h3><ul><li>Dust collection &amp; ring filter manufacturing/installation</li><li>Waste incinerator manufacturing &amp; installation</li><li>A/C filters, scrubbers, etc.</li></ul></div></div></div>
+                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('../image/B3.webp');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Industrial<br>Machine & Plant</h3><ul><li>Industrial machinery, large-scale ducts</li><li>Large steel structures &amp; plant fabrication/installation</li></ul></div></div></div>
+                <div class="business-card fade-in"><div class="business-card-bg" style="background-image:url('../image/B4.webp');"></div><div class="business-card-overlay"></div><div class="business-card-content"><div><h3>Engineering<br>& Developer</h3><ul><li>Project feasibility study (FS)</li><li>Basic &amp; detailed design / Engineering</li><li>EPC Management</li></ul></div></div></div>
             </div>
         </div>
     </section>
@@ -1266,10 +1262,10 @@
 
             <header class="history-header fade-in">
                 <h2 class="history-title">
-                    신화이엔피 성장사 <span>(History)</span>
+                    SHINHWA E&P Growth History <span>(History)</span>
                 </h2>
                 <p class="history-subtitle">
-                    "독자적 기술 확보에서 글로벌 솔루션 기업으로의 도약"
+                    "From Proprietary Technology to a Global Solution Enterprise"
                 </p>
                 <div class="history-divider">
                     <span class="h-dot"></span>
@@ -1301,15 +1297,15 @@
                     <div class="footer-icons">
                         <span class="footer-icon-item">
                             <svg style="width:12px; height:12px; margin-right:4px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            독자 기술
+                            Proprietary Tech
                         </span>
                         <span class="footer-icon-item">
                             <svg style="width:12px; height:12px; margin-right:4px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-                            글로벌 시장
+                            Global Market
                         </span>
                         <span class="footer-icon-item">
                             <svg style="width:12px; height:12px; margin-right:4px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            인프라 혁신
+                            Infrastructure Innovation
                         </span>
                     </div>
                     <div style="font-weight:600; letter-spacing: -0.025em;">
@@ -1323,28 +1319,28 @@
                 <div class="analyst-card">
                     <h3 class="analyst-title text-blue-700">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                        CAPEX 투자를 통한 스케일업 완성
+                        Scale-up Completion through CAPEX Investment
                     </h3>
                     <p class="analyst-desc">
-                        2019년 증자 이후 경주·창녕 제조 베이스 확충을 통해 대형 플랜트 수주 대응력을 확보했으며, 이는 본격적인 매출 업사이드의 발판이 되었습니다.
+                        Following the 2019 capital increase, expansion of manufacturing bases in Gyeongju and Changnyeong secured capacity for large plant orders, laying the foundation for full-scale revenue upside.
                     </p>
                 </div>
                 <div class="analyst-card">
                     <h3 class="analyst-title text-emerald-700">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A3.323 3.323 0 0010.605 7.065a11.062 11.062 0 01-4.694 5.503 3.328 3.328 0 001.52 4.145 11.07 11.07 0 015.541 4.545 3.323 3.323 0 006.046-1.541 11.074 11.074 0 015.541-4.545 3.328 3.328 0 001.52-4.145 11.062 11.062 0 01-4.694-5.503z"></path></svg>
-                        독보적 환경 기술 IP 포트폴리오
+                        Unrivaled Environmental Technology IP Portfolio
                     </h3>
                     <p class="analyst-desc">
-                        준설토 처리 및 슬러지 연료화 등 업스트림에서 다운스트림을 아우르는 특허 자산은 단순 시공을 넘어선 고부가가치 엔지니어링의 진입장벽입니다.
+                        Patent assets spanning from upstream to downstream—including dredged soil treatment and sludge fuel conversion—serve as barriers to entry for high-value-added engineering beyond simple construction.
                     </p>
                 </div>
                 <div class="analyst-card">
                     <h3 class="analyst-title text-indigo-700">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-                        글로벌 솔루션 프로바이더 도약
+                        Leap to Global Solution Provider
                     </h3>
                     <p class="analyst-desc">
-                        쿠웨이트 KOC 레퍼런스를 기반으로 검증된 EPC 수행 능력을 증명했으며, 2026 비전 선포를 기점으로 신흥국 환경 플랜트 시장 점유율 확대를 가속화합니다.
+                        Building on the Kuwait KOC reference, proven EPC execution capabilities have been demonstrated, and from the 2026 vision declaration, expansion of market share in emerging eco-plant markets accelerates.
                     </p>
                 </div>
             </div>
@@ -1356,18 +1352,18 @@
         <div class="section-inner">
             <h2 class="section-title fade-in" style="text-align:center;">Organization & Key Manpower</h2>
             <div class="org-chart">
-                <div class="org-box ceo fade-in"><i class="fas fa-user-tie"></i> 대표이사</div>
+                <div class="org-box ceo fade-in"><i class="fas fa-user-tie"></i> CEO</div>
                 <div class="org-connector"></div>
                 <div class="org-teams fade-in">
-                    <div class="org-team-card"><i class="fas fa-industry"></i><h4>생산팀</h4><div class="sub">(Production)</div></div>
-                    <div class="org-team-card"><i class="fas fa-drafting-compass"></i><h4>설계팀</h4><div class="sub">(Design)</div></div>
-                    <div class="org-team-card"><i class="fas fa-handshake-angle"></i><h4>기술영업팀</h4><div class="sub">(Tech Sales)</div></div>
-                    <div class="org-team-card"><i class="fas fa-flask-vial"></i><h4>연구개발팀</h4><div class="sub">(R&D)</div></div>
+                    <div class="org-team-card"><i class="fas fa-industry"></i><h4>Production</h4><div class="sub">(Production Dept.)</div></div>
+                    <div class="org-team-card"><i class="fas fa-drafting-compass"></i><h4>Design</h4><div class="sub">(Design Dept.)</div></div>
+                    <div class="org-team-card"><i class="fas fa-handshake-angle"></i><h4>Tech Sales</h4><div class="sub">(Tech Sales Dept.)</div></div>
+                    <div class="org-team-card"><i class="fas fa-flask-vial"></i><h4>R&amp;D</h4><div class="sub">(R&amp;D Dept.)</div></div>
                 </div>
                 <div class="expertise-cards fade-in">
-                    <div class="expertise-card"><h4><i class="fas fa-wrench"></i> 기계/배관 (Mechanical/Piping)</h4><ul><li>일반기계기사, 건설기계설비기사 보유</li><li>ASME Code Pressure Vessel 설계 전문</li></ul></div>
-                    <div class="expertise-card"><h4><i class="fas fa-leaf"></i> 환경/화공 (Environment/Chemical)</h4><ul><li>대기환경기사, 수질환경기사 보유</li><li>환경플랜트(집진/소각/수처리) 공정 설계</li></ul></div>
-                    <div class="expertise-card"><h4><i class="fas fa-hard-hat"></i> 시공/안전 (Construction/Safety)</h4><ul><li>산업안전기사, 건축/토목 관련 자격 보유</li><li>현장 종합 관리 감독(Supervising) 능력 보유</li></ul></div>
+                    <div class="expertise-card"><h4><i class="fas fa-wrench"></i> Mechanical / Piping</h4><ul><li>Certified general machinery &amp; construction machinery engineers</li><li>ASME Code Pressure Vessel Design Specialist</li></ul></div>
+                    <div class="expertise-card"><h4><i class="fas fa-leaf"></i> Environment / Chemical</h4><ul><li>Certified air quality &amp; water quality engineers</li><li>Process design for environmental plants (dust collection/incineration/water treatment)</li></ul></div>
+                    <div class="expertise-card"><h4><i class="fas fa-hard-hat"></i> Construction / Safety</h4><ul><li>Certified industrial safety &amp; civil/architectural engineers</li><li>Comprehensive on-site management and supervision capability</li></ul></div>
                 </div>
             </div>
         </div>
@@ -1378,10 +1374,10 @@
             <h2 class="section-title fade-in">Licenses & Certifications</h2>
             <p class="section-subtitle fade-in">Official registrations and compliance for quality and environmental standards.</p>
             <div class="license-list">
-                <div class="license-item fade-in"><div class="license-icon"><i class="fas fa-certificate"></i></div><div><h4>환경전문공사업등록증</h4><p>수질 분야 (제 수질-27호) / 대기 분야</p></div></div>
-                <div class="license-item fade-in"><div class="license-icon"><i class="fas fa-certificate"></i></div><div><h4>방지시설업등록증</h4><p>대기 방지시설업</p></div></div>
-                <div class="license-item fade-in"><div class="license-icon"><i class="fas fa-circle-check"></i></div><div><h4>사업자등록증</h4><p>업태 : 제조, 서비스 / 종목 : 산업기계, 비금속광물처리</p></div></div>
-                <div class="license-item fade-in"><div class="license-icon"><i class="fas fa-circle-check"></i></div><div><h4>공장등록증</h4><p>김해, 창녕, 경주 공장 등록 완료</p></div></div>
+                <div class="license-item fade-in"><div class="license-icon"><i class="fas fa-certificate"></i></div><div><h4>Environmental Specialized Construction License</h4><p>Water Quality Field (Reg. No. 27) / Air Quality Field</p></div></div>
+                <div class="license-item fade-in"><div class="license-icon"><i class="fas fa-certificate"></i></div><div><h4>Pollution Control Facility Business License</h4><p>Air Pollution Control Facility Business</p></div></div>
+                <div class="license-item fade-in"><div class="license-icon"><i class="fas fa-circle-check"></i></div><div><h4>Business Registration Certificate</h4><p>Type: Manufacturing, Services / Items: Industrial Machinery, Non-Metallic Mineral Processing</p></div></div>
+                <div class="license-item fade-in"><div class="license-icon"><i class="fas fa-circle-check"></i></div><div><h4>Factory Registration Certificate</h4><p>Gimhae, Changnyeong, Gyeongju factories registered</p></div></div>
             </div>
         </div>
     </section>
@@ -1389,15 +1385,15 @@
     <section class="section bg-light" id="business">
         <div class="section-inner">
             <div style="margin-bottom: 20px;">
-                <span style="font-size: 1rem; font-weight: 700; color: var(--navy); background: var(--gold); padding: 6px 16px; border-radius: 6px; display: inline-block;">사업분야</span>
+                <span style="font-size: 1rem; font-weight: 700; color: var(--navy); background: var(--gold); padding: 6px 16px; border-radius: 6px; display: inline-block;">Business</span>
             </div>
             <h2 class="section-title fade-in" style="text-align:center;">Total Plant & Engineering Solutions</h2>
-            <p class="section-subtitle fade-in" style="text-align:center;">설계부터 제작, 시공, 관리까지 – 통합 솔루션 파트너</p>
+            <p class="section-subtitle fade-in" style="text-align:center;">From design to fabrication, installation, and management — your integrated solution partner</p>
             <div class="process-flow">
-                <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('image/T1.webp');"></div><div class="process-card-text"><h4>Process Engineering</h4><p>최적의 효율을 위한 타당성 분석 및 플랜트 기본/상세 설계</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
-                <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('image/T2.webp');"></div><div class="process-card-text"><h4>Advanced Fabrication</h4><p>산업용 기계, 환경 설비 및 대형 철구조물 정밀 제작 시스템</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
-                <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('image/T3.webp');"></div><div class="process-card-text"><h4>Installation &amp; Commissioning</h4><p>환경 플랜트 현장 설치, 시운전 및 성능 보증 테스트 수행</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
-                <div class="process-card fade-in"><div class="process-card-img" style="background-image:url('image/T4.webp');"></div><div class="process-card-text"><h4>Technical Consulting</h4><p>환경 인허가 지원, 기술 진단 및 EPC 통합 관리 자문</p></div></div>
+                <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('../image/T1.webp');"></div><div class="process-card-text"><h4>Process Engineering</h4><p>Feasibility analysis and basic/detailed plant design for optimal efficiency</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
+                <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('../image/T2.webp');"></div><div class="process-card-text"><h4>Advanced Fabrication</h4><p>Precision manufacturing of industrial machinery, environmental equipment, and large steel structures</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
+                <div class="process-card fade-in" style="position:relative;"><div class="process-card-img" style="background-image:url('../image/T3.webp');"></div><div class="process-card-text"><h4>Installation &amp; Commissioning</h4><p>On-site installation, commissioning, and performance guarantee testing for environmental plants</p></div><div class="process-arrow"><i class="fas fa-arrow-right"></i></div></div>
+                <div class="process-card fade-in"><div class="process-card-img" style="background-image:url('../image/T4.webp');"></div><div class="process-card-text"><h4>Technical Consulting</h4><p>Environmental licensing support, technical diagnosis, and integrated EPC management consulting</p></div></div>
             </div>
         </div>
     </section>
@@ -1405,15 +1401,15 @@
     <section class="section bg-lighter">
         <div class="section-inner">
             <div style="margin-bottom: 20px;">
-                <span style="font-size: 1rem; font-weight: 700; color: var(--navy); background: var(--gold); padding: 6px 16px; border-radius: 6px; display: inline-block;">사업분야</span>
+                <span style="font-size: 1rem; font-weight: 700; color: var(--navy); background: var(--gold); padding: 6px 16px; border-radius: 6px; display: inline-block;">Business</span>
             </div>
             <h2 class="section-title fade-in" style="text-align:center;">Eco-Plant Solution</h2>
             <p class="section-subtitle fade-in" style="text-align:center;">Sustainable Engineering for Resource Circulation</p>
             <div class="eco-grid">
-                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E1.webp');"></div><div class="eco-card-text"><h4>해양 준설토 정화 플랜트</h4><p>고염분 및 유기물 정밀 전처리 공정<br>대용량 연속 처리 시스템 구축 (10~100 ton/hr)<br>준설토의 친환경적 자원 순환 실현</p></div></div>
-                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E2.webp');"></div><div class="eco-card-text"><h4>자원순환플랜트</h4><p>폐자원 에너지화(WtE) 및 고효율 열회수 시스템<br>다단 배가스 처리 설비(Cyclone, Scrubber) 적용<br>대기오염물질(SOx, NOx, 먼지) 배출 제로화 달성</p></div></div>
-                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E3.webp');"></div><div class="eco-card-text"><h4>유기성 슬러지 건조·탄화 시스템</h4><p>자체 특허 기술 적용 (Patented Technology)<br>슬러지 부피 80% 획기적 감량 (Volume Reduction)<br>친환경 고형 연료화 (Bio-Solid Fuel)</p></div></div>
-                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('image/E4.webp');"></div><div class="eco-card-text"><h4>오염 토양 정화·복원 시스템</h4><p>유류(TPH)·중금속 등 복합 오염 정밀 정화<br>고효율 입도 분리 및 세척 메커니즘 적용<br>정화 토양의 성토재 재활용 및 부지 가치 복원</p></div></div>
+                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('../image/E1.webp');"></div><div class="eco-card-text"><h4>Marine Dredged Soil Treatment Plant</h4><p>Precision pre-treatment of high-salinity and organic matter<br>Large-capacity continuous treatment system (10~100 ton/hr)<br>Eco-friendly resource circulation of dredged soil</p></div></div>
+                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('../image/E2.webp');"></div><div class="eco-card-text"><h4>Resource Circulation Plant</h4><p>Waste-to-Energy (WtE) and high-efficiency heat recovery system<br>Multi-stage flue gas treatment (Cyclone, Scrubber)<br>Zero emission of air pollutants (SOx, NOx, dust)</p></div></div>
+                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('../image/E3.webp');"></div><div class="eco-card-text"><h4>Organic Sludge Drying &amp; Carbonization System</h4><p>Proprietary patented technology applied<br>80% dramatic volume reduction (Volume Reduction)<br>Eco-friendly solid fuel production (Bio-Solid Fuel)</p></div></div>
+                <div class="eco-card fade-in"><div class="eco-card-img" style="background-image:url('../image/E4.webp');"></div><div class="eco-card-text"><h4>Contaminated Soil Remediation &amp; Restoration System</h4><p>Precision remediation of complex contamination (TPH, heavy metals)<br>High-efficiency particle separation and washing mechanism<br>Reuse of remediated soil as fill material and site value restoration</p></div></div>
             </div>
         </div>
     </section>
@@ -1421,15 +1417,15 @@
     <section class="section bg-light">
         <div class="section-inner">
             <div style="margin-bottom: 20px;">
-                <span style="font-size: 1rem; font-weight: 700; color: var(--navy); background: var(--gold); padding: 6px 16px; border-radius: 6px; display: inline-block;">사업분야</span>
+                <span style="font-size: 1rem; font-weight: 700; color: var(--navy); background: var(--gold); padding: 6px 16px; border-radius: 6px; display: inline-block;">Business</span>
             </div>
             <h2 class="section-title fade-in" style="text-align:center;">Air Pollution Control</h2>
             <p class="section-subtitle fade-in" style="text-align:center;">Clean Air Technology & Systems</p>
             <div class="air-grid">
-                <div class="air-card fade-in"><div class="air-card-header"><h4>고효율 집진 설비</h4></div><div class="air-card-img" style="background-image:url('image/A1.webp');"></div><div class="air-card-desc">백필터, 사이클론, 링 필터 적용<br>미세먼지 99.9% 포집 고성능 설비</div></div>
-                <div class="air-card fade-in"><div class="air-card-header"><h4>유해가스 세정탑</h4></div><div class="air-card-img" style="background-image:url('image/A2.webp');"></div><div class="air-card-desc">팩트 타워, 분무탑<br>산성/알칼리성 가스 액체 세정</div></div>
-                <div class="air-card fade-in"><div class="air-card-header"><h4>흡착 및 탈취 설비</h4></div><div class="air-card-img" style="background-image:url('image/A3.webp');"></div><div class="air-card-desc">활성탄 흡착탑(A/C Tower)<br>VOCs 및 악취 물리적 흡착 제거</div></div>
-                <div class="air-card fade-in"><div class="air-card-header"><h4>폐기물 소각 플랜트</h4></div><div class="air-card-img" style="background-image:url('image/A4.webp');"></div><div class="air-card-desc">소각로, 폐열회수설비<br>가연성 폐기물 고온 산화 및 감량</div></div>
+                <div class="air-card fade-in"><div class="air-card-header"><h4>High-Efficiency Dust Collection</h4></div><div class="air-card-img" style="background-image:url('../image/A1.webp');"></div><div class="air-card-desc">Bag filter, cyclone, and ring filter applied<br>High-performance equipment capturing 99.9% of fine dust</div></div>
+                <div class="air-card fade-in"><div class="air-card-header"><h4>Hazardous Gas Scrubber</h4></div><div class="air-card-img" style="background-image:url('../image/A2.webp');"></div><div class="air-card-desc">Packed tower, spray tower<br>Liquid scrubbing of acidic/alkaline gases</div></div>
+                <div class="air-card fade-in"><div class="air-card-header"><h4>Adsorption &amp; Deodorization</h4></div><div class="air-card-img" style="background-image:url('../image/A3.webp');"></div><div class="air-card-desc">Activated carbon tower (A/C Tower)<br>Physical adsorption removal of VOCs and odors</div></div>
+                <div class="air-card fade-in"><div class="air-card-header"><h4>Waste Incineration Plant</h4></div><div class="air-card-img" style="background-image:url('../image/A4.webp');"></div><div class="air-card-desc">Incinerator, waste heat recovery system<br>High-temperature oxidation and volume reduction of combustible waste</div></div>
             </div>
         </div>
     </section>
@@ -1439,12 +1435,12 @@
             <h2 class="section-title fade-in" style="text-align:center;">Intellectual Property & Patents</h2>
             <p class="section-subtitle fade-in" style="text-align:center;">Our Commitment to Innovation and Sustainable Solutions</p>
             <div class="patents-grid">
-                <div class="patent-card fade-in"><div class="patent-icon"><i class="fas fa-award"></i></div><div class="patent-no">Patent No. 10-2177299</div><h4>하수준설토용 선별처리장치</h4><div class="patent-en">(Sorting Treatment Device for Dredged Soil)</div></div>
-                <div class="patent-card fade-in"><div class="patent-icon"><i class="fas fa-award"></i></div><div class="patent-no">Patent No. 10-2141236</div><h4>각종 준설토용 정화시스템</h4><div class="patent-en">(Purification System for Dredged Soil)</div></div>
-                <div class="patent-card fade-in"><div class="patent-icon"><i class="fas fa-award"></i></div><div class="patent-no">Patent No. 10-1979905</div><h4>토양 정화시스템</h4><div class="patent-en">(Soil Purification System)</div></div>
-                <div class="patent-card fade-in"><div class="patent-icon"><i class="fas fa-award"></i></div><div class="patent-no">Patent No. 10-1852178</div><h4>슬러지 연료화 시스템</h4><div class="patent-en">(Sludge Fuelization System)</div></div>
-                <div class="patent-card fade-in"><div class="patent-icon"><i class="fas fa-award"></i></div><div class="patent-no">Patent No. 10-1055794</div><h4>다기능 복합처리장치</h4><div class="patent-en">(Multifunction Complex Treatment Device)</div></div>
-                <div class="patent-card fade-in"><div class="patent-icon"><i class="fas fa-award"></i></div><div class="patent-no">Utility Model</div><h4>중금속 선별기, 집진기용 필터</h4><div class="patent-en">(Heavy Metal Separator & Filter for Dust Collector)</div></div>
+                <div class="patent-card fade-in"><div class="patent-icon"><i class="fas fa-award"></i></div><div class="patent-no">Patent No. 10-2177299</div><h4>Sorting Treatment Device for Dredged Soil</h4><div class="patent-en">(Sewage Dredged Soil)</div></div>
+                <div class="patent-card fade-in"><div class="patent-icon"><i class="fas fa-award"></i></div><div class="patent-no">Patent No. 10-2141236</div><h4>Purification System for Dredged Soil</h4><div class="patent-en">(Various Dredged Soil Types)</div></div>
+                <div class="patent-card fade-in"><div class="patent-icon"><i class="fas fa-award"></i></div><div class="patent-no">Patent No. 10-1979905</div><h4>Soil Purification System</h4><div class="patent-en">(Contaminated Soil Remediation)</div></div>
+                <div class="patent-card fade-in"><div class="patent-icon"><i class="fas fa-award"></i></div><div class="patent-no">Patent No. 10-1852178</div><h4>Sludge Fuel Conversion System</h4><div class="patent-en">(Sludge Fuelization)</div></div>
+                <div class="patent-card fade-in"><div class="patent-icon"><i class="fas fa-award"></i></div><div class="patent-no">Patent No. 10-1055794</div><h4>Multifunction Complex Treatment Device</h4><div class="patent-en">(Multi-purpose Processing)</div></div>
+                <div class="patent-card fade-in"><div class="patent-icon"><i class="fas fa-award"></i></div><div class="patent-no">Utility Model</div><h4>Heavy Metal Separator &amp; Filter for Dust Collector</h4><div class="patent-en">(Registered Design)</div></div>
             </div>
         </div>
     </section>
@@ -1457,33 +1453,33 @@
                 <div class="value-cards fade-in">
                     <!-- Solution Card -->
                     <div class="value-card">
-                        <div class="value-card-bg" style="background-image: url('image/S1.webp');"></div>
+                        <div class="value-card-bg" style="background-image: url('../image/S1.webp');"></div>
                         <div class="value-card-overlay"></div>
                         <div class="value-card-content">
                             <h3>Solution</h3>
-                            <p>불가능을 가능으로 바꾸는<br>특허 기술력</p>
+                            <p>Patented technology that turns<br>the impossible into reality</p>
                         </div>
                     </div>
                     <!-- Cost Card -->
                     <div class="value-card">
-                        <div class="value-card-bg" style="background-image: url('image/S2.webp');"></div>
+                        <div class="value-card-bg" style="background-image: url('../image/S2.webp');"></div>
                         <div class="value-card-overlay"></div>
                         <div class="value-card-content">
                             <h3>Cost</h3>
-                            <p>자체 생산 인프라가 만드는<br>압도적 가격 경쟁력</p>
+                            <p>Overwhelming price competitiveness<br>built on in-house production</p>
                         </div>
                     </div>
                     <!-- Trust Card -->
                     <div class="value-card">
-                        <div class="value-card-bg" style="background-image: url('image/S3.webp');"></div>
+                        <div class="value-card-bg" style="background-image: url('../image/S3.webp');"></div>
                         <div class="value-card-overlay"></div>
                         <div class="value-card-content">
                             <h3>Trust</h3>
-                            <p>18년 무사고/완벽 시공이<br>증명하는 신뢰</p>
+                            <p>Trust proven by 18 years<br>of accident-free, flawless construction</p>
                         </div>
                     </div>
                 </div>
-                <div class="tagline-box fade-in"><p>복잡한 문제는 명쾌하게 해결하고, 비용 효율은 극대화합니다.</p></div>
+                <div class="tagline-box fade-in"><p>We solve complex problems clearly and maximize cost efficiency.</p></div>
             </div>
         </div>
     </section>
@@ -1492,10 +1488,10 @@
         <div class="cta-bg"></div>
         <div class="cta-content fade-in">
             <h2>Ready to Start Your Project?</h2>
-            <p>친환경 플랜트 솔루션의 최고 파트너</p>
+            <p>Your best partner for eco-friendly plant solutions</p>
             <div class="cta-buttons">
-                <button class="cta-btn contact-modal-trigger"><i class="fas fa-envelope"></i> 문의하기</button>
-                <a href="#business" class="cta-btn-secondary"><i class="fas fa-briefcase"></i> 사업분야 보기</a>
+                <button class="cta-btn contact-modal-trigger"><i class="fas fa-envelope"></i> Contact Us</button>
+                <a href="#business" class="cta-btn-secondary"><i class="fas fa-briefcase"></i> View Business</a>
             </div>
         </div>
     </section>
@@ -1506,8 +1502,8 @@
             <div class="footer-grid">
                 <div class="footer-hq fade-in-left">
                     <div class="logo-text"><i class="fas fa-cog"></i> SHINHWA E&P</div>
-                    <h3>Headquarters (부산 본사)</h3>
-                    <p>부산광역시 동래구 아시아드대로 208번길 19</p>
+                    <h3>Headquarters (Busan, Korea)</h3>
+                    <p>19, Asiad-daero 208beon-gil, Dongnae-gu, Busan, Korea</p>
                     <div class="contact-info">
                         <span><i class="fas fa-phone"></i> Tel: 051) 311-9516</span>
                         <span><i class="fas fa-fax"></i> Fax: 055) 311-9519</span>
@@ -1517,7 +1513,7 @@
                         <p class="footer-social-label">Follow Us</p>
                         <div class="footer-social">
                             <a href="https://www.youtube.com" class="social-youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a><!-- 채널 개설 후 실제 URL로 교체 -->
-                            <a href="https://blog.naver.com" class="social-naver" target="_blank" rel="noopener noreferrer" aria-label="네이버 블로그"><img src="image/naver-blog.png" alt="네이버 블로그"></a><!-- 채널 개설 후 실제 URL로 교체 -->
+                            <a href="https://blog.naver.com" class="social-naver" target="_blank" rel="noopener noreferrer" aria-label="Naver Blog"><img src="../image/naver-blog.png" alt="Naver Blog"></a><!-- 채널 개설 후 실제 URL로 교체 -->
                             <a href="https://www.instagram.com" class="social-instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><!-- 채널 개설 후 실제 URL로 교체 -->
                             <a href="https://www.x.com" class="social-x" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a><!-- 채널 개설 후 실제 URL로 교체 -->
                         </div>
@@ -1525,9 +1521,9 @@
                 </div>
                 <div class="footer-factories fade-in-right">
                     <h3>Factory Network</h3>
-                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>김해 (Sangdong)</strong><span>경남 김해시 상동면 동북로 891 (055-311-3500)</span></div></div>
-                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>경주 (Gyeongju)</strong><span>경북 경주시 안강읍 두류리 418-1 (051-311-9516)</span></div></div>
-                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>창녕 (Changnyeong)</strong><span>경남 창녕군 남지읍 학계리 1050 (051-311-9516)</span></div></div>
+                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>Gimhae (Sangdong)</strong><span>891 Dongbuk-ro, Sangdong-myeon, Gimhae, Gyeongnam (055-311-3500)</span></div></div>
+                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>Gyeongju</strong><span>418-1 Duryu-ri, Angang-eup, Gyeongju, Gyeongbuk (051-311-9516)</span></div></div>
+                    <div class="factory-item"><div class="factory-pin"><i class="fas fa-location-dot"></i></div><div><strong>Changnyeong</strong><span>1050 Hakgye-ri, Namji-eup, Changnyeong-gun, Gyeongnam (051-311-9516)</span></div></div>
                 </div>
             </div>
             <div class="footer-bottom"><p>&copy; 2024 SHINHWA E&P Co., Ltd. All Rights Reserved.</p></div>
@@ -1742,51 +1738,51 @@
         const growthData = [
             {
                 period: "2020 ~ 2026",
-                title: "인프라 혁신 및 통합 솔루션 완성",
+                title: "Infrastructure Innovation & Integrated Solutions",
                 colorClass: "text-blue-600",
                 bgClass: "bg-blue-50",
                 activeTabClass: "tab-active-blue",
                 iconBgClass: "bg-blue-600",
                 items: [
-                    { date: "2026. 01", text: "Global Eco-Plant Solution Provider 비전 선포 및 지속 가능 성장 동력 확보", icon: icons.globe },
-                    { date: "2025. 08", text: "최신 제조 설비 인프라 확충 및 공장 등록 갱신", icon: icons.factory },
-                    { date: "2023. 01", text: "수질 분야 환경전문공사업 등록으로 대기·수질 통합 환경 솔루션 라인업 완성", icon: icons.shield },
-                    { date: "2022. 05", text: "김해지점 공장 증축 및 영남권 생산 네트워크 거점 강화", icon: icons.building },
-                    { date: "2021. 11", text: "창녕공장 매입을 통한 제조 기반 확대", icon: icons.settings },
-                    { date: "2021. 03", text: "부산광역시 동래구 본사 확장 이전 및 스마트 경영 환경 구축", icon: icons.zap },
-                    { date: "2020. 11", text: "하수준설토용 선별처리장치 특허 등록으로 기술 경쟁력 제고", icon: icons.award },
-                    { date: "2020. 07", text: "경주공장 매입을 통한 대형 플랜트 제작 역량 확보", icon: icons.factory }
+                    { date: "2026. 01", text: "Global Eco-Plant Solution Provider vision declared and sustainable growth drivers secured", icon: icons.globe },
+                    { date: "2025. 08", text: "Latest manufacturing infrastructure expanded and factory registrations renewed", icon: icons.factory },
+                    { date: "2023. 01", text: "Water quality environmental construction license added, completing air & water integrated environmental solutions", icon: icons.shield },
+                    { date: "2022. 05", text: "Gimhae factory expanded, reinforcing the Yeongnam region production network", icon: icons.building },
+                    { date: "2021. 11", text: "Manufacturing base expanded through acquisition of Changnyeong factory", icon: icons.settings },
+                    { date: "2021. 03", text: "HQ expanded and relocated in Dongnae-gu, Busan; smart management environment established", icon: icons.zap },
+                    { date: "2020. 11", text: "Patent registered for dredged soil sorting device, enhancing technological competitiveness", icon: icons.award },
+                    { date: "2020. 07", text: "Large plant manufacturing capability secured through acquisition of Gyeongju factory", icon: icons.factory }
                 ]
             },
             {
                 period: "2015 ~ 2019",
-                title: "독자 기술 고도화 및 사업 다각화",
+                title: "Proprietary Technology Advancement & Business Diversification",
                 colorClass: "text-emerald-600",
                 bgClass: "bg-emerald-50",
                 activeTabClass: "tab-active-emerald",
                 iconBgClass: "bg-emerald-600",
                 items: [
-                    { date: "2019. 02", text: "자본금 증자를 통한 재무 구조 강화 및 신사업 투자 기반 마련", icon: icons.trend },
-                    { date: "2019. 01", text: "각종 준설토용 정화시스템 및 토양 정화시스템 특허 등록", icon: icons.award },
-                    { date: "2018. 04", text: "슬러지 연료화 시스템 특허 등록으로 자원 순환 기술 선점", icon: icons.check },
-                    { date: "2015. 07", text: "본사 및 김해공장 이전으로 생산 공정 관리 시스템 고도화", icon: icons.settings }
+                    { date: "2019. 02", text: "Financial structure strengthened through capital increase; new business investment foundation established", icon: icons.trend },
+                    { date: "2019. 01", text: "Patents registered for various dredged soil purification and soil remediation systems", icon: icons.award },
+                    { date: "2018. 04", text: "Sludge fuel conversion system patent registered, securing first-mover advantage in resource circulation", icon: icons.check },
+                    { date: "2015. 07", text: "HQ and Gimhae factory relocated; production process management system upgraded", icon: icons.settings }
                 ]
             },
             {
                 period: "2003 ~ 2014",
-                title: "환경 기술의 초석 마련 및 글로벌 진출",
+                title: "Environmental Technology Foundation & Global Expansion",
                 colorClass: "text-indigo-600",
                 bgClass: "bg-indigo-50",
                 activeTabClass: "tab-active-indigo",
                 iconBgClass: "bg-indigo-600",
                 items: [
-                    { date: "2014. 05", text: "쿠웨이트(KOC) 오염 토양 열탈착 시스템 납품으로 해외 시장 진출", icon: icons.globe },
-                    { date: "2012. 12", text: "중금속 선별기 실용신안 등록 및 진동 선별기 디자인 등록", icon: icons.award },
-                    { date: "2011. 08", text: "다기능 복합처리장치 특허 등록으로 플랜트 기술력 입증", icon: icons.award },
-                    { date: "2010. 02", text: "대기방지시설업 등록 및 대기 환경 솔루션 전문성 강화", icon: icons.shield },
-                    { date: "2009. 07", text: "집진기용 필터 실용신안 등록을 통한 독자 기술 확보", icon: icons.settings },
-                    { date: "2008. 01", text: "주식회사 신화이엔피 법인 전환 및 환경 경영 체제 본격화", icon: icons.building },
-                    { date: "2003. 01", text: "신화산업 설립 및 환경 정화 사업 개시", icon: icons.check }
+                    { date: "2014. 05", text: "Thermal desorption system for contaminated soil supplied to Kuwait (KOC), marking overseas market entry", icon: icons.globe },
+                    { date: "2012. 12", text: "Utility model registered for heavy metal separator; vibration separator design registered", icon: icons.award },
+                    { date: "2011. 08", text: "Multifunctional complex treatment device patented, proving plant engineering capability", icon: icons.award },
+                    { date: "2010. 02", text: "Air pollution control facility business registered; air environment solution expertise strengthened", icon: icons.shield },
+                    { date: "2009. 07", text: "Proprietary technology secured through utility model registration for dust collector filter", icon: icons.settings },
+                    { date: "2008. 01", text: "SHINHWA E&P Co., Ltd. incorporated; full-scale eco-management system launched", icon: icons.building },
+                    { date: "2003. 01", text: "Shinhwa Industries established; environmental remediation business commenced", icon: icons.check }
                 ]
             }
         ];
@@ -1899,28 +1895,28 @@
                 const message = document.getElementById('message').value.trim();
 
                 if (!name) {
-                    alert('이름/회사명을 입력해주세요.');
+                    alert('Please enter your name or company name.');
                     return false;
                 }
 
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!email || !emailRegex.test(email)) {
-                    alert('올바른 이메일 형식을 입력해주세요.');
+                    alert('Please enter a valid email address.');
                     return false;
                 }
 
                 if (!phone) {
-                    alert('연락처를 입력해주세요.');
+                    alert('Please enter your phone number.');
                     return false;
                 }
 
                 if (!subject) {
-                    alert('문의 유형을 선택해주세요.');
+                    alert('Please select an inquiry type.');
                     return false;
                 }
 
                 if (!message) {
-                    alert('문의 내용을 입력해주세요.');
+                    alert('Please enter your message.');
                     return false;
                 }
 
@@ -1946,7 +1942,7 @@
                 // Disable submit button
                 const submitBtn = contactForm.querySelector('.form-submit');
                 submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 전송 중...';
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
                 // Prepare email template parameters
                 const templateParams = {
@@ -1964,7 +1960,7 @@
                         console.log('SUCCESS!', response.status, response.text);
 
                         // Show success message
-                        alert('문의가 성공적으로 전송되었습니다. 빠른 시일 내에 답변 드리겠습니다.');
+                        alert('Your inquiry has been sent successfully. We will respond as soon as possible.');
 
                         // Reset form
                         contactForm.reset();
@@ -1978,12 +1974,12 @@
                         console.error('FAILED...', error);
 
                         // Show error message with fallback email
-                        alert('전송에 실패했습니다. 다시 시도해주시거나 shinhwa9516@daum.net 으로 직접 이메일을 보내주세요.');
+                        alert('Sending failed. Please try again or email us directly at shinhwa9516@daum.net.');
                     })
                     .finally(function() {
                         // Re-enable submit button
                         submitBtn.disabled = false;
-                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> 문의 보내기';
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Inquiry';
                     });
             });
         });
@@ -2138,41 +2134,41 @@
         <div class="modal-overlay"></div>
         <div class="modal-content">
             <div class="modal-header">
-                <h2><i class="fas fa-envelope"></i> 문의하기</h2>
+                <h2><i class="fas fa-envelope"></i> Contact Us</h2>
                 <button class="modal-close" id="closeModal">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <form class="contact-form" id="contactForm">
                 <div class="form-group">
-                    <label for="name">이름 / 회사명 *</label>
-                    <input type="text" id="name" name="name" required placeholder="홍길동 / (주)신화이엔피">
+                    <label for="name">Name / Company *</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe / SHINHWA E&P Co., Ltd.">
                 </div>
                 <div class="form-group">
-                    <label for="email">이메일 *</label>
+                    <label for="email">Email *</label>
                     <input type="email" id="email" name="email" required placeholder="example@company.com">
                 </div>
                 <div class="form-group">
-                    <label for="phone">연락처 *</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="010-1234-5678">
+                    <label for="phone">Phone *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+82-10-1234-5678">
                 </div>
                 <div class="form-group">
-                    <label for="subject">문의 유형</label>
+                    <label for="subject">Inquiry Type</label>
                     <select id="subject" name="subject" required>
-                        <option value="">선택하세요</option>
+                        <option value="">Select...</option>
                         <option value="eco-plant">Eco-Plant Solution</option>
                         <option value="air-pollution">Air Pollution Control</option>
                         <option value="engineering">Total Plant & Engineering</option>
-                        <option value="partnership">Partnership / 협력문의</option>
-                        <option value="other">기타 문의</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="message">문의 내용 *</label>
-                    <textarea id="message" name="message" required placeholder="문의하실 내용을 자세히 작성해주세요."></textarea>
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required placeholder="Please describe your inquiry in detail."></textarea>
                 </div>
                 <button type="submit" class="form-submit">
-                    <i class="fas fa-paper-plane"></i> 문의 보내기
+                    <i class="fas fa-paper-plane"></i> Send Inquiry
                 </button>
             </form>
         </div>
